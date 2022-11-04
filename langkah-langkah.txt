@@ -1,0 +1,22 @@
+bagian header
+
+1.set up projek buat folder images,styles,vendors
+2.panggil css boostrap
+3.panggil js boostrap
+4. buat variabel css
+5. buat elemen header
+6. style bakground image gambar
+7. get boostrap cari navbar tempel dalam elemen header
+8. edit elemennya seperti margin,logo,text,button
+
+buat content yang ada di header
+ada heading dan deskripsi dibawah navbar
+<div class = "content">
+	<h1></h1> text-white, text-capitalize,fw-bold
+	<p></p> text-white,fw-light
+</div>
+css > margin top : 170px
+font pakai variabel css
+
+
+
