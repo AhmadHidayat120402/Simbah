@@ -125,6 +125,7 @@ section .image {
 .boxs {
   box-shadow: 5px 4px 8px 5px rgba(1, 1, 1, 0.2);
   border-radius: 15px 15px;
+  transition: 1s;
 }
 
 .boxs:hover {
