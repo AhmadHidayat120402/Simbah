@@ -20,9 +20,7 @@
           <a class="navbar-brand" href="#">
             <h2 class="logo">SiMbah</h2>
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -34,8 +32,7 @@
                 <a class="nav-link" href="#">About</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Packages
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -44,8 +41,7 @@
                 </ul>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Selengkapnya
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -55,8 +51,8 @@
                 </ul>
               </li>
             </ul>
-            <a href="register/register.html" class="btn btn-outline-light rounded-3 px-3 py-2 m-2">Register</a>
-            <a href="#" class="btn btn-outline-light rounded-3 px-3 py-2">Login</a>
+            <a href="register.php" class="btn btn-outline-light rounded-3 px-3 py-2 m-2">Register</a>
+            <a href="login.php" class="btn btn-outline-light rounded-3 px-3 py-2">Login</a>
           </div>
         </div>
       </nav>
@@ -64,9 +60,7 @@
         <h1 class="header-title text-white text-capitalize fw-bold"><br><br>Kami menjual buah<br>segar dan
           sehat
         </h1>
-        <p class="header-description text-white text fw-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Sit optio reiciendis <br> ducimus error enim.
-          Dolores rerum corrupti <br>alias consectetur eligendi.
+        <p class="header-description text-white text fw-light"> Buah yang kami jual beraneka ragam dan tentunya <br> memiliki banyak manfaat bagi tubuh karena <br> buah yang kami jual adalah buah yang <br> berkualitas, segar dan sehat.
         </p>
       </div>
     </div>
@@ -262,8 +256,7 @@
           </p>
           <div class="d-flex align-items-center gap-5">
             <a href="#" class="btn btn-primary align-items-center">Learn More</a>
-            <a href="https://www.youtube.com/watch?v=i6awA7O7NKo" target="_blank"
-              class="d-flex align-items-center gap-3">
+            <a href="https://www.youtube.com/watch?v=i6awA7O7NKo" target="_blank" class="d-flex align-items-center gap-3">
               <img src="images/img/alpukat.jpg" alt="take-break" class="image rounded-circle" width="40px">
               Watch Video
             </a>
@@ -341,9 +334,7 @@
                 numquam! "
               </p>
               <div class="d-flex mt-3 gap-3">
-                <img
-                  src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                  alt="foto" class="foto rounded-circle">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="foto" class="foto rounded-circle">
                 <div class="d-flex flex-column">
                   <h4 class="card-title">George Alexder</h4>
                   <p class="section-description">
@@ -362,9 +353,7 @@
                 numquam! "
               </p>
               <div class="d-flex mt-3 gap-3">
-                <img
-                  src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                  alt="foto" class="foto rounded-circle">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="foto" class="foto rounded-circle">
                 <div class="d-flex flex-column">
                   <h4 class="card-title">Ahmad Hidayat</h4>
                   <p class="section-description">
@@ -383,9 +372,7 @@
                 numquam! "
               </p>
               <div class="d-flex mt-3 gap-3">
-                <img
-                  src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                  alt="foto" class="foto rounded-circle">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="foto" class="foto rounded-circle">
                 <div class="d-flex flex-column">
                   <h4 class="card-title">Ronaldo</h4>
                   <p class="section-description">
@@ -404,17 +391,12 @@
     <div class="container">
       <div class="row ">
         <div class="col-md-6 position-relative">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.318529169943!2d113.71703871433064!3d-8.170629484146595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695cd393785a9%3A0x6457ebd393aec71a!2sPandawa%20Fruit%20Store!5e0!3m2!1sen!2sid!4v1667572267418!5m2!1sen!2sid"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.318529169943!2d113.71703871433064!3d-8.170629484146595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695cd393785a9%3A0x6457ebd393aec71a!2sPandawa%20Fruit%20Store!5e0!3m2!1sen!2sid!4v1667572267418!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           <!-- <img src="images/image/subscribe.png" alt="subcribe" class="subcrib-image rounded-0 w-100"> -->
-          <form action="get" class="inputan bg-white p-5 w-75 mx-auto d-block boxs"
-            style="transform: translateY(-180px) translateX(600px);">
+          <form action="get" class="inputan bg-white p-5 w-75 mx-auto d-block boxs" style="transform: translateY(-180px) translateX(600px);">
             <div class="input-group mb-3">
               <div class="input-group-text">@</div>
-              <input type="text" class="form-control form-control-lg rounded-0" id="specificSizeInputGroupUsername"
-                placeholder="Your Email">
+              <input type="text" class="form-control form-control-lg rounded-0" id="specificSizeInputGroupUsername" placeholder="Your Email">
             </div>
             <button class="btn btn-lg btn-primary rounded-0 position-absolute w-75" type="button">Subscribe
               Now</button>
@@ -441,8 +423,7 @@
               <p class="section-description">Subscriber</p>
             </div>
           </div>
-          <div class="iconBro bg-white shadow-sm rounded-circle p-3 position-absolute"
-            style="right: -20px; bottom: 65px;">
+          <div class="iconBro bg-white shadow-sm rounded-circle p-3 position-absolute" style="right: -20px; bottom: 65px;">
             <img src="images/image/world.svg" alt="">
           </div>
         </div>

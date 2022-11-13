@@ -24,6 +24,7 @@
   font-family: "Josefin Sans", sans-serif;
   color: var(--color-secondary);
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 a {
@@ -197,4 +198,23 @@ section .image {
 .subscirber .container .row .col-md-6 .icon-fire {
   top: 90px;
   left: 95%;
+}
+
+/* ========================= home_page ================== */
+
+.section-title_home {
+  font-size: var(--heading-4-size);
+}
+
+.btn-outline-dark {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-outline-dark:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-light {
+  min-height: 40px;
 }
