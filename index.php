@@ -84,7 +84,7 @@
                 <h4 class="card-title fw-bold m-0">Gratis Ongkir</h4>
               </div>
               <div class="section-description mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa porro modi tempore debitis maxime quos.
+                Belanja minimal Rp 50.000.
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
                 <h4 class="card-title fw-bold m-0">Selalu Segar</h4>
               </div>
               <div class="section-description mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa porro modi tempore debitis maxime quos.
+                Dari supplier terpercaya.
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@
                 <h4 class="card-title fw-bold m-0">Kualitas Bagus</h4>
               </div>
               <div class="section-description mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa porro modi tempore debitis maxime quos.
+                Telah melewati tahap sortir.
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@
                 <h4 class="card-title fw-bold m-0">Bantuan</h4>
               </div>
               <div class="section-description mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa porro modi tempore debitis maxime quos.
+                Bantuan 24/7 selalu online.
               </div>
             </div>
           </div>
@@ -269,8 +269,7 @@
   <section class="travel-Packages">
     <div class="container">
       <h2 class="section-title text-center ">Favorite buah</h2>
-      <p class="section-description text-center">If you leave us a message, we’ll do everything possible to help you
-        make the best choice <br> for your personal travel plans. Contact us!</p>
+      <p class="section-description text-center"> favorite buah merupakan jenis buah yang paling banyak digemari pelanggan dan banyak terjual <br> terdapat 3 jenis buah yang paling banyak dikonsumsi yaitu Alpukat, Apel merah, Belimbing</p>
       <div class="row mt-5">
         <div class="col-md-4 mt-3">
           <a href="#" class="card text-center">
