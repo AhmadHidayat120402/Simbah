@@ -52,7 +52,7 @@
 
   <section class="kategori-buah mt-5">
     <div class="container">
-      <h4 class="section-title_home align-items-center justify-content-center">Kategori Buah</h4>
+      <h4 class="section-title_home align-items-center justify-content-center fw-bold ">Kategori Buah</h4>
       <div class="row mt-5">
         <div class="col-md-4 mt-3">
           <a href="#" class="card border-0 boxs text-decoration-none">
@@ -118,8 +118,8 @@
     <div class="container">
       <div class="d-flex flex-column flex-sm-column
     flex-md-row align-item-center justify-content-between gap-3 ">
-        <h2 class="section-title w-50">Tersedia Aneka Buah</h2>
-        <a href="#" class="btn btn-primary btn btn-outline-dark rounded-0 mt-2 fw-bold">Explore More</a>
+        <h3 class="section-titlee w-50 fw-bold">Buah Favorite</h3>
+        <!-- <a href="#" class="btn btn-primary btn btn-outline-dark rounded-0 mt-2 fw-bold">Explore More</a> -->
       </div>
       <div class="row mt-5">
         <div class="col-md-3 mt-3">
@@ -211,8 +211,8 @@
     <div class="container">
       <div class="d-flex flex-column flex-sm-column
     flex-md-row align-item-center justify-content-between gap-3 ">
-        <h2 class="section-title w-50">Tersedia Aneka Buah</h2>
-        <a href="#" class="btn btn-primary btn btn-outline-dark rounded-0 mt-2 fw-bold">Explore More</a>
+        <h3 class="section-titlee w-50 fw-bold">Flash Sale</h3>
+        <!-- <a href="#" class="btn btn-primary btn btn-outline-dark rounded-0 mt-2 fw-bold">Explore More</a> -->
       </div>
       <div class="row mt-5">
         <div class="col-md-3 mt-3">
@@ -304,8 +304,8 @@
     <div class="container">
       <div class="d-flex flex-column flex-sm-column
     flex-md-row align-item-center justify-content-between gap-3 ">
-        <h2 class="section-title w-50">Tersedia Aneka Buah</h2>
-        <a href="#" class="btn btn-primary btn-outline-dark rounded-0 mt-2 fw-bold">Explore More</a>
+        <h3 class="section-titlee w-50 fw-bold"> Aneka Buah</h3>
+        <!-- <a href="#" class="btn btn-primary btn-outline-dark rounded-0 mt-2 fw-bold">Explore More</a> -->
       </div>
       <div class="row mt-5">
         <div class="col-md-3 mt-3">
@@ -391,14 +391,89 @@
           </a>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="popular-destionation">
-    <div class="container">
-      <div class="d-flex flex-column flex-sm-column
-    flex-md-row align-item-center justify-content-between gap-3 ">
-        <h2 class="section-title w-50">Tersedia Aneka Buah</h2>
-        <a href="#" class="btn btn-primary btn btn-outline-dark rounded-0 mt-2 fw-bold">Explore More</a>
+      <div class="row mt-5">
+        <div class="col-md-3 mt-3">
+          <a href="#" class="card border-0 boxs text-decoration-none">
+            <img src="images/img/mango-1.jpg" alt="gunung bromo" class="images">
+            <div class="card-body">
+              <h4 class="card-title fw-bold">Mangga</h4>
+              <p class="d-flex align-items-center gap-2">
+                <i class="laris">Tersedia</i>
+                Rp 18.000 / kg
+              </p>
+              <hr>
+              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+            </div>
+            <div class="ratings position-absolute top-0 bg-white p-2">
+              <p class="d-flex align-items-center gap-2 m-0 ">
+                <i class="bx bxs-star"></i>
+                4.9
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-3 mt-3">
+          <a href="#" class="card boxs border-0 text-decoration-none">
+            <img src="images/img/pepaya.jpg" alt="Madakaripura" class="images">
+            <div class="card-body">
+              <h4 class="card-title fw-bold">Pepaya</h4>
+              <p class="d-flex align-items-center gap-2">
+                <i class="laris ">Tersedia</i>
+                Rp 15.000 / kg
+              </p>
+              <hr>
+              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+            </div>
+            <div class="ratings position-absolute top-0 bg-white p-2">
+              <p class="d-flex align-items-center gap-2 m-0">
+                <i class="bx bxs-star"></i>
+                4.9
+              </p>
+            </div>
+          </a>
+
+        </div>
+        <div class="col-md-3 mt-3">
+          <a href="#" class="card boxs border-0 text-decoration-none">
+            <img src="images/img/buah-naga.jpg" alt="Gili Ketapang" class="images">
+            <div class="card-body">
+              <h4 class="card-title fw-bold">Buah naga</h4>
+              <p class="d-flex align-items-center gap-2">
+                <i class="laris ">Tersedia</i>
+                Rp 23.000 / kg
+              </p>
+              <hr>
+              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+            </div>
+            <div class="ratings position-absolute top-0 p-2 bg-white">
+              <p class="d-flex-align-items-center m-0">
+                <i class="bx bxs-star"></i>
+                4.9
+              </p>
+            </div>
+          </a>
+
+        </div>
+        <div class="col-md-3 mt-3">
+          <a href="#" class="card boxs border-0 text-decoration-none">
+            <img src="images/img/jeruk.jpg" alt="Bremi Park" class="images">
+            <div class="card-body">
+              <h4 class="card-title fw-bold">Jeruk</h4>
+              <p class="d-flex align-items-center gap-2">
+                <i class="laris">Tersedia</i>
+                Rp 22.000 / kg
+              </p>
+              <hr>
+              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+            </div>
+            <div class="ratings position-absolute top-0 p-2 bg-white">
+              <p class="d-flex align-items-center m-0">
+                <i class="bx bxs-star"></i>
+                4.9
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
       <div class="row mt-5">
         <div class="col-md-3 mt-3">

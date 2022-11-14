@@ -17,14 +17,14 @@
     <div class="container">
       <div class="d-flex gap-3">
         <div class="card border-0 ">
-          <img src="images/img/alpukat-1.jpg" alt="" width="500px">
+          <img src="images/img/alpukatt.png" alt="" width="500px">
           <div class="card-body">
             <div class="row mt-2">
-              <div class="image-cut justify-content-center align-items-center">
-                <img src="images/img/alpukat-1.jpg" alt="" width="100px">
-                <img src="images/img/alpukat-1.jpg" alt="" width="100px">
-                <img src="images/img/alpukat-1.jpg" alt="" width="100px">
-                <img src="images/img/alpukat-1.jpg" alt="" width="100px">
+              <div class="image-cut justify-content-center align-items-center border-1">
+                <img src="images/img/alpukatt1.png" alt="" width="100px">
+                <img src="images/img/alpukatt2.png" alt="" width="100px">
+                <img src="images/img/alpukatt3.png" alt="" width="100px">
+                <img src="images/img/alpukatt4.png" alt="" width="100px">
               </div>
               <div class="d-flex gap-3 mt-3">
                 <p class="text1">Berkualitas</p>
@@ -63,7 +63,7 @@
   </div>
 
   <section class="detail_produk">
-   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt vel beatae repellendus cumque nobis? Asperiores porro amet dolorem nemo rem illo aperiam aliquam id totam tempora perspiciatis iure consequuntur itaque nihil labore, animi maiores minima ratione eum voluptas esse aliquid officiis nulla quisquam. Impedit accusamus possimus molestiae amet ipsum expedita nemo, quod odio alias. Repellendus minus ipsa alias voluptates natus rerum? Inventore quisquam optio voluptates eligendi ex animi libero molestiae dignissimos? Molestias voluptatum voluptatibus sit esse voluptatem vel quae magnam?</p> 
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt vel beatae repellendus cumque nobis? Asperiores porro amet dolorem nemo rem illo aperiam aliquam id totam tempora perspiciatis iure consequuntur itaque nihil labore, animi maiores minima ratione eum voluptas esse aliquid officiis nulla quisquam. Impedit accusamus possimus molestiae amet ipsum expedita nemo, quod odio alias. Repellendus minus ipsa alias voluptates natus rerum? Inventore quisquam optio voluptates eligendi ex animi libero molestiae dignissimos? Molestias voluptatum voluptatibus sit esse voluptatem vel quae magnam?</p>
   </section>
 
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
