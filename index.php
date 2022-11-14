@@ -269,14 +269,14 @@
   <section class="travel-Packages">
     <div class="container">
       <h2 class="section-title text-center ">Favorite buah</h2>
-      <p class="section-description text-center"> favorite buah merupakan jenis buah yang paling banyak digemari pelanggan dan banyak terjual <br> terdapat 3 jenis buah yang paling banyak dikonsumsi yaitu Alpukat, Apel merah, Belimbing</p>
+      <p class="section-description text-center"> favorite buah merupakan jenis buah yang paling banyak digemari pelanggan dan banyak terjual <br> terdapat 3 jenis buah yang paling banyak dikonsumsi yaitu Alpukat, Apel merah, Belimbing.</p>
       <div class="row mt-5">
         <div class="col-md-4 mt-3">
           <a href="#" class="card text-center">
             <img src="images/img/alpukat-1.jpg" alt="indonesian tour" class="card-image">
             <div class="card-body boxs">
               <h4 class="card-title mt-3">Alpukat</h4>
-              <p class="section-description px-2">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+              <p class="section-description px-2">bermanfaat untuk membantu mengendalikan tekanan darah dan mencegah terjadinya tekanan darah tinggi.</p>
               <hr class="mx-auto w-75">
               <p class="price">Rp 15.000/ <span class="section-description">Kg</span></p>
             </div>
@@ -476,3 +476,5 @@
 </body>
 
 </html>
+
+<!-- ini ima -->
