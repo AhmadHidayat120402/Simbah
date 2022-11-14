@@ -1,0 +1,51 @@
+html,
+body {
+  height: 100%;
+  background-image: url("../images/img/bg-apple.jpg");
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.global-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #222d32;
+  /* background: transparent; */
+}
+
+.login-form {
+  width: 380px;
+  height: 550px;
+  padding: 20px;
+  border-radius: 20px;
+  /* background: transparent; */
+  background: rgba(0, 0, 0, 0.5);
+}
+
+input[type="email"],
+input[type="password"] {
+  /* background-color: aqua; */
+  border: 1px solid #d8db64;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  padding-top: 20px;
+}
+
+.btn {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  align-items: center;
+  color: #fff;
+  border: 1px solid #d8db64;
+  transform: translateY(10px);
+}
+
+/* .btn:hover {
+  background: 1px solid #d8db64;
+} */

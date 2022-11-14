@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,700&family=Quicksand:wght@400;700&display=swap");
+
+:root {
+  --color-primary: #d8db64;
+  --color-secondary: #22334d;
+  --color-gray: rgba(27, 40, 58, 0.6);
+  --color-white: #fff;
+  --color-bg: #f8f8fb;
+
+  --heading-1-size: 64px;
+  --heading-2-size: 54px;
+  --heading-3-size: 40px;
+  --heading-4-size: 26px;
+  --heading-5-size: 20px;
+  --heading-6-size: 18px;
+}
+
+* {
+  font-family: "Josefin Sans", sans-serif;
+  box-sizing: border-box;
+  color: var(--color-secondary);
+}
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  
+}
+
+a .logo {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a .logo:hover {
+  font-weight: bold;
+  color: var(--color-white);
+}
+a:hover {
+  color: var(--color-primary);
+}
