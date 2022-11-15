@@ -419,54 +419,52 @@
               <p class="section-description">Subscriber</p>
             </div>
           </div>
-          <div class="iconBro bg-white shadow-sm rounded-circle p-3 position-absolute" style="right: -20px; bottom: 65px;">
-            <img src="images/image/world.svg" alt="">
-          </div>
+          <!-- <div class="iconBro bg-white shadow-sm rounded-circle p-3 position-absolute" style="right: -20px; bottom: 65px;"> -->
+          <!-- <img src="images/image/world.svg" alt=""> -->
         </div>
       </div>
     </div>
+    </div>
   </section>
-
   <footer class="py-5 footerCuy">
     <div class="container">
       <div class="row mx-auto">
         <div class="col md-3">
-          <a href="#">
-            <h4 class="fw-bold">simbah</h4>
+          <a href="#" class="text-decoration-none">
+            <h4 class="fw-bold ">SiMbah</h4>
           </a>
-          <p class="section-description">Belanja buah segar dengan murah, mudah dan cepat.</p>
-          <h6 class="section-footer">Copyright © 2022 Simba (Sistem Informasi Penjualan dan Pembalian Online | Made kelompok 7</h6>
+          <p class="section-description align-items-center">toko buah yang menjual buah murah dan berkualitas tinggi </p>
+          <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
         </div>
         <div class="col md-2">
           <h5 class="section-judul fw-bold">Menu</h5>
-          <p class="section-description">Tentang kami</p>
-          <p class="section-description">Hubungi kami</p>
+          <p class="section-description">Tentang Kami</p>
+          <p class="section-description">Hubungi Kami</p>
           <p class="section-description">Article</p>
         </div>
         <div class="col md-2">
           <h5 class="section-judul fw-bold">Bantuan</h5>
-          <p class="section-description">Keranjang buah</p>
+          <p class="section-description">Keranjang Buah</p>
           <p class="section-description">Konfirmasi Pembayaran</p>
           <p class="section-description">Testimoni Pembayaran</p>
         </div>
         <div class="col md-2">
-          <h5 class="section-judul fw-bold">Punya pertanyaan?</h5>
+          <h5 class="section-judul fw-bold">Punya pertanyaan ? </h5>
           <p class="section-description">Indonesia</p>
           <p class="section-description">Singapore</p>
           <p class="section-description">Thailand</p>
         </div>
         <div class="col md-2">
           <h5 class="section-judul fw-bold">Social Media</h5>
-          <p class="section-description">Berikut merupaka sosial media yang kami gunakan untuk melakukan promosi.</p>
+          <p class="section-description justify-content-center align-items-center">Berikut merupakan sosial media yang kami gunakan untuk melakukan promosi</p>
           <p class="section-description d-flex gap-4">
-            <i class="bx bxl-instagram"></i>
-            <i class="bx bxl-facebook-circle"></i>
-            <i class="bx bxl-twitter"></i>
+            <i><img src="images/img/logo_ig.jpg" alt="" width="40px"></i>
+            <i><img src="images/img/logo_facebook.jpg" alt="" width="40px"></i>
+            <i><img src="images/img/logo_twitter1.jpg" alt="" width="35px"></i>
+            <i><img src="images/img/logo_WA2.jpg" alt="" width="40px"></i>
           </p>
-
         </div>
       </div>
-
     </div>
   </footer>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>

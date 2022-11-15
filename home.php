@@ -14,13 +14,14 @@
 <body>
   <header>
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
         <div class="container mt-auto">
           <a class="navbar-brand" href="#">
             <h2 class="logo font-italic">SiMbah</h2>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"><i class='bx bx-customize'></i></span>
+            <span class="navbar-toggler-icon"></span>
+            <!-- <i class='bx bx-customize'></i> -->
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="input-group gap-3">
@@ -570,38 +571,37 @@
             <h4 class="fw-bold ">SiMbah</h4>
           </a>
           <p class="section-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus.</p>
-          <h6 class="section-footer">Copyright &copy; 2022 ProbVel</h6>
+          <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
         </div>
         <div class="col md-2">
-          <h5 class="section-judul fw-bold">Company</h5>
-          <p class="section-description">Features</p>
-          <p class="section-description">Our team</p>
+          <h5 class="section-judul fw-bold">Menu</h5>
+          <p class="section-description">Tentang Kami</p>
+          <p class="section-description">Hubungi Kami</p>
           <p class="section-description">Article</p>
         </div>
         <div class="col md-2">
-          <h5 class="section-judul fw-bold">Destination</h5>
-          <p class="section-description">Gunung Bromo</p>
-          <p class="section-description">Gili Ketapang</p>
-          <p class="section-description">Madakaripura</p>
+          <h5 class="section-judul fw-bold">Bantuan</h5>
+          <p class="section-description">Keranjang Buah</p>
+          <p class="section-description">Konfirmasi Pembayaran</p>
+          <p class="section-description">Testimoni Pembayaran</p>
         </div>
         <div class="col md-2">
-          <h5 class="section-judul fw-bold">Package</h5>
+          <h5 class="section-judul fw-bold">Punya pertanyaan ? </h5>
           <p class="section-description">Indonesia</p>
           <p class="section-description">Singapore</p>
           <p class="section-description">Thailand</p>
         </div>
         <div class="col md-2">
           <h5 class="section-judul fw-bold">Social Media</h5>
-          <p class="section-description">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          <p class="section-description">Berikut merupakan sosial media yang kami gunakan untuk melakukan promosi</p>
           <p class="section-description d-flex gap-4">
-            <i class="bx bxl-instagram"></i>
-            <i class="bx bxl-facebook-circle"></i>
-            <i class="bx bxl-twitter"></i>
+            <i><img src="images/img/logo_ig.jpg" alt="" width="40px"></i>
+            <i><img src="images/img/logo_facebook.jpg" alt="" width="40px"></i>
+            <i><img src="images/img/logo_twitter1.jpg" alt="" width="35px"></i>
+            <i><img src="images/img/logo_WA2.jpg" alt="" width="40px"></i>
           </p>
-
         </div>
       </div>
-
     </div>
   </footer>
 

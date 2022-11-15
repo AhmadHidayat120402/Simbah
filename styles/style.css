@@ -111,7 +111,9 @@ section .image {
 .our-travel-packages,
 .testimonial,
 .subscirber,
-.footerCuy {
+.footerCuy,
+.detail_produk,
+.detail {
   background-color: var(--color-bg);
 }
 
@@ -217,4 +219,13 @@ section .image {
 
 .btn-light {
   min-height: 40px;
+}
+
+/* ==================== Detail Page ===================== */
+.harga {
+  margin-left: 50px;
+}
+
+.detail {
+  margin-top: 100px;
 }
