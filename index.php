@@ -51,8 +51,8 @@
                 </ul>
               </li>
             </ul>
-            <a href="register.php" class="btn btn-outline-light rounded-3 px-3 py-2 m-2">Register</a>
-            <a href="login.php" class="btn btn-outline-light rounded-3 px-3 py-2">Login</a>
+            <a href="login.php" class="btn btn-outline-light rounded-pill px-3 py-2">Login</a>
+            <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2">Register</a>
           </div>
         </div>
       </nav>
@@ -144,7 +144,7 @@
       <div class="d-flex flex-column flex-sm-column
     flex-md-row align-item-center justify-content-between gap-3 ">
         <h2 class="section-title w-50">Tersedia Aneka Buah</h2>
-        <a href="#" class="btn btn-primary rounded-0 mt-2 fw-bold">Explore More</a>
+        <a href="home.php" class="btn btn-primary rounded-pill mt-2 fw-bold">Explore More</a>
       </div>
       <div class="row mt-5">
         <div class="col-md-3 mt-3">
@@ -153,7 +153,7 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Mangga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 18.000 / kg
               </p>
               <hr>
@@ -175,7 +175,7 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Pepaya</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill ">Tersedia</i>
                 Rp 15.000 / kg
               </p>
               <hr>
@@ -197,7 +197,7 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Buah naga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill ">Tersedia</i>
                 Rp 23.000 / kg
               </p>
               <hr>
@@ -220,7 +220,7 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Jeruk</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 22.000 / kg
               </p>
               <hr>
@@ -255,7 +255,7 @@
             Menurunkan berat badan
           </p>
           <div class="d-flex align-items-center gap-5">
-            <a href="#" class="btn btn-primary align-items-center">Learn More</a>
+            <a href="#" class="btn btn-primary align-items-center rounded-pill">Learn More</a>
             <a href="https://www.youtube.com/watch?v=i6awA7O7NKo" target="_blank" class="d-flex align-items-center gap-3">
               <img src="images/img/alpukat.jpg" alt="take-break" class="image rounded-circle" width="40px">
               Watch Video

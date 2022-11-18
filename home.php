@@ -14,33 +14,93 @@
 <body>
   <header>
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
+        <div class="container-fluid mt-auto">
+          <a class="navbar-brand" href="#">
+            <h2 class="logo">SiMbah</h2>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Packages
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Aneka buah</a></li>
+                  <li><a class="dropdown-item" href="#">Buah favorite</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Selengkapnya
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Kata customers</a></li>
+                  <li><a class="dropdown-item" href="#">Alamat</a></li>
+                  <li><a class="dropdown-item" href="#">Media sosial</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form action="#" method="get" class="d-flex align-item-center gap-2 bg-light rounded p-2">
+              <div class="input-group ">
+                <span class="input-group-text bg-transparent border-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                  </svg>
+                </span>
+                <input type="search" name="search" id="search" class=" form-control bg-transparent border-0 " placeholder="search buah">
+              </div>
+              <button type="submit" class="btn btn-primary">Go</button>
+            </form>
+            <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a>
+            <!-- <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-bell text-white'></i></a> -->
+            <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-user text-white'></i></a>
+            <!-- <a href="login.php" class="btn btn-outline-light rounded-pill px-3 py-2">Login</a> -->
+
+          </div>
+        </div>
+      </nav>
+      <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
         <div class="container mt-auto">
           <a class="navbar-brand" href="#">
             <h2 class="logo font-italic">SiMbah</h2>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-            <!-- <i class='bx bx-customize'></i> -->
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="input-group gap-3">
+          <i class='bx bx-customize'></i> -->
+      <!-- </button>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 bg-light" type="search" placeholder="Search buah" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+          </form> --> -->
+      <!-- <div class="input-group gap-3">
               <input type="text" class="form-control rounded-3" placeholder="cari buah" aria-label="Recipient's username" aria-describedby="button-addon2">
-              <button class="btn btn-outline-success align-align-items-center justify-content-center rounded-circle border-light bg-white" type="button" id="button-addon2"><i class="bx bx-search  "></i></button>
-              <ul class="navbar-nav ms-auto gap-3">
-                <li class="nav-item bg-white rounded-3">
-                  <a class="nav-link " href="#"><i class="bx bx-cart"></i></a>
-                </li>
-                <li class="nav-item bg-white rounded-3">
-                  <a class="nav-link" href="#"><i class='bx bx-bell '></i></a>
-                </li>
-                <li class="nav-item bg-white rounded-3">
-                  <a class="nav-link" href="#"><i class='bx bx-user'></i></a>
-                </li>
-
-            </div>
+              <button class="btn btn-outline-success align-align-items-center justify-content-center rounded-circle border-light bg-white" type="button" id="button-addon2"><i class="bx bx-search  "></i></button> -->
+      <!-- <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto gap-3">
+              <li class="nav-item bg-white rounded-3">
+                <a class="nav-link " href="#"><i class="bx bx-cart"></i></a>
+              </li>
+              <li class="nav-item bg-white rounded-3">
+                <a class="nav-link" href="#"><i class='bx bx-bell '></i></a>
+              </li>
+              <li class="nav-item bg-white rounded-3">
+                <a class="nav-link" href="#"><i class='bx bx-user'></i></a>
+              </li>
+            </ul>
           </div>
-      </nav>
+
+      </nav> -->
+
       <div class="content">
         <h1 class="header-title text-white text-capitalize fw-bold"><br><br>Kami menjual buah<br>segar dan
           sehat
@@ -48,10 +108,43 @@
         <p class="header-description text-white text fw-light"> Buah yang kami jual beraneka ragam dan tentunya <br> memiliki banyak manfaat bagi tubuh karena <br> buah yang kami jual adalah buah yang <br> berkualitas, segar dan sehat.
         </p>
       </div>
+      <!-- <form action="#" method="get" class="d-flex align-item-center gap-2 bg-light rounded p-2">
+        <div class="input-group">
+          <span class="input-group-text bg-transparent border-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+          </span>
+          <input type="search" name="search" id="search" class=" form-control bg-transparent border-0" placeholder="search buah">
+        </div>
+        <button type="submit" class="btn btn-primary">Go</button>
+      </form> -->
+    </div>
     </div>
   </header>
-
-  <section class="kategori-buah mt-5">
+  <!-- <nav class="navbar navbar-expand-lg bg-white py-3 fixed-top shadow-sm">
+    <div class="container">
+      <a href="." class="navbar-brand text-uppercase">
+        SiMbah
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"> <i class='bx bx-customize'></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav gap-3 mx-auto">
+          <li class="nav-item"><a href="." class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="." class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="." class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="." class="nav-link">About Us</a></li>
+        </ul>
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
+          <li class="nav-item"><a href="register.php" class="btn btn-primary rounded-pill fw-medium px-4 py-2">Register</a></li>
+        </ul>
+      </div> 
+    </div>
+  </nav> 
+  <section class="kategori-buah mt-5" style="background-color: #f8f8fb;">
     <div class="container">
       <h4 class="section-title_home align-items-center justify-content-center fw-bold ">Kategori Buah</h4>
       <div class="row mt-5">
@@ -61,7 +154,7 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Mangga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 18.000 / kg
               </p>
               <hr>
@@ -83,7 +176,7 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Mangga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 18.000 / kg
               </p>
               <hr>
@@ -107,12 +200,12 @@
             </div>
             <button class="btn btn-lg btn-light btn-outline-dark rounded-3 w-100  " type="button">Submit</button>
             <!-- <button class=" btn tombol-submit rounded-3 border-0 btn-lg w-100" type="submit">Submit</button> -->
-          </form>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
+  </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
   </section>
 
   <section class="popular-destionation">
@@ -124,16 +217,16 @@
       </div>
       <div class="row mt-5">
         <div class="col-md-3 mt-3">
-          <a href="#" class="card border-0 boxs text-decoration-none">
+          <a href="detail_page.php" class="card border-0 boxs text-decoration-none">
             <img src="images/img/mango-1.jpg" alt="gunung bromo" class="images">
             <div class="card-body">
               <h4 class="card-title fw-bold">Mangga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 18.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
               <p class="d-flex align-items-center gap-2 m-0 ">
@@ -149,11 +242,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Pepaya</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 15.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
               <p class="d-flex align-items-center gap-2 m-0">
@@ -170,11 +263,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Buah naga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 23.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
               <p class="d-flex-align-items-center m-0">
@@ -191,11 +284,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Jeruk</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 22.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
               <p class="d-flex align-items-center m-0">
@@ -222,11 +315,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Mangga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 18.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
               <p class="d-flex align-items-center gap-2 m-0 ">
@@ -242,11 +335,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Pepaya</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 15.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
               <p class="d-flex align-items-center gap-2 m-0">
@@ -263,11 +356,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Buah naga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill ">Tersedia</i>
                 Rp 23.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
               <p class="d-flex-align-items-center m-0">
@@ -284,11 +377,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Jeruk</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 22.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
               <p class="d-flex align-items-center m-0">
@@ -315,11 +408,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Mangga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 18.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
               <p class="d-flex align-items-center gap-2 m-0 ">
@@ -335,11 +428,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Pepaya</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill ">Tersedia</i>
                 Rp 15.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
               <p class="d-flex align-items-center gap-2 m-0">
@@ -356,11 +449,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Buah naga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill ">Tersedia</i>
                 Rp 23.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
               <p class="d-flex-align-items-center m-0">
@@ -377,11 +470,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Jeruk</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 22.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
               <p class="d-flex align-items-center m-0">
@@ -399,11 +492,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Mangga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 18.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
               <p class="d-flex align-items-center gap-2 m-0 ">
@@ -419,11 +512,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Pepaya</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill ">Tersedia</i>
                 Rp 15.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
               <p class="d-flex align-items-center gap-2 m-0">
@@ -440,11 +533,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Buah naga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 23.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
               <p class="d-flex-align-items-center m-0">
@@ -461,11 +554,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Jeruk</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 22.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
               <p class="d-flex align-items-center m-0">
@@ -483,11 +576,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Mangga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 18.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
               <p class="d-flex align-items-center gap-2 m-0 ">
@@ -503,11 +596,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Pepaya</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill ">Tersedia</i>
                 Rp 15.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
               <p class="d-flex align-items-center gap-2 m-0">
@@ -524,11 +617,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Buah naga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill ">Tersedia</i>
                 Rp 23.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
               <p class="d-flex-align-items-center m-0">
@@ -545,11 +638,11 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Jeruk</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 22.000 / kg
               </p>
               <hr>
-              <button type="button" class="btn btn-outline-dark rounded-3">Add To Cart</button>
+              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
               <p class="d-flex align-items-center m-0">
@@ -563,7 +656,7 @@
     </div>
   </section>
 
-  <footer class="py-5 footerCuy">
+  <footer class="py-5 footerCuy ">
     <div class="container">
       <div class="row mx-auto">
         <div class="col md-3">

@@ -23,7 +23,6 @@
 a {
   color: var(--color-secondary);
   text-decoration: none;
-  
 }
 
 a .logo {
@@ -40,3 +39,66 @@ a .logo:hover {
 a:hover {
   color: var(--color-primary);
 }
+
+.footerCuy {
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+}
+/* @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;700&family=Merriweather:wght@300;400;700&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root{
+  --primary-color : #122D5A;
+  --secondary-color : #B2B0BF;
+  --third-color : #2F4570;
+  --font-size-1 : 52px;
+  --font-size-2 : 42px
+  --font-size-3 : 22px;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-primary{
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.text-primary{
+  color: var(--primary-color) !important;
+}
+.text-secondary{
+  color: var(--secondary-color) !important;
+}
+
+.form-control:focus{
+ box-shadow: none;
+}
+.navbar .navbar-brand{
+  font-weight: 900;
+  color: var(--primary-color);
+}
+
+.navbar .navbar-nav .nav-item .nav-link.active,
+.navbar .navbar-nav .nav-item .nav-link:hover
+{
+  font-weight: 700;
+  color: var(--primary-color);
+}
+.navbar .navbar-nav .nav-item .nav-link{
+  color: var(--secondary-color)
+}
+
+header{
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.header-title{
+  font-size: var(--font-size-1);
+  font-weight: 900;
+} */
