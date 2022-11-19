@@ -51,8 +51,8 @@
                 </ul>
               </li>
             </ul>
-            <a href="register.php" class="btn btn-outline-light rounded-3 px-3 py-2 m-2">Register</a>
-            <a href="login.php" class="btn btn-outline-light rounded-3 px-3 py-2">Login</a>
+            <a href="login.php" class="btn btn-outline-light rounded-pill px-3 py-2">Login</a>
+            <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2">Register</a>
           </div>
         </div>
       </nav>
@@ -84,7 +84,7 @@
                 <h4 class="card-title fw-bold m-0">Gratis Ongkir</h4>
               </div>
               <div class="section-description mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa porro modi tempore debitis maxime quos.
+                Belanja minimal Rp 50.000.
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
                 <h4 class="card-title fw-bold m-0">Selalu Segar</h4>
               </div>
               <div class="section-description mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa porro modi tempore debitis maxime quos.
+                Dari supplier terpercaya.
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@
                 <h4 class="card-title fw-bold m-0">Kualitas Bagus</h4>
               </div>
               <div class="section-description mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa porro modi tempore debitis maxime quos.
+                Telah melewati tahap sortir.
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@
                 <h4 class="card-title fw-bold m-0">Bantuan</h4>
               </div>
               <div class="section-description mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa porro modi tempore debitis maxime quos.
+                Bantuan 24/7 selalu online.
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@
       <div class="d-flex flex-column flex-sm-column
     flex-md-row align-item-center justify-content-between gap-3 ">
         <h2 class="section-title w-50">Tersedia Aneka Buah</h2>
-        <a href="#" class="btn btn-primary rounded-0 mt-2 fw-bold">Explore More</a>
+        <a href="home.php" class="btn btn-primary rounded-pill mt-2 fw-bold">Explore More</a>
       </div>
       <div class="row mt-5">
         <div class="col-md-3 mt-3">
@@ -153,7 +153,7 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Mangga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 18.000 / kg
               </p>
               <hr>
@@ -175,7 +175,7 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Pepaya</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill ">Tersedia</i>
                 Rp 15.000 / kg
               </p>
               <hr>
@@ -197,7 +197,7 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Buah naga</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris ">Tersedia</i>
+                <i class="laris rounded-pill ">Tersedia</i>
                 Rp 23.000 / kg
               </p>
               <hr>
@@ -220,7 +220,7 @@
             <div class="card-body">
               <h4 class="card-title fw-bold">Jeruk</h4>
               <p class="d-flex align-items-center gap-2">
-                <i class="laris">Tersedia</i>
+                <i class="laris rounded-pill">Tersedia</i>
                 Rp 22.000 / kg
               </p>
               <hr>
@@ -255,7 +255,7 @@
             Menurunkan berat badan
           </p>
           <div class="d-flex align-items-center gap-5">
-            <a href="#" class="btn btn-primary align-items-center">Learn More</a>
+            <a href="#" class="btn btn-primary align-items-center rounded-pill">Learn More</a>
             <a href="https://www.youtube.com/watch?v=i6awA7O7NKo" target="_blank" class="d-flex align-items-center gap-3">
               <img src="images/img/alpukat.jpg" alt="take-break" class="image rounded-circle" width="40px">
               Watch Video
@@ -269,15 +269,14 @@
   <section class="travel-Packages">
     <div class="container">
       <h2 class="section-title text-center ">Favorite buah</h2>
-      <p class="section-description text-center">If you leave us a message, we’ll do everything possible to help you
-        make the best choice <br> for your personal travel plans. Contact us!</p>
+      <p class="section-description text-center"> favorite buah merupakan jenis buah yang paling banyak digemari pelanggan dan banyak terjual <br> terdapat 3 jenis buah yang paling banyak dikonsumsi yaitu Alpukat, Apel merah, Belimbing.</p>
       <div class="row mt-5">
         <div class="col-md-4 mt-3">
           <a href="#" class="card text-center">
             <img src="images/img/alpukat-1.jpg" alt="indonesian tour" class="card-image">
             <div class="card-body boxs">
               <h4 class="card-title mt-3">Alpukat</h4>
-              <p class="section-description px-2">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+              <p class="section-description px-2">bermanfaat untuk membantu mengendalikan tekanan darah dan mencegah terjadinya tekanan darah tinggi.</p>
               <hr class="mx-auto w-75">
               <p class="price">Rp 15.000/ <span class="section-description">Kg</span></p>
             </div>
@@ -290,10 +289,10 @@
           <a href="#" class="card text-center">
             <img src="images/img/apel-merah2.jpg" alt="indonesian tour" class="card-image">
             <div class="card-body boxs">
-              <h4 class="card-title mt-3">Apel merah</h4>
-              <p class="section-description px-2">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+              <h4 class="card-title mt-3">Apel fuji</h4>
+              <p class="section-description px-2">bermanfaat untuk menjaga jantung agar tetap sehat, mengurangi resiko serangan jantung dan dapat mencegah serangan asma.</p>
               <hr class="mx-auto w-75">
-              <p class="price">Rp 25.000/ <span class="section-description">Kg</span></p>
+              <p class="price">Rp 20.000/ <span class="section-description">Kg</span></p>
             </div>
             <div class="flag bg-white p-2 rounded-circle shadow-sm position-absolute">
               <img src="images/img/apel-merah2.jpg" alt="" width="150px" class="rounded-circle ">
@@ -305,7 +304,7 @@
             <img src="images/img/belimbing.jpg" alt="indonesian tour" class="card-image">
             <div class="card-body boxs">
               <h4 class="card-title mt-3">Belimbing</h4>
-              <p class="section-description px-2">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+              <p class="section-description px-2">bermanfaat untuk menurunkan berat badan dan meningkatkan daya tahan tubuh hingga mencegah pertumbuhan sel kanker..</p>
               <hr class="mx-auto w-75">
               <p class="price">Rp 10.000/ <span class="section-description">Kg</span></p>
             </div>
@@ -321,24 +320,23 @@
   <section class="testimonial">
     <div class="container">
       <h2 class="section-title">Apa yang mereka katakan tentang kami ?</h2>
-      <p class="section-description">If you leave us a message, we’ll do everything possible to help you make the best
+      <p class="section-description">Berikut merupakan penilaian dari pelanggan yang sudah membeli buah dari toko kami
         <br>
-        choices for your personal travel plans. Contact us!
+        penilaian tersebut asli tanpa ada paksaan dari pihak manapun
       </p>
       <div class="row mt-3">
         <div class="col-md-4">
           <a href="#" class="card mt-3 boxs p-4">
             <div class="card-body p-3 border-0 rounded-0">
               <i class="bx bxs-quote-left"></i>
-              <p class="section-description">" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates,
-                numquam! "
+              <p class="section-description">" sangat puas dengan pelayanan adminnya "
               </p>
               <div class="d-flex mt-3 gap-3">
                 <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="foto" class="foto rounded-circle">
                 <div class="d-flex flex-column">
-                  <h4 class="card-title">George Alexder</h4>
+                  <h4 class="card-title">Azim Fadullah</h4>
                   <p class="section-description">
-                    Programmer
+                    membeli apel
                   </p>
                 </div>
               </div>
@@ -349,15 +347,14 @@
           <a href="#" class="card mt-3 boxs p-4">
             <div class="card-body p-3 border-0 rounded-0">
               <i class="bx bxs-quote-left"></i>
-              <p class="section-description">" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates,
-                numquam! "
+              <p class="section-description">" sangat puas dengan pelayanan dan produknya segar semua "
               </p>
               <div class="d-flex mt-3 gap-3">
                 <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="foto" class="foto rounded-circle">
                 <div class="d-flex flex-column">
-                  <h4 class="card-title">Ahmad Hidayat</h4>
+                  <h4 class="card-title"> Rehan Ansori</h4>
                   <p class="section-description">
-                    Fullstack Developer
+                    membeli anggur
                   </p>
                 </div>
               </div>
@@ -368,15 +365,14 @@
           <a href="#" class="card mt-3 boxs p-4">
             <div class="card-body p-3 border-0 rounded-0">
               <i class="bx bxs-quote-left"></i>
-              <p class="section-description">" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates,
-                numquam! "
+              <p class="section-description">" pesanan dikirim tepat waktu dan kualitas segar "
               </p>
               <div class="d-flex mt-3 gap-3">
                 <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="foto" class="foto rounded-circle">
                 <div class="d-flex flex-column">
-                  <h4 class="card-title">Ronaldo</h4>
+                  <h4 class="card-title">Gede Bagus</h4>
                   <p class="section-description">
-                    Software Enginering
+                    membeli pisang susu
                   </p>
                 </div>
               </div>
@@ -423,54 +419,52 @@
               <p class="section-description">Subscriber</p>
             </div>
           </div>
-          <div class="iconBro bg-white shadow-sm rounded-circle p-3 position-absolute" style="right: -20px; bottom: 65px;">
-            <img src="images/image/world.svg" alt="">
-          </div>
+          <!-- <div class="iconBro bg-white shadow-sm rounded-circle p-3 position-absolute" style="right: -20px; bottom: 65px;"> -->
+          <!-- <img src="images/image/world.svg" alt=""> -->
         </div>
       </div>
     </div>
+    </div>
   </section>
-
   <footer class="py-5 footerCuy">
     <div class="container">
       <div class="row mx-auto">
         <div class="col md-3">
-          <a href="#">
-            <h4 class="fw-bold">SiMbah</h4>
+          <a href="#" class="text-decoration-none">
+            <h4 class="fw-bold ">SiMbah</h4>
           </a>
-          <p class="section-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus.</p>
-          <h6 class="section-footer">Copyright &copy; 2022 ProbVel</h6>
+          <p class="section-description align-items-center">toko buah yang menjual buah murah dan berkualitas tinggi </p>
+          <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
         </div>
         <div class="col md-2">
-          <h5 class="section-judul fw-bold">Company</h5>
-          <p class="section-description">Features</p>
-          <p class="section-description">Our team</p>
+          <h5 class="section-judul fw-bold">Menu</h5>
+          <p class="section-description">Tentang Kami</p>
+          <p class="section-description">Hubungi Kami</p>
           <p class="section-description">Article</p>
         </div>
         <div class="col md-2">
-          <h5 class="section-judul fw-bold">Destination</h5>
-          <p class="section-description">Gunung Bromo</p>
-          <p class="section-description">Gili Ketapang</p>
-          <p class="section-description">Madakaripura</p>
+          <h5 class="section-judul fw-bold">Bantuan</h5>
+          <p class="section-description">Keranjang Buah</p>
+          <p class="section-description">Konfirmasi Pembayaran</p>
+          <p class="section-description">Testimoni Pembayaran</p>
         </div>
         <div class="col md-2">
-          <h5 class="section-judul fw-bold">Package</h5>
+          <h5 class="section-judul fw-bold">Punya pertanyaan ? </h5>
           <p class="section-description">Indonesia</p>
           <p class="section-description">Singapore</p>
           <p class="section-description">Thailand</p>
         </div>
         <div class="col md-2">
           <h5 class="section-judul fw-bold">Social Media</h5>
-          <p class="section-description">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          <p class="section-description justify-content-center align-items-center">Berikut merupakan sosial media yang kami gunakan untuk melakukan promosi</p>
           <p class="section-description d-flex gap-4">
-            <i class="bx bxl-instagram"></i>
-            <i class="bx bxl-facebook-circle"></i>
-            <i class="bx bxl-twitter"></i>
+            <i><img src="images/img/logo_ig.jpg" alt="" width="40px"></i>
+            <i><img src="images/img/logo_facebook.jpg" alt="" width="40px"></i>
+            <i><img src="images/img/logo_twitter1.jpg" alt="" width="35px"></i>
+            <i><img src="images/img/logo_WA2.jpg" alt="" width="40px"></i>
           </p>
-
         </div>
       </div>
-
     </div>
   </footer>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
