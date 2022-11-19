@@ -1,6 +1,9 @@
 <?php
 
 session_start();
+if (empty($_SESSION['username']) or empty($_SESSION['level'])) {
+    echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
+}
 ?>
 
 
@@ -14,6 +17,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
 
     <title>SB Admin 2 - Dashboard</title>
 
