@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +57,7 @@
         </ul>
         <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a>
 
-        <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-user text-white'></i></a>
+        <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-user text-white'></i><?php echo $_SESSION['username'] ?></a>
         <!-- <a href="login.php" class="btn btn-outline-light rounded-pill px-3 py-2">Login</a> -->
       </div>
     </div>
@@ -100,7 +106,7 @@
           </tr>
         </tbody>
       </table>
-      <div class="card mt-5 mx-auto" style="width: 18rem;">
+      <div class="card mt-5 m x-auto" style="width: 18rem;">
         <div class=" card-body text-center">
           <h5 class="card-title">Checkout</h5>
           <p class="card-text">Total : Rp 30.000</p>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +58,7 @@
         </ul>
         <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a>
 
-        <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-user text-white'></i></a>
+        <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-user text-white'></i><?php echo $_SESSION['username'] ?></a>
         <!-- <a href="login.php" class="btn btn-outline-light rounded-pill px-3 py-2">Login</a> -->
       </div>
     </div>
@@ -60,7 +67,8 @@
 
   <section class="detail-buah">
     <div class="container">
-      <a href="#" class="row align-item-center detail-photo text-decoration-none">
+      <div class="row align-item-center detail-photo">
+        <!-- <a href="#" class="row align-item-center detail-photo text-decoration-none"> -->
         <div class="col-md-6">
           <img src="images/img/alpukat.jpg" alt="" class="rounded-3 mb-3 buah-photo" width="500px">
           <div class="image-cut justify-content-center align-items-center border-1">
@@ -140,16 +148,15 @@
               <button class="btn btn-outline-dark" type="button" id="button-addon2">kirim</button>
             </div> -->
           </div>
+
           <div class="btn_harga mt-5 d-flex flex-column flex-md-row flex-sm-column gap-5 justify-content-between d-inline">
-
-            <!-- <a href="cart.php" class="d-inline"></a> -->
-            <button type="button" class="btn btn-outline-dark rounded-pill">Add to cart
-            </button>
-
+            <a href="cart.php"><button type="button" class="btn btn-outline-dark rounded-pill"> Add to cart
+              </button></a>
             <!-- <button type="button" class="btn btn-outline-dark rounded-pill">Beli</button> -->
           </div>
         </div>
-      </a>
+        <!-- </a> -->
+      </div>
     </div>
   </section>
   <!-- 
@@ -280,10 +287,10 @@
           <h5 class="section-judul fw-bold">Social Media</h5>
           <p class="section-description">Berikut merupakan sosial media yang kami gunakan untuk melakukan promosi</p>
           <p class="section-description d-flex gap-4">
-            <i><img src="images/img/logo_ig.jpg" alt="" width="40px"></i>
-            <i><img src="images/img/logo_facebook.jpg" alt="" width="40px"></i>
-            <i><img src="images/img/logo_twitter1.jpg" alt="" width="35px"></i>
-            <i><img src="images/img/logo_WA2.jpg" alt="" width="40px"></i>
+            <a href="#"><i><img src="images/img/logo_ig.jpg" alt="" width="40px"></i></a>
+            <a href="#"><i><img src="images/img/logo_facebook.jpg" alt="" width="40px"></i></a>
+            <a href="#"><i><img src="images/img/logo_twitter1.jpg" alt="" width="35px"></i></a>
+            <a href="#"><i><img src="images/img/logo_WA2.jpg" alt="" width="40px"></i></a>
           </p>
         </div>
       </div>

@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,7 +69,9 @@
             </form>
             <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a>
             <!-- <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-bell text-white'></i></a> -->
-            <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-user text-white'></i></a>
+            <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-user text-white'></i><?php echo $_SESSION['username'] ?></a>
+            <!-- <p class="text-white"></p> -->
+
             <!-- <a href="login.php" class="btn btn-outline-light rounded-pill px-3 py-2">Login</a> -->
 
           </div>
@@ -656,7 +664,7 @@
     </div>
   </section>
 
-  <footer class="py-5 footerCuy ">
+  <footer class="py-5 footerCuy footer_home">
     <div class="container">
       <div class="row mx-auto">
         <div class="col md-3">
@@ -688,10 +696,10 @@
           <h5 class="section-judul fw-bold">Social Media</h5>
           <p class="section-description">Berikut merupakan sosial media yang kami gunakan untuk melakukan promosi</p>
           <p class="section-description d-flex gap-4">
-            <i><img src="images/img/logo_ig.jpg" alt="" width="40px"></i>
-            <i><img src="images/img/logo_facebook.jpg" alt="" width="40px"></i>
-            <i><img src="images/img/logo_twitter1.jpg" alt="" width="35px"></i>
-            <i><img src="images/img/logo_WA2.jpg" alt="" width="40px"></i>
+            <a href="#"><i><img src="images/img/logo_ig.jpg" alt="" width="40px"></i></a>
+            <a href="#"><i><img src="images/img/logo_facebook.jpg" alt="" width="40px"></i></a>
+            <a href="#"><i><img src="images/img/logo_twitter1.jpg" alt="" width="35px"></i></a>
+            <a href="#"><i><img src="images/img/logo_WA2.jpg" alt="" width="40px"></i></a>
           </p>
         </div>
       </div>

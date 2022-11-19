@@ -20,22 +20,32 @@
         </h1>
       </div>
       <div class="card-text">
-        <form>
+        <form method="POST" action="cek_login.php">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label text-white">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input Your email" required>
+            <label for="exampleInputEmail1" class="form-label text-white">username</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input Your username" required autofocus name="username">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-white">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Input your password" required>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Input your password" required name="password">
           </div>
-          <div class="mb-3 form-check">
+          <div class="mb-3">
+            <select class="form-control" name="level" id="level">
+              <option value="owner">owner</option>
+              <option value="karyawan">karyawan</option>
+              <option value="member">member</option>
+              <option value="pelanggan">pelanggan</option>
+            </select>
+          </div>
+          <!-- <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label text-white" for="exampleCheck1">Check me out</label>
-          </div>
+          </div> -->
           <div class="d-grid gap-2">
-
             <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          <div class="d-grid gap-2 mt-3">
+            <a href="register.php" class="text-center text-white text-decoration-none">belum punya akun silahkan register!</a>
           </div>
         </form>
       </div>

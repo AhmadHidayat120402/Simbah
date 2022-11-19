@@ -426,7 +426,7 @@
     </div>
     </div>
   </section>
-  <footer class="py-5 footerCuy">
+  <footer class="py-5 footerCuy footer-index">
     <div class="container">
       <div class="row mx-auto">
         <div class="col md-3">
@@ -458,10 +458,10 @@
           <h5 class="section-judul fw-bold">Social Media</h5>
           <p class="section-description justify-content-center align-items-center">Berikut merupakan sosial media yang kami gunakan untuk melakukan promosi</p>
           <p class="section-description d-flex gap-4">
-            <i><img src="images/img/logo_ig.jpg" alt="" width="40px"></i>
-            <i><img src="images/img/logo_facebook.jpg" alt="" width="40px"></i>
-            <i><img src="images/img/logo_twitter1.jpg" alt="" width="35px"></i>
-            <i><img src="images/img/logo_WA2.jpg" alt="" width="40px"></i>
+            <a href="#"><i><img src="images/img/logo_ig.jpg" alt="" width="40px"></i></a>
+            <a href="#"><i><img src="images/img/logo_facebook.jpg" alt="" width="40px"></i></a>
+            <a href="#"><i><img src="images/img/logo_twitter1.jpg" alt="" width="35px"></i></a>
+            <a href="#"><i><img src="images/img/logo_WA2.jpg" alt="" width="40px"></i></a>
           </p>
         </div>
       </div>

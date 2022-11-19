@@ -116,6 +116,11 @@ section .image {
   background-color: var(--color-bg);
 }
 
+.footerCuy {
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+}
+
 /* .why-choose .card .icons {
   background-color: var(--color-bg);
   width: 50px;
@@ -201,6 +206,11 @@ section .image {
   left: 95%;
 }
 
+.footer-index {
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+}
+
 /* ========================= home_page ================== */
 
 .section-title_home {
@@ -226,6 +236,11 @@ section .image {
 .form-control {
   box-shadow: none;
   background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.footer_home {
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
 }
 
 /* ==================== Detail Page ===================== */
@@ -263,19 +278,16 @@ section .image {
   background-color: var(--color-primary) !important;
 }
 
-/* ============== car_page============ */
+/* ============== cart_page============ */
 .content-cart {
   margin-top: 2rem;
 }
-
-
 
 .cart-title {
   font-weight: 400;
   font-size: 1.5rem;
   margin-bottom: 2rem;
 }
-
 
 .card-checkout .card {
   width: 250px;
