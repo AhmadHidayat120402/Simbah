@@ -17,9 +17,10 @@ body {
 
 .login-form {
   width: 380px;
-  height: 550px;
+  height: 1000px;
   padding: 20px;
   border-radius: 20px;
+  overflow-y: scroll;
   /* background: transparent; */
   background: rgba(0, 0, 0, 0.5);
 }

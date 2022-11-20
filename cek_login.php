@@ -4,15 +4,15 @@
 require "connect.php";
 
 
-
-$password = mysqli_escape_string($koneksi, $_POST['password']);
-$pass = password_hash($password, PASSWORD_DEFAULT);
-$username = mysqli_escape_string($koneksi, $_POST['username']);
-$level = mysqli_escape_string($koneksi, $_POST['level']);
+// $pass = password_hash($password, PASSWORD_DEFAULT);
+$username = $_POST['username'];
+$password = $_POST['password'];
 
 // cek username, terdaftar atau tidak
-$cek_user = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username' and level = '$level'");
+$cek_user = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username' and password = '$password'");
+
 $user_valid = mysqli_fetch_array($cek_user);
+$id_status = $user_valid['id_status'];
 
 // uji jika email terdaftar
 if ($user_valid) {
@@ -25,16 +25,16 @@ if ($user_valid) {
     session_start();
     $_SESSION['username'] = $user_valid['username'];
     $_SESSION['nama_lengkap'] = $user_valid['nama_lengkap'];
-    $_SESSION['level'] = $user_valid['level'];
+    $_SESSION['id_status'] = $user_valid['id_status'];
 
     //  uji level user
-    if ($level == "owner") {
+    if ($id_status == 1) {
       header('location: Dashboard/index.php');
-    } elseif ($level == "karyawan") {
+    } elseif ($id_status == 2) {
       header('location: Dashboard/index.php');
-    } elseif ($level == "member") {
+    } elseif ($id_status == 3) {
       header('location: home.php');
-    } elseif ($level == "pelanggan") {
+    } elseif ($id_status == 4) {
       header('location: home.php');
     }
   } else {

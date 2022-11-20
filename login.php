@@ -1,3 +1,42 @@
+<?php
+
+session_start();
+include 'connect.php';
+
+if (isset($_POST['submit'])) {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  // cek user ada nggak
+  $cekuser = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username' and password = '$password'");
+  // user ada berapa
+  $hitung = mysqli_num_rows($cekuser);
+
+  if ($hitung > 0) {
+    // kalau data ditemukan
+    $ambildatalevel = mysqli_fetch_array($cekuser);
+    $level = $ambildatalevel['level'];
+
+    if ($level == 'owner') {
+      $_SESSION['log'] = 'Logged';
+      $_SESSION['level'] = 'level';
+      header('location: Dashboard/index.php');
+    } elseif ($level == "karyawan") {
+      header('location: Dashboard/index.php');
+    } elseif ($level == "member") {
+      header('location: home.php');
+    } elseif ($level == "pelanggan") {
+      header('location: home.php');
+    }
+  }
+}
+// else {
+//     echo "<script>alert('Maaf, login gagal, password anda tidak sesuai!'); document.location='login.php'</script>";
+//   }
+// } else {
+//   echo "<script>alert('Maaf, login gagal, username anda tidak terdaftar'); document.location='login.php'</script>";
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +51,7 @@
 </head>
 
 <body>
+
   <div class="global-container">
     <div class="card login-form">
       <div class="card-body">
@@ -29,20 +69,20 @@
             <label for="exampleInputPassword1" class="form-label text-white">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Input your password" required name="password">
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <select class="form-control" name="level" id="level">
               <option value="owner">owner</option>
               <option value="karyawan">karyawan</option>
               <option value="member">member</option>
               <option value="pelanggan">pelanggan</option>
             </select>
-          </div>
+          </div> -->
           <!-- <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label text-white" for="exampleCheck1">Check me out</label>
           </div> -->
           <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" name="submit">Login</button>
           </div>
           <div class="d-grid gap-2 mt-3">
             <a href="register.php" class="text-center text-white text-decoration-none">belum punya akun silahkan register!</a>

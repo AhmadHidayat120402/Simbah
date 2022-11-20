@@ -144,7 +144,7 @@
       <div class="d-flex flex-column flex-sm-column
     flex-md-row align-item-center justify-content-between gap-3 ">
         <h2 class="section-title w-50">Tersedia Aneka Buah</h2>
-        <a href="home.php" class="btn btn-primary rounded-pill mt-2 fw-bold">Explore More</a>
+        <a href="login.php" class="btn btn-primary rounded-pill mt-2 fw-bold">Explore More</a>
       </div>
       <div class="row mt-5">
         <div class="col-md-3 mt-3">

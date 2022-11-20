@@ -1,8 +1,10 @@
 <?php
-session_start();
-if (empty($_SESSION['username']) or empty($_SESSION['level'])) {
-  echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='login.php'</script>";
-}
+include 'session.php';
+include 'connect.php';
+// session_start();
+// if (empty($_SESSION['username'])) {
+//   echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='login.php'</script>";
+// }
 ?>
 
 

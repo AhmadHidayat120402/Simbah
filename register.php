@@ -2,20 +2,21 @@
 require 'connect.php';
 if (isset($_POST['register'])) {
 
-
-  $username = $_POST['username'];
   $nama_lengkap = $_POST['nama_lengkap'];
+  $username = $_POST['username'];
   $email = $_POST['email'];
-  $password = mysqli_escape_string($koneksi, $_POST['password']);
-  $level = $_POST['level'];
+  $no_telp = $_POST['no_telp'];
+  $passVall = $_POST['password'];
+  $jk = $_POST['jk'];
+  $alamat = $_POST['alamat'];
+  $id_status = $_POST['id_status'];
 
-  $query = "INSERT INTO users (username,nama_lengkap,email,password,level) VALUES ('$username','$nama_lengkap','$email','$password','$level')";
+  $query = "INSERT INTO users (nama_lengkap,username,email,no_telp,password,jk,alamat,id_status) VALUES ('$nama_lengkap','$username','$email','$no_telp','$passVall','$jk','$alamat','3')";
 
   $result = mysqli_query($koneksi, $query);
   header('location: login.php');
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,29 +42,43 @@ if (isset($_POST['register'])) {
       <div class="card-text">
         <form method="POST" action="register.php">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label text-white">Username</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input Your username" required name="username">
+            <label for="exampleInputEmail1" class="form-label text-white">nama lengkap</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input Your Name" required name="nama_lengkap">
           </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label text-white">nama lengkap</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input Your nama lengkap" required name="nama_lengkap">
+            <label for="exampleInputEmail1" class="form-label text-white">Username</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input Your username" required name="username">
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label text-white">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input Your email" required name="email">
           </div>
           <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label text-white">No Telepon</label>
+            <input type="tel" class="form-control" id="exampleInputPassword1" placeholder="Input your password" required name="no_telp">
+          </div>
+          <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-white">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Input your password" required name="password">
           </div>
+
           <div class="mb-3">
-            <select class="form-control" name="level" id="level">
-              <option value="owner">owner</option>
-              <option value="karyawan">karyawan</option>
-              <option value="member">member</option>
-              <option value="pelanggan">pelanggan</option>
-            </select>
+            <label for="exampleInputEmail1" class="form-label text-white">Jenis Kelamin</label>
+            <p><input type="radio" name="jk" id="jk" value=" pria" checked='checked'> Pria</p>
+            <p><input type="radio" name="jk" id="jk" value=" perempuan"> Perempuan</p>
           </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label text-white">Alamat</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Input your address" required name="alamat">
+          </div>
+
+          <!-- <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label text-white">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input Your email" required name="email">
+          </div> -->
+
+
           <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary" name="register">Submit</button>
           </div>
