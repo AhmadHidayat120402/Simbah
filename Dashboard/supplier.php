@@ -32,6 +32,7 @@ if (empty($_SESSION['username'])) {
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../vendor/boostrap/css/bootstrap.min.css">
 </head>
 
 <body id="page-top">
@@ -361,9 +362,50 @@ if (empty($_SESSION['username'])) {
                 <!-- End of Topbar -->
 
                 <div class="container-fluid mt-5">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Data Supplier</h1>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTambah">
+                            Tambah data
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modalTambah" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Supplier</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form action="" method="POST">
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1" class="form-label">No Telepon</label>
+                                                <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
+                                                <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control"></textarea>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success" data-bs-dismiss="modal" name="simpan">Simpan</button>
+                                            <button type="button" class="btn btn-danger" name="batal">Batal</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <table id="supplier" class="table table-striped">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Nama</th>
                                 <th>No Telepon</th>
                                 <th>Alamat</th>
@@ -373,22 +415,28 @@ if (empty($_SESSION['username'])) {
                         <tbody>
                             <?php
                             include '../connect.php';
-                            $supplier = mysqli_query($koneksi, "SELECT * FROM supplier");
+                            $no = 1;
+                            $supplier = mysqli_query($koneksi, "SELECT * FROM supplier Order by id_supplier DESC");
                             while ($row = mysqli_fetch_array($supplier)) {
                                 $nama = $row['nama_supplier'];
                                 $no_telp = $row['no_telp'];
                                 $alamat = $row['alamat'];
+
+                            ?>
+                                <tr>
+                                    <td><?php echo $no++ ?></td>
+                                    <td><?php echo $nama ?></td>
+                                    <td><?php echo $no_telp ?></td>
+                                    <td><?php echo $alamat ?></td>
+                                    <td>
+                                        <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                        <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> </a>
+                                    </td>
+                                </tr>
+                            <?php
+
                             }
                             ?>
-
-                            <tr>
-                                <td><?php echo $nama ?></td>
-                                <td><?php echo $no_telp ?></td>
-                                <td><?php echo $alamat ?></td>
-                                <td><a href="edit.php?id= <?php echo $row['id_pembeli']; ?>" class="btn btn-success btn-circle  <?php echo $dis; ?>"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-danger btn-circle <?php echo $nama; ?>" onClick="confirmModal('hapus.php?&id=<?php echo $row['id_pembeli']; ?>');"> <i class="fas fa-trash"></i> </a></td>
-                            </tr>
-                            
                         </tbody>
                     </table>
                     <script>
@@ -443,7 +491,8 @@ if (empty($_SESSION['username'])) {
 
     <!-- Bootstrap core JavaScript-->
     <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <script src="../vendor/boostrap/js/bootstrap.min.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
