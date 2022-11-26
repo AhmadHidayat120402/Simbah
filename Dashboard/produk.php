@@ -27,7 +27,6 @@ if (empty($_SESSION['username'])) {
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../vendor/DataTables/datatables.min.css">
 
 </head>
 
@@ -710,7 +709,6 @@ if (empty($_SESSION['username'])) {
         </div>
     </div>
 
-    <script src="../vendor/DataTables/datatables.min.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
