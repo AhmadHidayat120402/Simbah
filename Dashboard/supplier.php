@@ -421,7 +421,6 @@ if (empty($_SESSION['username'])) {
                                 $nama = $row['nama_supplier'];
                                 $no_telp = $row['no_telp'];
                                 $alamat = $row['alamat'];
-
                             ?>
                                 <tr>
                                     <td><?php echo $no++ ?></td>
@@ -434,7 +433,6 @@ if (empty($_SESSION['username'])) {
                                     </td>
                                 </tr>
                             <?php
-
                             }
                             ?>
                         </tbody>
