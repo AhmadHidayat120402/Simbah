@@ -311,7 +311,7 @@ if (empty($_SESSION['username'])) {
                         </li>
 
                     </ul>
-
+                    <a href="../logout.php" class="btn btn-light rounded-pill px-4 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-log-out text-white align-items-center justify-content-center'></i> Logout</a>
                 </nav>
                 <div class="container-fluid mt-5">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">

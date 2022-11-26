@@ -28,6 +28,7 @@ if (empty($_SESSION['username'])) {
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../vendor/DataTables/datatables.min.css">
+    <!-- <link rel="stylesheet" href="../styles/style.css"> -->
 
 </head>
 
@@ -40,7 +41,7 @@ if (empty($_SESSION['username'])) {
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon ">
                     <img src="img/fruit.png" width="35px" alt="">
                 </div>
@@ -351,8 +352,8 @@ if (empty($_SESSION['username'])) {
                                 </a>
                             </div>
                         </li>
-
                     </ul>
+                    <a href="../logout.php" class="btn btn-light rounded-pill px-4 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-log-out text-white align-items-center justify-content-center'></i> Logout</a>
 
                 </nav>
                 <!-- End of Topbar -->
