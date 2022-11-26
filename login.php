@@ -82,10 +82,10 @@ if (isset($_POST['submit'])) {
             <label class="form-check-label text-white" for="exampleCheck1">Check me out</label>
           </div> -->
           <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary" name="submit">Login</button>
+            <button class="btn btn-primary" type="submit">Login</button>
           </div>
           <div class="d-grid gap-2 mt-3">
-            <a href="register.php" class="text-center text-white text-decoration-none">belum punya akun silahkan register!</a>
+           <span style="color: #fff;">belum punya akun silahkan <a href="register.php" class="text-center  text-decoration-none" style="color:#d8db64; font-: bold;">register!</a></span>
           </div>
         </form>
       </div>

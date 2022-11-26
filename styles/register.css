@@ -47,6 +47,6 @@ input[type="password"] {
   transform: translateY(10px);
 }
 
-/* .btn:hover {
-  background: 1px solid #d8db64;
-} */
+ .btn:hover {
+  background-color:#d8db64;
+} 
