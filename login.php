@@ -81,9 +81,9 @@ if (isset($_POST['submit'])) {
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label text-white" for="exampleCheck1">Check me out</label>
           </div> -->
-          <div class="d-grid gap-2">
+          <!-- <div class="d-grid gap-2">
             <button class="btn btn-primary" type="submit">Login</button>
-          </div>
+          </div> -->
           <div class="d-grid gap-2 mt-3">
            <span style="color: #fff;">belum punya akun silahkan <a href="register.php" class="text-center  text-decoration-none" style="color:#d8db64; font-: bold;">register!</a></span>
           </div>
