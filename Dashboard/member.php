@@ -462,7 +462,7 @@ if (isset($_POST['bhapus'])) {
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table id="member" class="table table-striped">
+                        <table id="member" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -506,6 +506,7 @@ if (isset($_POST['bhapus'])) {
                                             <a href="#" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $no ?>"><i class="fas fa-trash"></i> </a>
                                         </td>
                                     </tr>
+
                                     <!-- awal modal ubah -->
                                     <div class="modal fade" id="modalUbah<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -551,7 +552,6 @@ if (isset($_POST['bhapus'])) {
                                                             <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
                                                             <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control"><?= $alamat ?></textarea>
                                                         </div>
-
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-primary" name="bUbah">Ubah</button>

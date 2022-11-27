@@ -12,7 +12,7 @@ $password = $_POST['password'];
 $cek_user = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username' and password = '$password'");
 
 $user_valid = mysqli_fetch_array($cek_user);
-$id_status = $user_valid['id_status'];
+// $id_status = $user_valid['id_status'];
 
 // uji jika email terdaftar
 if ($user_valid) {

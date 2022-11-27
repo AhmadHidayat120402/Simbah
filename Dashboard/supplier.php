@@ -1,9 +1,60 @@
 <?php
 
+require '../connect.php';
 session_start();
-if (empty($_SESSION['username'])) {
-    echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
+// if (empty($_SESSION['username'])) {
+//     echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
+// }
+
+if (isset($_POST['bsimpan'])) {
+    $nama = $_POST['nama'];
+    $no_telp = $_POST['no_telepon'];
+    $alamat = $_POST['alamat'];
+
+    $query = "INSERT INTO supplier (nama_supplier,no_telp,alamat) VALUES ('$nama','$no_telp','$alamat')";
+
+    $result = mysqli_query($koneksi, $query);
+
+    header('location: supplier.php');
 }
+
+
+if (isset($_POST['bUbah'])) {
+    $ubah = mysqli_query($koneksi, "UPDATE supplier SET
+    nama_supplier = '$_POST[nama]',
+    no_telp = '$_POST[no_telepon]',
+    alamat = '$_POST[alamat]' WHERE id_supplier = '$_POST[id_supplier]'
+    ");
+
+    if ($ubah) {
+        echo "<script>
+        alert ('berhasil ubah data');
+        document.location = 'supplier.php';
+        </script>";
+    } else {
+        echo "<script>
+        alert ('gagal ubah data');
+        document.location = 'supplier.php';
+        </script>";
+    }
+}
+
+if (isset($_POST['bhapus'])) {
+    $queryHapus = mysqli_query($koneksi, "DELETE FROM supplier WHERE id_supplier = '$_POST[id_supplier]'");
+
+    if ($queryHapus) {
+        echo "<script>
+        alert ('berhasil hapus data');
+        document.location = 'supplier.php';
+        </script>";
+    } else {
+        echo "<script>
+        alert ('gagal hapus data');
+        document.location = 'supplier.php';
+        </script>";
+    }
+}
+
 ?>
 
 
@@ -66,54 +117,6 @@ if (empty($_SESSION['username'])) {
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
-
-            <!-- Divider -->
-            <!-- <hr class="sidebar-divider"> -->
-
-            <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-                Interface
-            </div> -->
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Data</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded"> -->
-            <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-            <!-- <a class="collapse-item" href="pemilik.php">Pemilik</a>
-                        <a class="collapse-item" href="karyawan.php">Karyawan</a>
-                        <a class="collapse-item" href="member.php">Member</a>
-                        <a class="collapse-item" href="pelanggan.php">Pelanggan</a>
-                        <a class="collapse-item" href="produk.php">Produk</a>
-                        <a class="collapse-item" href="transaksi.php">Transaksi</a>
-                        <a class="collapse-item" href="supplier.php">Supplier</a>
-                    </div>
-                </div>
-            </li> -->
-
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Laporan</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded"> -->
-            <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-            <!-- <a class="collapse-item" href="pemilik.php">Pemilik</a>
-                        <a class="collapse-item" href="karyawan.php">Karyawan</a>
-                        <a class="collapse-item" href="pelanggan.php">Pelanggan</a>
-                        <a class="collapse-item" href="produk.php">Produk</a>
-                        <a class="collapse-item" href="transaksi.php">Transaksi</a>
-                    </div>
-                </div>
-            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -394,8 +397,8 @@ if (empty($_SESSION['username'])) {
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-success" data-bs-dismiss="modal" name="simpan">Simpan</button>
-                                            <button type="button" class="btn btn-danger" name="batal">Batal</button>
+                                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="bsimpan">Simpan</button>
+                                            <button type="submit" class="btn btn-danger" name="batal">Batal</button>
                                         </div>
                                     </form>
                                 </div>
@@ -418,6 +421,7 @@ if (empty($_SESSION['username'])) {
                             $no = 1;
                             $supplier = mysqli_query($koneksi, "SELECT * FROM supplier Order by id_supplier DESC");
                             while ($row = mysqli_fetch_array($supplier)) {
+                                $id_supplier = $row['id_supplier'];
                                 $nama = $row['nama_supplier'];
                                 $no_telp = $row['no_telp'];
                                 $alamat = $row['alamat'];
@@ -428,10 +432,69 @@ if (empty($_SESSION['username'])) {
                                     <td><?php echo $no_telp ?></td>
                                     <td><?php echo $alamat ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                        <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> </a>
+                                        <a href="#" class="btn btn-warning rounded-circle" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $no ?>"><i class="fas fa-edit"></i></a>
+                                        <a href="#" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $no ?>"><i class="fas fa-trash"></i> </a>
                                     </td>
                                 </tr>
+                                <!-- awal modal ubah -->
+                                <div class="modal fade" id="modalUbah<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Supplier</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form action="" method="POST">
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="id_supplier" id="id_supplier" value="<?php echo $id_supplier ?>">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama" value="<?php echo $nama ?>">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlTextarea1" class="form-label">No Telepon</label>
+                                                        <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon" value="<?php echo $no_telp ?>">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
+                                                        <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control"><?php echo $alamat ?></textarea>
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="bUbah">Ubah</button>
+                                                    <button type="submit" class="btn btn-danger" name="batal">Batal</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- akhir modal ubah -->
+
+                                <!-- awal modal hapus -->
+                                <div class="modal fade" id="modalHapus<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Supplier</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form action="" method="POST">
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="id_supplier" id="id_supplier" value="<?php echo $id_supplier ?>">
+                                                    <h5 class="text-center">Apakah anda yakin ingin menghapus data ini ? <br>
+                                                        <span class="text-danger"><?= $row['nama_supplier'] ?> - <?= $row['alamat'] ?></span>
+                                                    </h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="bhapus">Hapus</button>
+                                                    <button type="submit" class="btn btn-danger" name="batal">Batal</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- akhir  modal -->
                             <?php
                             }
                             ?>
