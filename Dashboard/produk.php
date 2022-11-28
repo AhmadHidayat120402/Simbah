@@ -135,7 +135,9 @@ if (isset($_POST['bhapus'])) {
                 </div>
                 <div class="sidebar-brand-text mx-3">SiMbah</div>
             </a>
-
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
@@ -174,7 +176,7 @@ if (isset($_POST['bhapus'])) {
                     <span>karyawan</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="meProdukmber.php">
+                <a class="nav-link" href="member.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>member</span></a>
             </li>
@@ -193,14 +195,19 @@ if (isset($_POST['bhapus'])) {
                     <i class="fas fa-fw fa-table"></i>
                     <span>produk</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="transaksi.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>transaksi</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+            <!-- <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            </div> -->
 
         </ul>
         <!-- End of Sidebar -->

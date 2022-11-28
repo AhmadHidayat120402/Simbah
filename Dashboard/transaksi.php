@@ -1,9 +1,92 @@
 <?php
 
+require '../connect.php';
 session_start();
-if (empty($_SESSION['username'])) {
-    echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
+// if (empty($_SESSION['username'])) {
+//     echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
+// }
+
+if (isset($_POST['bsimpan'])) {
+
+    $nama_lengkap = $_POST['nama'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $no_telp = $_POST['no_telepon'];
+    $passVall = $_POST['password'];
+    $jk = $_POST['jenis_kelamin'];
+    $alamat = $_POST['alamat'];
+    $id_status = $_POST['id_status'];
+
+    $query = "INSERT INTO users (nama_lengkap,username,email,no_telp,password,jk,alamat,id_status) VALUES ('$nama_lengkap','$username','$email','$no_telp','$passVall','$jk','$alamat','3')";
+
+    $result = mysqli_query($koneksi, $query);
+    header('location: pelanggan.php');
+
+    // if ($result) {
+    //     echo "<script>
+    //     alert('simpan data sukses');
+    //     document.location= 'member.php';
+    //     </script>";
+    // } else {
+    //     echo "<script>
+    //     alert('simpan data gagal');
+    //     document.location= 'member.php';
+    //     </script>";
+    // }
 }
+
+if (isset($_POST['bUbah'])) {
+
+    $ubah = mysqli_query($koneksi, "UPDATE users SET 
+        nama_lengkap = '$_POST[nama]',
+        username = '$_POST[username]',
+        email = '$_POST[email]',
+        no_telp = '$_POST[no_telepon]',
+        password = '$_POST[password]',
+        jk = '$_POST[jenis_kelamin]',
+        alamat = '$_POST[alamat]'
+        WHERE id_pembeli = '$_POST[id_pembeli]'
+    ");
+    // header('location: member.php');
+
+    if ($ubah) {
+        echo "<script>
+        alert('ubah data sukses');
+        document.location= 'pelanggan.php';
+        </script>";
+    } else {
+        echo "<script>
+        alert('ubah data gagal');
+        document.location= 'pelanggan.php';
+        </script>";
+    }
+}
+
+if (isset($_POST['bhapus'])) {
+
+    $hapus = mysqli_query($koneksi, "DELETE FROM users
+        WHERE id_pembeli = '$_POST[id_pembeli]'
+    ");
+
+    // header('location: member.php');
+
+    if ($hapus) {
+        echo "<script>
+        alert('hapus data sukses');
+        document.location= 'pelanggan.php';
+        </script>";
+    } else {
+        echo "<script>
+        alert('hapus data gagal');
+        document.location= 'pelanggan.php';
+        </script>";
+    }
+}
+
+
+
+
+
 ?>
 
 
@@ -27,6 +110,13 @@ if (empty($_SESSION['username'])) {
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../vendor/boostrap/css/bootstrap.min.css">
+
 
 </head>
 
@@ -45,6 +135,9 @@ if (empty($_SESSION['username'])) {
                 </div>
                 <div class="sidebar-brand-text mx-3">SiMbah</div>
             </a>
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -61,54 +154,6 @@ if (empty($_SESSION['username'])) {
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
-
-            <!-- Divider -->
-            <!-- <hr class="sidebar-divider"> -->
-
-            <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-                Interface
-            </div> -->
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Data</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded"> -->
-            <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-            <!-- <a class="collapse-item" href="pemilik.php">Pemilik</a>
-                        <a class="collapse-item" href="karyawan.php">Karyawan</a>
-                        <a class="collapse-item" href="member.php">Member</a>
-                        <a class="collapse-item" href="pelanggan.php">Pelanggan</a>
-                        <a class="collapse-item" href="produk.php">Produk</a>
-                        <a class="collapse-item" href="transaksi.php">Transaksi</a>
-                        <a class="collapse-item" href="supplier.php">Supplier</a>
-                    </div>
-                </div>
-            </li> -->
-
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Laporan</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded"> -->
-            <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-            <!-- <a class="collapse-item" href="pemilik.php">Pemilik</a>
-                        <a class="collapse-item" href="karyawan.php">Karyawan</a>
-                        <a class="collapse-item" href="pelanggan.php">Pelanggan</a>
-                        <a class="collapse-item" href="produk.php">Produk</a>
-                        <a class="collapse-item" href="transaksi.php">Transaksi</a>
-                    </div>
-                </div>
-            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -151,14 +196,19 @@ if (empty($_SESSION['username'])) {
                     <i class="fas fa-fw fa-table"></i>
                     <span>produk</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="transaksi.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>transaksi</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+            <!-- <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            </div> -->
 
         </ul>
         <!-- End of Sidebar -->
@@ -352,317 +402,213 @@ if (empty($_SESSION['username'])) {
                         </li>
 
                     </ul>
+                    <a href="../logout.php" class="btn btn-light rounded-pill px-4 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-log-out text-white align-items-center justify-content-center'></i> Logout</a>
 
                 </nav>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid mt-5">
 
-                    <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
+                        <h1 class="h3 mb-0 text-gray-800">Data Pelanggan</h1>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTambah">
+                            Tambah data
+                        </button>
 
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modalTambah" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Pelanggan</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                    <form action="" method="POST">
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama">
                                             </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Username</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Username" name="username">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Email" name="email">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1" class="form-label">No Telepon</label>
+                                                <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Password" name="password">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Jenis Kelamin</label>
+                                                <select name="jenis_kelamin" id="jenis_kelamin" class="form-select">
+                                                    <option value="Laki">Laki</option>
+                                                    <option value="Perempuan">Perempuan</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
+                                                <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control"></textarea>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary" name="bsimpan">Simpan</button>
+                                            <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="member" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>No Telepon</th>
+                                    <th>Password</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Alamat</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                include '../connect.php';
+                                $no = 1;
+                                $member = mysqli_query($koneksi, "SELECT id_pembeli,nama_lengkap,username,email,no_telp,password,jk,alamat FROM users WHERE id_status = 3  Order by id_pembeli DESC");
+                                while ($row = mysqli_fetch_array($member)) {
+                                    $id_pembeli = $row['id_pembeli'];
+                                    $nama = $row['nama_lengkap'];
+                                    $username = $row['username'];
+                                    $email = $row['email'];
+                                    $no_telp = $row['no_telp'];
+                                    $password = $row['password'];
+                                    $jenis_kelamin = $row['jk'];
+                                    $alamat = $row['alamat'];
+
+                                ?>
+                                    <tr>
+                                        <td><?php echo $no++ ?></td>
+                                        <td><?php echo $nama ?></td>
+                                        <td><?php echo $username ?></td>
+                                        <td><?php echo $email ?></td>
+                                        <td><?php echo $no_telp ?></td>
+                                        <td><?php echo $password ?></td>
+                                        <td><?php echo $jenis_kelamin ?></td>
+                                        <td><?php echo $alamat ?></td>
+                                        <td>
+                                            <a href="#" class="btn btn-warning rounded-circle" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $no ?>"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $no ?>"><i class="fas fa-trash"></i> </a>
+                                        </td>
+                                    </tr>
+
+                                    <!-- awal modal ubah -->
+                                    <div class="modal fade" id="modalUbah<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Pelanggan</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <form action="" method="POST">
+
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="id_pembeli" id="id_pembeli" value="<?= $id_pembeli  ?>">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama" value="<?= $nama ?>">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlTextarea1" class="form-label">Username</label>
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Username" name="username" value="<?= $username ?>">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlTextarea1" class="form-label">Email</label>
+                                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Email" name="email" value="<?= $email ?>">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlTextarea1" class="form-label">No Telepon</label>
+                                                            <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon" value="<?= $no_telp ?>">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlTextarea1" class="form-label">Password</label>
+                                                            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Password" name="password" value="<?= $password ?>">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlTextarea1" class="form-label">Jenis Kelamin</label>
+                                                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-select">
+                                                                <option value="<?= $jenis_kelamin  ?>">
+                                                                    <?= $jenis_kelamin ?></option>
+                                                                <option value="Laki">Laki</option>
+                                                                <option value="Perempuan">Perempuan</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
+                                                            <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control"><?= $alamat ?></textarea>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary" name="bUbah">Ubah</button>
+                                                        <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                    <!-- akhir modal ubah -->
+                                    <div class="modal fade" id="modalHapus<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi Hapus Data Pelanggan</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <form action="" method="POST">
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="id_pembeli" id="id_pembeli" value="<?= $id_pembeli  ?>">
+                                                        <h5 class="text-center">Apakah anda yakin akan menghapus data ini ? <br>
+                                                            <span class="text-danger"><?= $row['username'] ?> - <?= $row['email']  ?></span>
+                                                        </h5>
 
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary" name="bhapus">Hapus</button>
+                                                        <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                    <!-- akhir modal ubah -->
+                                <?php
+
+                                }
+                                ?>
+                            </tbody>
+                        </table>
                     </div>
 
-                    <!-- Content Row -->
 
-                    <div class="row">
-
-                        <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLinkk" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Project Card Example -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Color System -->
-                            <div class="row">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-primary text-white shadow">
-                                        <div class="card-body">
-                                            Primary
-                                            <div class="text-white-50 small">#4e73df</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-success text-white shadow">
-                                        <div class="card-body">
-                                            Success
-                                            <div class="text-white-50 small">#1cc88a</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-info text-white shadow">
-                                        <div class="card-body">
-                                            Info
-                                            <div class="text-white-50 small">#36b9cc</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-warning text-white shadow">
-                                        <div class="card-body">
-                                            Warning
-                                            <div class="text-white-50 small">#f6c23e</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-danger text-white shadow">
-                                        <div class="card-body">
-                                            Danger
-                                            <div class="text-white-50 small">#e74a3b</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-secondary text-white shadow">
-                                        <div class="card-body">
-                                            Secondary
-                                            <div class="text-white-50 small">#858796</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-light text-black shadow">
-                                        <div class="card-body">
-                                            Light
-                                            <div class="text-black-50 small">#f8f9fc</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-dark text-white shadow">
-                                        <div class="card-body">
-                                            Dark
-                                            <div class="text-white-50 small">#5a5c69</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Illustrations -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="...">
-                                    </div>
-                                    <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                        constantly updated collection of beautiful svg images that you can use
-                                        completely free and without attribution!</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                                        unDraw &rarr;</a>
-                                </div>
-                            </div>
-
-                            <!-- Approach -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                        CSS bloat and poor page performance. Custom CSS classes are used to create
-                                        custom components and custom utility classes.</p>
-                                    <p class="mb-0">Before working with this theme, you should become familiar with the
-                                        Bootstrap framework, especially the utility classes.</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
+                    <!-- akhir modal -->
+                    <script>
+                        $(document).ready(function() {
+                            $('#member').DataTable();
+                        });
+                    </script>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -673,7 +619,7 @@ if (empty($_SESSION['username'])) {
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; SiMbah 2022</span>
                     </div>
                 </div>
             </footer>
@@ -710,8 +656,10 @@ if (empty($_SESSION['username'])) {
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+    <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <!-- <script src="../vendor/DataTables/datatables.min.js"></script> -->
+    <script src="../vendor/boostrap/js/bootstrap.min.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
