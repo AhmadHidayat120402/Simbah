@@ -7,18 +7,20 @@ require "connect.php";
 // $pass = password_hash($password, PASSWORD_DEFAULT);
 $username = $_POST['username'];
 $password = $_POST['password'];
+// $id_status = $_POST['id_status'];
 
 // cek username, terdaftar atau tidak
 $cek_user = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username' and password = '$password'");
 
 $user_valid = mysqli_fetch_array($cek_user);
-// $id_status = $user_valid['id_status'];
+
+
 
 // uji jika email terdaftar
 if ($user_valid) {
   //  jika username terdaftar
   // cek password sesuai atau tidak
-  if ($password == $user_valid['password']) {
+  if ($password == $user_valid['password'] && $id_status = $user_valid['id_status']) {
 
     // jika password sesuai buat session
 
