@@ -54,20 +54,18 @@ if (isset($_POST['submit'])) {
 
   <div class="global-container">
     <div class="card login-form">
-      <div class="card-body">
-        <h1 class="card-title text-center text-white">
-          Login
-        </h1>
-      </div>
+      <h1 class="card-title text-center text-white mb-5">
+        Login
+      </h1>
       <div class="card-text">
         <form method="POST" action="cek_login.php">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label text-white">username</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input Your username" required autofocus name="username">
+            <label for="exampleInputEmail1" class="form-label text-white">Username</label>
+            <input type="text" class="form-control btn-login-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Username" required autofocus name="username">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-white">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Input your password" required name="password">
+            <input type="password" class="form-control btn-login-form" id="exampleInputPassword1" placeholder="Masukkan Password" required name="password">
           </div>
           <!-- <div class="mb-3">
             <select class="form-control" name="level" id="level">
@@ -84,8 +82,8 @@ if (isset($_POST['submit'])) {
           <div class="d-grid gap-2">
             <button class="btn btn-primary" type="submit">Login</button>
           </div>
-          <div class="d-grid gap-2 mt-3">
-           <span style="color: #fff;">belum punya akun silahkan <a href="register.php" class="text-center  text-decoration-none" style="color:#d8db64; font-: bold;">register!</a></span>
+          <div class="d-grid gap-2 mt-3 mb-5">
+           <span style="color: #fff;">Belum punya akun? <a href="register.php" class="text-center  text-decoration-none" style="color:#d8db64; font-: bold;">Register</a></span>
           </div>
         </form>
       </div>

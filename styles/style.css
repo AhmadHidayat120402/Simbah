@@ -292,3 +292,12 @@ section .image {
 .card-checkout .card {
   width: 250px;
 }
+
+.text-limit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}

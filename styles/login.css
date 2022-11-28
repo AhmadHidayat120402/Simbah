@@ -18,20 +18,26 @@ body {
 
 .login-form {
   width: 380px;
-  height: 550px;
+  height: fit-content;
   padding: 20px;
   border-radius: 20px;
   /* background: transparent; */
   background: rgba(0, 0, 0, 0.5);
 }
 
-input[type="email"],
-input[type="password"] {
+.btn-login-form {
   /* background-color: aqua; */
   border: 1px solid #d8db64;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   margin-bottom: 20px;
+  color: white;
+}
+
+input:focus {
+  border: 1px solid white !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
 }
 
 .card-title {

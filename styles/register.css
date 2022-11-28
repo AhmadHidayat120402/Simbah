@@ -1,13 +1,13 @@
 html,
 body {
-  height: 100%;
+  max-height: 100vh;
+  overflow: hidden;
   background-image: url("../images/img/bg-apple.jpg");
   background-size: cover;
-  min-height: 100vh;
 }
 
 .global-container {
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,7 +17,7 @@ body {
 
 .login-form {
   width: 380px;
-  height: 1000px;
+  height: 700px;
   padding: 20px;
   border-radius: 20px;
   overflow-y: scroll;
@@ -25,13 +25,27 @@ body {
   background: rgba(0, 0, 0, 0.5);
 }
 
-input[type="email"],
-input[type="password"] {
+.btn-register-form {
   /* background-color: aqua; */
   border: 1px solid #d8db64;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   margin-bottom: 20px;
+  color: white;
+}
+
+input:not([type="radio"]):focus {
+  border: 1px solid white !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
+}
+
+input[type="radio"]:checked:focus {
+  background: #d8db64 !important;
+}
+
+input[type="radio"]:checked:not(:focus) {
+  background: #d8db64 !important;
 }
 
 .card-title {
@@ -49,4 +63,27 @@ input[type="password"] {
 
  .btn:hover {
   background-color:#d8db64;
-} 
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d8db64;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b0b250; 
+}

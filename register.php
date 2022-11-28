@@ -35,42 +35,44 @@ if (isset($_POST['register'])) {
   <div class="global-container">
     <div class="card login-form">
       <div class="card-body">
-        <h1 class="card-title text-center text-white">
+        <h1 class="card-title text-center text-white pt-0">
           Register
         </h1>
       </div>
-      <div class="card-text">
+      <div class="card-text mt-2">
         <form method="POST" action="register.php">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label text-white">nama lengkap</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input Your Name" required name="nama_lengkap">
+            <label for="exampleInputEmail1" class="form-label text-white">Nama lengkap</label>
+            <input type="text" class="form-control btn-register-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Nama" required name="nama_lengkap">
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label text-white">Username</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input Your username" required name="username">
+            <input type="text" class="form-control btn-register-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Username" required name="username">
           </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label text-white">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input Your email" required name="email">
+            <label for="exampleInputEmail1" class="form-label text-white">Email</label>
+            <input type="email" class="form-control btn-register-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Email" required name="email">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-white">No Telepon</label>
-            <input type="tel" class="form-control" id="exampleInputPassword1" placeholder="Input your password" required name="no_telp">
+            <input type="text" class="form-control btn-register-form" id="exampleInputPassword1" placeholder="Masukkan No Telepon" required name="no_telp">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-white">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Input your password" required name="password">
+            <input type="password" class="form-control btn-register-form" id="exampleInputPassword1" placeholder="Masukkan Password" required name="password">
           </div>
 
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label text-white">Jenis Kelamin</label>
-            <p><input type="radio" name="jk" id="jk" value=" pria" checked='checked'> Pria</p>
-            <p><input type="radio" name="jk" id="jk" value=" perempuan"> Perempuan</p>
+            <label for="exampleInputEmail1" class="form-check-label text-white mb-2">Jenis Kelamin</label>
+            <div class="p-2 btn-register-form text-white-50">
+              <p class="m-0 mb-1"><input type="radio" class="form-check-input" name="jk" id="jk" value="laki-laki"> Laki-laki</p>
+              <p class="m-0"><input type="radio" class="form-check-input" name="jk" id="jk" value="perempuan"> Perempuan</p>
+            </div>
           </div>
 
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-white">Alamat</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Input your address" required name="alamat">
+            <input type="text" class="form-control btn-register-form" id="exampleInputPassword1" placeholder="Masukkan Alamat" required name="alamat">
           </div>
 
           <!-- <div class="mb-3">
@@ -79,7 +81,7 @@ if (isset($_POST['register'])) {
           </div> -->
 
 
-          <div class="d-grid gap-2">
+          <div class="d-grid gap-2 mb-3">
             <button type="submit" class="btn btn-primary" name="register">Submit</button>
           </div>
         </form>

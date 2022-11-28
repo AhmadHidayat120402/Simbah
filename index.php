@@ -157,7 +157,7 @@
                 Rp 18.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat">Mengonsumsi mangga dapat melindungi kita dari jenis penyakit kanker dan
+              <p class="text-manfaat text-limit">Mengkonsumsi mangga dapat melindungi kita dari jenis penyakit kanker dan
                 mangga mengandung vitamin A.
               </p>
             </div>
@@ -179,7 +179,7 @@
                 Rp 15.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat">Manfaat makan buah pepaya setiap hari bisa membantu orang yang bermasalah dengan
+              <p class="text-manfaat text-limit">Manfaat makan buah pepaya setiap hari bisa membantu orang yang bermasalah dengan
                 pencernaannya</p>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
@@ -201,7 +201,7 @@
                 Rp 23.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat">Sebagai sumber antioksidan bisa membantu mengobati kulit yang terbakar, kulit
+              <p class="text-manfaat text-limit">Sebagai sumber antioksidan bisa membantu mengobati kulit yang terbakar, kulit
                 kering dan masalah
                 jerawat</p>
             </div>
@@ -224,7 +224,7 @@
                 Rp 22.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat">Manfaatnya sebagai penurun tekanan darah, baik untuk keseahatan dan tentunya kaya
+              <p class="text-manfaat text-limit">Manfaatnya sebagai penurun tekanan darah, baik untuk keseahatan dan tentunya kaya
                 akan vitamin C</p>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
@@ -268,7 +268,7 @@
 
   <section class="travel-Packages">
     <div class="container">
-      <h2 class="section-title text-center ">Favorite buah</h2>
+      <h2 class="section-title text-center ">Favorite Buah</h2>
       <p class="section-description text-center"> favorite buah merupakan jenis buah yang paling banyak digemari pelanggan dan banyak terjual <br> terdapat 3 jenis buah yang paling banyak dikonsumsi yaitu Alpukat, Apel merah, Belimbing.</p>
       <div class="row mt-5">
         <div class="col-md-4 mt-3">
