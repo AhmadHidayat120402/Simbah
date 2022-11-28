@@ -453,7 +453,7 @@ if (isset($_POST['bhapus'])) {
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary" name="bsimpan">Simpan</button>
+                                            <button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
                                             <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
                                         </div>
                                     </form>

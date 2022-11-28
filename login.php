@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
             <button class="btn btn-primary" type="submit">Login</button>
           </div>
           <div class="d-grid gap-2 mt-3 mb-5">
-           <span style="color: #fff;">Belum punya akun? <a href="register.php" class="text-center  text-decoration-none" style="color:#d8db64; font-: bold;">Register</a></span>
+           <span style="color: #fff;">Belum punya akun? <a href="register.php" class="text-center  text-decoration-none" style="color:#d8db64; font: bold;">Register</a></span>
           </div>
         </form>
       </div>
