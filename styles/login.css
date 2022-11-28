@@ -44,15 +44,18 @@ input:focus {
   padding-top: 20px;
 }
 
-.btn {
-  background-color: rgba(0, 0, 0, 0.5);
+.btn-primary {
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   align-items: center;
-  color: grey;
+  color: #fff;
   border: 1px solid #d8db64;
   transform: translateY(10px);
 }
 
+ .btn-primary:hover {
+  background-color:#d8db64 !important;
+}
 
 /* .submit:hover {
    background-color: blue; 
