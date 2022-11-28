@@ -26,18 +26,18 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#about">About</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Packages
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Aneka buah</a></li>
-                  <li><a class="dropdown-item" href="#">Buah favorite</a></li>
+                  <li><a class="dropdown-item" href="#food">Aneka buah</a></li>
+                  <li><a class="dropdown-item" href="#favFood">Buah favorite</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
@@ -45,9 +45,9 @@
                   Selengkapnya
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Kata customers</a></li>
-                  <li><a class="dropdown-item" href="#">Alamat</a></li>
-                  <li><a class="dropdown-item" href="#">Media sosial</a></li>
+                  <li><a class="dropdown-item" href="#cus">Kata customers</a></li>
+                  <li><a class="dropdown-item" href="#alamat">Alamat</a></li>
+                  <li><a class="dropdown-item" href="#footer">Media sosial</a></li>
                 </ul>
               </li>
             </ul>
@@ -67,10 +67,10 @@
   </header>
 
   <section class="why-choose">
-    <div class="container">
+    <div class="container" id="about" style="padding-top:5rem !important;" >
       <div class="d-flex flex-column flex-sm-column
       flex-md-row align-item-center justify-content-between gap-3">
-        <h2 class="section-title w-75">Mengapa memilih kami?</h2>
+        <h2 class="section-title w-75" >Mengapa memilih kami?</h2>
         <p class="section-description"> kami menjual berbagai macam buah yang tentunya buah segar dan sehat</p>
       </div>
       <div class="row mt-5">
@@ -139,10 +139,10 @@
     </div>
   </section>
 
-  <section class="popular-destionation">
-    <div class="container">
+  <section class="popular-destionation"  >
+    <div class="container" id="food" style="padding-top:5rem !important;">
       <div class="d-flex flex-column flex-sm-column
-    flex-md-row align-item-center justify-content-between gap-3 ">
+    flex-md-row align-item-center justify-content-between gap-3">
         <h2 class="section-title w-50">Tersedia Aneka Buah</h2>
         <a href="login.php" class="btn btn-primary rounded-pill mt-2 fw-bold">Explore More</a>
       </div>
@@ -266,8 +266,8 @@
     </div>
   </section>
 
-  <section class="travel-Packages">
-    <div class="container">
+  <section class="travel-Packages" id="favFood" style="padding-top:5rem !important;" >
+    <div class="container" ">
       <h2 class="section-title text-center ">Favorite Buah</h2>
       <p class="section-description text-center"> favorite buah merupakan jenis buah yang paling banyak digemari pelanggan dan banyak terjual <br> terdapat 3 jenis buah yang paling banyak dikonsumsi yaitu Alpukat, Apel merah, Belimbing.</p>
       <div class="row mt-5">
@@ -318,7 +318,7 @@
   </section>
 
   <section class="testimonial">
-    <div class="container">
+    <div class="container" id="cus" style="padding-top:6rem !important;">
       <h2 class="section-title">Apa yang mereka katakan tentang kami ?</h2>
       <p class="section-description">Berikut merupakan penilaian dari pelanggan yang sudah membeli buah dari toko kami
         <br>
@@ -383,8 +383,8 @@
     </div>
   </section>
 
-  <section class="subscirber">
-    <div class="container">
+  <section class="subscirber"> 
+    <div class="container" id="alamat" style="padding-top:5rem;">
       <div class="row ">
         <div class="col-md-6 position-relative">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.318529169943!2d113.71703871433064!3d-8.170629484146595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695cd393785a9%3A0x6457ebd393aec71a!2sPandawa%20Fruit%20Store!5e0!3m2!1sen!2sid!4v1667572267418!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -426,8 +426,8 @@
     </div>
     </div>
   </section>
-  <footer class="py-5 footerCuy footer-index">
-    <div class="container">
+  <footer class="py-5 footerCuy footer-index" >
+    <div class="container" id="footer" >
       <div class="row mx-auto">
         <div class="col md-3">
           <a href="#" class="text-decoration-none">
