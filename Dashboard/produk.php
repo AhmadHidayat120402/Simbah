@@ -6,18 +6,21 @@ session_start();
 //     echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
 // }
 
+
+
+
 if (isset($_POST['bsimpan'])) {
 
-    $nama_lengkap = $_POST['nama'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $no_telp = $_POST['no_telepon'];
-    $passVall = $_POST['password'];
-    $jk = $_POST['jenis_kelamin'];
-    $alamat = $_POST['alamat'];
-    $id_status = $_POST['id_status'];
+    $kode_barang = $POST['kode_barang'];
+    $nama_barang = $POST['nama_barang'];
+    $harga_beli = $POST['harga_beli'];
+    $harga_jual = $POST['harga_jual'];
+    $stok = $POST['stok'];
+    $image = $POST['image'];
+    $id_supplier = $POST['id_supplier'];
+    $nama_supplier = $POST['nama_supplier'];
 
-    $query = "INSERT INTO users (nama_lengkap,username,email,no_telp,password,jk,alamat,id_status) VALUES ('$nama_lengkap','$username','$email','$no_telp','$passVall','$jk','$alamat','1')";
+    $query = "INSERT INTO barang JOIN supplier (nama_lengkap,username,email,no_telp,password,jk,alamat,id_status) VALUES ('$nama_lengkap','$username','$email','$no_telp','$passVall','$jk','$alamat','1')";
 
     $result = mysqli_query($koneksi, $query);
     header('location: produk.php');
@@ -64,8 +67,8 @@ if (isset($_POST['bUbah'])) {
 
 if (isset($_POST['bhapus'])) {
 
-    $hapus = mysqli_query($koneksi, "DELETE FROM users
-        WHERE id_pembeli = '$_POST[id_pembeli]'
+    $hapus = mysqli_query($koneksi, "DELETE FROM barang
+        WHERE id_barang = '$_POST[id_barang]'
     ");
 
     // header('location: member.php');
@@ -424,38 +427,36 @@ if (isset($_POST['bhapus'])) {
                                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Produk</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form action="" method="POST">
+                                    <form action="" method="POST" enctype="multipart/form-data">
                                         <div class="modal-body">
+                                            <input type="hidden" name="action" id="action" value="add">
                                             <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama">
+                                                <label for="exampleFormControlInput1" class="form-label">kode barang</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_buah">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Username</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Username" name="username">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Nama Buah</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_buah">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Email</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Email" name="email">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Harga Beli</label>
+                                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Beli" name="harga_beli">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">No Telepon</label>
-                                                <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Harga Jual</label>
+                                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Jual" name="harga_jual">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Password" name="password">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Stok</label>
+                                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Jenis Kelamin</label>
-                                                <select name="jenis_kelamin" id="jenis_kelamin" class="form-select">
-                                                    <option value="Laki">Laki</option>
-                                                    <option value="Perempuan">Perempuan</option>
-                                                </select>
+                                                <label for="exampleFormControlTextarea1" class="form-label">Gambar</label>
+                                                <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-                                                <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control"></textarea>
+                                                <label for="exampleFormControlTextarea1" class="form-label">ID Supplier</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan ID Supplier" name="id_supplier">
                                             </div>
 
                                         </div>
@@ -473,13 +474,14 @@ if (isset($_POST['bhapus'])) {
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>kode Barang</th>
+                                    <th>kode Buah</th>
                                     <th>Nama Buah</th>
                                     <th>Harga Beli</th>
                                     <th>Harga Jual</th>
                                     <th>Stok</th>
                                     <th>Image</th>
                                     <th>Nama Supplier</th>
+                                    <th>ID Supplier</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -487,7 +489,7 @@ if (isset($_POST['bhapus'])) {
                                 <?php
                                 include '../connect.php';
                                 $no = 1;
-                                $produk = mysqli_query($koneksi, "SELECT * FROM barang  Order by id_supplier DESC");
+                                $produk = mysqli_query($koneksi, "SELECT * FROM barang  JOIN supplier ON barang.id_supplier = supplier.id_supplier ");
                                 while ($row = mysqli_fetch_array($produk)) {
 
                                     $id_barang = $row['id_barang'];
@@ -498,6 +500,7 @@ if (isset($_POST['bhapus'])) {
                                     $stok = $row['stok'];
                                     $image = $row['image'];
                                     $id_supplier = $row['id_supplier'];
+                                    $nama_supplier = $row['nama_supplier'];
                                 ?>
                                     <tr>
                                         <td><?php echo $no++ ?></td>
@@ -507,6 +510,7 @@ if (isset($_POST['bhapus'])) {
                                         <td><?php echo $harga_jual ?></td>
                                         <td><?php echo $stok ?></td>
                                         <td><?php echo $image ?></td>
+                                        <td><?php echo $nama_supplier ?></td>
                                         <td><?php echo $id_supplier ?></td>
                                         <td>
                                             <a href="#" class="btn btn-warning rounded-circle" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $no ?>"><i class="fas fa-edit"></i></a>
@@ -522,46 +526,40 @@ if (isset($_POST['bhapus'])) {
                                                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Produk</h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <form action="" method="POST">
-
+                                                <form action="" method="POST" enctype="multipart/form-data">
                                                     <div class="modal-body">
-                                                        <input type="hidden" name="id_pembeli" id="id_pembeli" value="<?= $id_pembeli  ?>">
+                                                        <input type="hidden" name="action" id="action" value="add">
                                                         <div class="mb-3">
-                                                            <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama" value="<?= $nama ?>">
+                                                            <label for="exampleFormControlInput1" class="form-label">kode barang</label>
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_buah" value="<?php echo $kode_barang ?>">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="exampleFormControlTextarea1" class="form-label">Username</label>
-                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Username" name="username" value="<?= $username ?>">
+                                                            <label for="exampleFormControlTextarea1" class="form-label">Nama Buah</label>
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_buah" value="<?php echo $nama_barang ?>">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="exampleFormControlTextarea1" class="form-label">Email</label>
-                                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Email" name="email" value="<?= $email ?>">
+                                                            <label for="exampleFormControlTextarea1" class="form-label">Harga Beli</label>
+                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Beli" name="harga_beli" value="<?php echo $harga_beli ?>">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="exampleFormControlTextarea1" class="form-label">No Telepon</label>
-                                                            <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon" value="<?= $no_telp ?>">
+                                                            <label for="exampleFormControlTextarea1" class="form-label">Harga Jual</label>
+                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Jual" name="harga_jual" value="<?php echo $harga_jual ?>">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="exampleFormControlTextarea1" class="form-label">Password</label>
-                                                            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Password" name="password" value="<?= $password ?>">
+                                                            <label for="exampleFormControlTextarea1" class="form-label">Stok</label>
+                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok" value="<?php echo $stok ?>">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="exampleFormControlTextarea1" class="form-label">Jenis Kelamin</label>
-                                                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-select">
-                                                                <option value="<?= $jenis_kelamin  ?>">
-                                                                    <?= $jenis_kelamin ?></option>
-                                                                <option value="Laki">Laki</option>
-                                                                <option value="Perempuan">Perempuan</option>
-                                                            </select>
+                                                            <label for="exampleFormControlTextarea1" class="form-label">Gambar</label>
+                                                            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-                                                            <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control"><?= $alamat ?></textarea>
+                                                            <label for="exampleFormControlTextarea1" class="form-label">ID Supplier</label>
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan ID Supplier" name="id_supplier" value="<?php echo $id_supplier ?>">
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-primary" name="bUbah">Ubah</button>
+                                                        <button type="submit" class="btn btn-primary" name="bsimpan">Simpan</button>
                                                         <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
                                                     </div>
                                                 </form>
@@ -569,6 +567,7 @@ if (isset($_POST['bhapus'])) {
                                         </div>
                                     </div>
                                     <!-- akhir modal ubah -->
+
                                     <div class="modal fade" id="modalHapus<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -578,9 +577,9 @@ if (isset($_POST['bhapus'])) {
                                                 </div>
                                                 <form action="" method="POST">
                                                     <div class="modal-body">
-                                                        <input type="hidden" name="id_pembeli" id="id_pembeli" value="<?= $id_pembeli  ?>">
+                                                        <input type="hidden" name="id_barang" id="id_barang" value="<?= $id_barang  ?>">
                                                         <h5 class="text-center">Apakah anda yakin akan menghapus data ini ? <br>
-                                                            <span class="text-danger"><?= $row['username'] ?> - <?= $row['email']  ?></span>
+                                                            <span class="text-danger"><?= $row['kode_barang'] ?> - <?= $row['nama_barang']  ?></span>
                                                         </h5>
 
                                                     </div>
