@@ -45,14 +45,17 @@ input:focus {
 }
 
 .btn {
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   align-items: center;
-  color: grey;
+  color: #fff;
   border: 1px solid #d8db64;
   transform: translateY(10px);
 }
 
+ .btn:hover {
+  background-color:#d8db64;
+}
 
 /* .submit:hover {
    background-color: blue; 
