@@ -44,7 +44,7 @@ input:focus {
   padding-top: 20px;
 }
 
-.btn {
+.btn-primary {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   align-items: center;
@@ -53,8 +53,8 @@ input:focus {
   transform: translateY(10px);
 }
 
- .btn:hover {
-  background-color:#d8db64;
+ .btn-primary:hover {
+  background-color:#d8db64 !important;
 }
 
 /* .submit:hover {
