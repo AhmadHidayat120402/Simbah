@@ -3209,37 +3209,37 @@ textarea.form-control.is-invalid {
 
 @media (prefers-reduced-motion:reduce) {
     .btn {
-        transition: none
+        transition: none;
     }
 }
 
 .btn:hover {
-    color: #212529
+    color: #212529;
 }
 
 .btn-check:focus+.btn,
 .btn:focus {
     outline: 0;
-    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25)
+    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25);
 }
 
 .btn.disabled,
 .btn:disabled,
 fieldset:disabled .btn {
     pointer-events: none;
-    opacity: .65
+    opacity: .65;
 }
 
 .btn-primary {
-    color: rgb(199, 192, 192);
+    color: white;
     background-color: #0d6efd;
-    border-color: #0d6efd
+    border-color: #0d6efd;
 }
 
 .btn-primary:hover {
-    color: black;
+    color: white;
     background-color: #0d6efd;
-    border-color: #0a58ca
+    border-color: #0d6efd;
 }
 
 .btn-check:focus+.btn-primary,
