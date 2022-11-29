@@ -2,9 +2,9 @@
 
 require '../connect.php';
 session_start();
-// if (empty($_SESSION['username'])) {
-//     echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
-// }
+if (empty($_SESSION['username'])) {
+    echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
+}
 
 if (isset($_POST['bsimpan'])) {
 
@@ -429,40 +429,40 @@ if (isset($_POST['bhapus'])) {
                                         <div class="modal-body">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama">
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Username</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Username" name="username">
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Username" name="username" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Email</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Email" name="email">
+                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Email" name="email" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">No Telepon</label>
-                                                <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon">
+                                                <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Password" name="password">
+                                                <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Password" name="password" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Jenis Kelamin</label>
-                                                <select name="jenis_kelamin" id="jenis_kelamin" class="form-select">
+                                                <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
                                                     <option value="Laki">Laki</option>
                                                     <option value="Perempuan">Perempuan</option>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-                                                <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control"></textarea>
+                                                <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control" required></textarea>
                                             </div>
 
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-primary" name="bsimpan">Simpan</button>
-                                            <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                         </div>
                                     </form>
                                 </div>
@@ -529,27 +529,27 @@ if (isset($_POST['bhapus'])) {
                                                         <input type="hidden" name="id_pembeli" id="id_pembeli" value="<?= $id_pembeli  ?>">
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama" value="<?= $nama ?>">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama" value="<?= $nama ?>" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">Username</label>
-                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Username" name="username" value="<?= $username ?>">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Username" name="username" value="<?= $username ?>" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">Email</label>
-                                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Email" name="email" value="<?= $email ?>">
+                                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Email" name="email" value="<?= $email ?>" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">No Telepon</label>
-                                                            <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon" value="<?= $no_telp ?>">
+                                                            <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon" value="<?= $no_telp ?>" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">Password</label>
-                                                            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Password" name="password" value="<?= $password ?>">
+                                                            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Password" name="password" value="<?= $password ?>" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">Jenis Kelamin</label>
-                                                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-select">
+                                                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
                                                                 <option value="<?= $jenis_kelamin  ?>">
                                                                     <?= $jenis_kelamin ?></option>
                                                                 <option value="Laki">Laki</option>
@@ -558,12 +558,12 @@ if (isset($_POST['bhapus'])) {
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-                                                            <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control"><?= $alamat ?></textarea>
+                                                            <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control" required><?= $alamat ?></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-primary" name="bUbah">Ubah</button>
-                                                        <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -587,7 +587,7 @@ if (isset($_POST['bhapus'])) {
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-primary" name="bhapus">Hapus</button>
-                                                        <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                                     </div>
                                                 </form>
                                             </div>

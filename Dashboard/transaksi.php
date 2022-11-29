@@ -462,7 +462,7 @@ if (isset($_POST['bhapus'])) {
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-primary" name="bsimpan">Simpan</button>
-                                            <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                         </div>
                                     </form>
                                 </div>
@@ -563,7 +563,7 @@ if (isset($_POST['bhapus'])) {
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-primary" name="bUbah">Ubah</button>
-                                                        <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -587,7 +587,7 @@ if (isset($_POST['bhapus'])) {
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-primary" name="bhapus">Hapus</button>
-                                                        <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                                     </div>
                                                 </form>
                                             </div>

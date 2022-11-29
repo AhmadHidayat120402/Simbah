@@ -20,7 +20,7 @@ if (isset($_POST['bsimpan'])) {
     $id_supplier = $POST['id_supplier'];
     $nama_supplier = $POST['nama_supplier'];
 
-    $query = "INSERT INTO barang JOIN supplier (nama_lengkap,username,email,no_telp,password,jk,alamat,id_status) VALUES ('$nama_lengkap','$username','$email','$no_telp','$passVall','$jk','$alamat','1')";
+    $query = "INSERT INTO barang (kode_barang,nama_barang,harga_beli,harga_jual,stok,image,id_supplier) VALUES ('$kode_barang','$nama_barang','$harga_beli','$harga_jual','$stok','$image','$id_supplier')";
 
     $result = mysqli_query($koneksi, $query);
     header('location: produk.php');
@@ -432,37 +432,37 @@ if (isset($_POST['bhapus'])) {
                                             <input type="hidden" name="action" id="action" value="add">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">kode barang</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_buah">
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_buah" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Nama Buah</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_buah">
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_buah" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Harga Beli</label>
-                                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Beli" name="harga_beli">
+                                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Beli" name="harga_beli" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Harga Jual</label>
-                                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Jual" name="harga_jual">
+                                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Jual" name="harga_jual" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Stok</label>
-                                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok">
+                                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Gambar</label>
-                                                <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*">
+                                                <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">ID Supplier</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan ID Supplier" name="id_supplier">
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan ID Supplier" name="id_supplier" required>
                                             </div>
 
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-primary" name="bsimpan">Simpan</button>
-                                            <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                         </div>
                                     </form>
                                 </div>
@@ -531,36 +531,36 @@ if (isset($_POST['bhapus'])) {
                                                         <input type="hidden" name="action" id="action" value="add">
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlInput1" class="form-label">kode barang</label>
-                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_buah" value="<?php echo $kode_barang ?>">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_buah" value="<?php echo $kode_barang ?>" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">Nama Buah</label>
-                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_buah" value="<?php echo $nama_barang ?>">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_buah" value="<?php echo $nama_barang ?>" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">Harga Beli</label>
-                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Beli" name="harga_beli" value="<?php echo $harga_beli ?>">
+                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Beli" name="harga_beli" value="<?php echo $harga_beli ?>" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">Harga Jual</label>
-                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Jual" name="harga_jual" value="<?php echo $harga_jual ?>">
+                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Jual" name="harga_jual" value="<?php echo $harga_jual ?>" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">Stok</label>
-                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok" value="<?php echo $stok ?>">
+                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok" value="<?php echo $stok ?>" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">Gambar</label>
-                                                            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*">
+                                                            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">ID Supplier</label>
-                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan ID Supplier" name="id_supplier" value="<?php echo $id_supplier ?>">
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan ID Supplier" name="id_supplier" value="<?php echo $id_supplier ?>" required>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-primary" name="bsimpan">Simpan</button>
-                                                        <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -585,7 +585,7 @@ if (isset($_POST['bhapus'])) {
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-primary" name="bhapus">Hapus</button>
-                                                        <button type="submit" class="btn btn-danger" name="bbatal">Batal</button>
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                                     </div>
                                                 </form>
                                             </div>

@@ -391,21 +391,21 @@ if (isset($_POST['bhapus'])) {
                                         <div class="modal-body">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama">
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">No Telepon</label>
-                                                <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon">
+                                                <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-                                                <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control"></textarea>
+                                                <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control" required></textarea>
                                             </div>
 
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="bsimpan">Simpan</button>
-                                            <button type="submit" class="btn btn-danger" name="batal">Batal</button>
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                         </div>
                                     </form>
                                 </div>
@@ -456,21 +456,21 @@ if (isset($_POST['bhapus'])) {
                                                     <input type="hidden" name="id_supplier" id="id_supplier" value="<?php echo $id_supplier ?>">
                                                     <div class="mb-3">
                                                         <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama" value="<?php echo $nama ?>">
+                                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" name="nama" value="<?php echo $nama ?>" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleFormControlTextarea1" class="form-label">No Telepon</label>
-                                                        <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon" value="<?php echo $no_telp ?>">
+                                                        <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan No Telepon" name="no_telepon" value="<?php echo $no_telp ?>" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-                                                        <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control"><?php echo $alamat ?></textarea>
+                                                        <textarea name="alamat" id="alamat" cols="30" rows="2" class="form-control" required><?php echo $alamat ?></textarea>
                                                     </div>
 
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="bUbah">Ubah</button>
-                                                    <button type="submit" class="btn btn-danger" name="batal">Batal</button>
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -495,7 +495,7 @@ if (isset($_POST['bhapus'])) {
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="bhapus">Hapus</button>
-                                                    <button type="submit" class="btn btn-danger" name="batal">Batal</button>
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                                 </div>
                                             </form>
                                         </div>
