@@ -25,9 +25,7 @@ if ($user_valid) {
     // jika password sesuai buat session
 
     session_start();
-    $_SESSION['username'] = $user_valid['username'];
-    $_SESSION['nama_lengkap'] = $user_valid['nama_lengkap'];
-    $_SESSION['id_status'] = $user_valid['id_status'];
+    $_SESSION['id_pembeli'] = $user_valid['id_pembeli'];
 
     //  uji level user
     if ($id_status == 1) {
