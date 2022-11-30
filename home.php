@@ -72,10 +72,27 @@ include 'connect.php';
                 <input type="search" name="search" id="search" class=" form-control bg-transparent border-0 " placeholder="search buah">
               </div>
               <button type="submit" class="btn btn-primary">Go</button>
+
             </form>
+
+            <?php
+            $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
+            $query_select = mysqli_query($koneksi, $query);
+            $result = mysqli_fetch_array($query_select);
+            // print_r($result);
+            $tampilan = '';
+            if ($result['id_status'] == '3') {
+              $tampilan = 'd-none';
+            }
+
+            ?>
             <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a>
+            <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center <?php echo $tampilan ?>"><i class='bx bxs-message-dots text-white'></i></a>
+
+
+
             <!-- <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-bell text-white'></i></a> -->
-            <a href="register.php" class=" btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-user text-white'></i><?php echo $_SESSION['nama_lengkap'] ?>
+            <a href="register.php" class=" btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-user text-white'></i><?php echo $result['nama_lengkap'] ?>
 
             </a>
             <a href="logout.php" class="btn btn-outline-light rounded-pill px-4 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-log-out text-white align-items-center justify-content-center'></i> Logout</a>
