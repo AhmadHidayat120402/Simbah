@@ -232,91 +232,36 @@ include 'connect.php';
         <h3 class="section-titlee w-50 fw-bold">Buah Favorite</h3>
         <!-- <a href="#" class="btn btn-primary btn btn-outline-dark rounded-0 mt-2 fw-bold">Explore More</a> -->
       </div>
+
       <div class="row mt-5">
-        <div class="col-md-3 mt-3">
-          <a href="detail_page.php" class="card border-0 boxs text-decoration-none">
-            <img src="images/img/mango-1.jpg" alt="gunung bromo" class="images">
-            <div class="card-body">
-              <h4 class="card-title fw-bold">Mangga</h4>
-              <p class="d-flex align-items-center gap-2">
-                <i class="laris rounded-pill">Tersedia</i>
-                Rp 18.000 / kg
-              </p>
-              <hr>
-              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
-            </div>
-            <div class="ratings position-absolute top-0 bg-white p-2">
-              <p class="d-flex align-items-center gap-2 m-0 ">
-                <i class="bx bxs-star"></i>
-                4.9
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-3 mt-3">
-          <a href="#" class="card boxs border-0 text-decoration-none">
-            <img src="images/img/pepaya.jpg" alt="Madakaripura" class="images">
-            <div class="card-body">
-              <h4 class="card-title fw-bold">Pepaya</h4>
-              <p class="d-flex align-items-center gap-2">
-                <i class="laris rounded-pill">Tersedia</i>
-                Rp 15.000 / kg
-              </p>
-              <hr>
-              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
-            </div>
-            <div class="ratings position-absolute top-0 bg-white p-2">
-              <p class="d-flex align-items-center gap-2 m-0">
-                <i class="bx bxs-star"></i>
-                4.9
-              </p>
-            </div>
-          </a>
 
-        </div>
-        <div class="col-md-3 mt-3">
-          <a href="#" class="card boxs border-0 text-decoration-none">
-            <img src="images/img/buah-naga.jpg" alt="Gili Ketapang" class="images">
-            <div class="card-body">
-              <h4 class="card-title fw-bold">Buah naga</h4>
-              <p class="d-flex align-items-center gap-2">
-                <i class="laris rounded-pill">Tersedia</i>
-                Rp 23.000 / kg
-              </p>
-              <hr>
-              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
-            </div>
-            <div class="ratings position-absolute top-0 p-2 bg-white">
-              <p class="d-flex-align-items-center m-0">
-                <i class="bx bxs-star"></i>
-                4.9
-              </p>
-            </div>
-          </a>
-
-        </div>
-        <div class="col-md-3 mt-3">
-          <a href="#" class="card boxs border-0 text-decoration-none">
-            <img src="images/img/jeruk.jpg" alt="Bremi Park" class="images">
-            <div class="card-body">
-              <h4 class="card-title fw-bold">Jeruk</h4>
-              <p class="d-flex align-items-center gap-2">
-                <i class="laris rounded-pill">Tersedia</i>
-                Rp 22.000 / kg
-              </p>
-              <hr>
-              <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
-            </div>
-            <div class="ratings position-absolute top-0 p-2 bg-white">
-              <p class="d-flex align-items-center m-0">
-                <i class="bx bxs-star"></i>
-                4.9
-              </p>
-            </div>
-          </a>
-        </div>
+        <?php
+        include 'connect.php';
+        $produk = mysqli_query($koneksi, "SELECT * FROM  barang");
+        while ($hasil = mysqli_fetch_array($produk)) {
+        ?>
+          <div class="col-md-3 mt-3">
+            <a href="detail_page.php" class="card border-0 boxs text-decoration-none">
+              <img src="images/images_buah/<?php echo $hasil['image']; ?>" alt="gunung bromo" class="images">
+              <div class="card-body">
+                <h4 class="card-title fw-bold"><?php echo $hasil['nama_barang']; ?></h4>
+                <p class="d-flex align-items-center gap-2">
+                  <i class="laris rounded-pill">Tersedia</i>
+                  <?php echo $hasil['harga_jual']; ?> / kg
+                </p>
+                <hr>
+                <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
+              </div>
+              <div class="ratings position-absolute top-0 bg-white p-2">
+                <p class="d-flex align-items-center gap-2 m-0 ">
+                  <i class="bx bxs-star"></i>
+                  4.9
+                </p>
+              </div>
+            </a>
+          </div>
+        <?php } ?>
       </div>
-    </div>
   </section>
   <section class="popular-destionation">
     <div class="container">
