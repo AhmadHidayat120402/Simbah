@@ -2,57 +2,102 @@
 
 require '../connect.php';
 session_start();
-// if (empty($_SESSION['username'])) {
-//     echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
+if (empty($_SESSION['username'])) {
+    echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
+}
+// $check = array(
+//     "" => "-",
+//     ":" => "",
+//     "," => "",
+//     "/" => "",
+//     "'" => "",
+//     '"' => "",
+//     "." => "",
+//     "-" => ""
+// );
+
+// if (isset($_POST['action'])) {
+
+//     $kode_barang = $POST['kode_barang'];
+//     $nama_barang = $POST['nama_barang'];
+//     // $slug = strtolower(strtr($nama_barang,$check));
+//     $harga_beli = $POST['harga_beli'];
+//     $harga_jual = $POST['harga_jual'];
+//     $stok = $POST['stok'];
+
+//     $image = $_FILES['image']['nama'];
+//     $temp = $_FILES['image']['tmp_nama'];
+//     $image_files = $image . ".jpg";
+
+//     $id_supplier = $POST['id_supplier'];
+//     $nama_supplier = $POST['nama_supplier'];
+
+//     if ($_POST['action'] == 'add') {
+//         $query = mysqli_query($koneksi, "INSERT INTO barang set kode_barang = '$kode_barang', nama_barang = '$nama_barang',harga_beli = '$harga_beli',harga_jual = '$harga_jual',stok = '$stok',image = '$image_files'");
+//         copy($temp, "../images/images_buah/" . $image_files);
+//         header('location:produk.php');
+//     } elseif ($_POST['action'] == 'update') {
+//     }
+// } elseif (isset($_GET['action'])) {
+// } else {
+//     header('location:produk.php');
 // }
-
-
-
 
 if (isset($_POST['bsimpan'])) {
 
-    $kode_barang = $POST['kode_barang'];
-    $nama_barang = $POST['nama_barang'];
-    $harga_beli = $POST['harga_beli'];
-    $harga_jual = $POST['harga_jual'];
-    $stok = $POST['stok'];
-    $image = $POST['image'];
-    $id_supplier = $POST['id_supplier'];
-    $nama_supplier = $POST['nama_supplier'];
+    $kode_barang = $_POST['kode_barang'];
+    $nama_barang = $_POST['nama_barang'];
+    // $slug = strtolower(strtr($nama_barang,$check));
+    $harga_beli = $_POST['harga_beli'];
+    $harga_jual = $_POST['harga_jual'];
+    $stok = $_POST['stok'];
 
-    $query = "INSERT INTO barang (kode_barang,nama_barang,harga_beli,harga_jual,stok,image,id_supplier) VALUES ('$kode_barang','$nama_barang','$harga_beli','$harga_jual','$stok','$image','$id_supplier')";
+    $image = $_FILES['gambar']['name'];
+    $temp = $_FILES['gambar']['tmp_name'];
+    // Mendapat extention
+    $image_files = $nama_barang . ".jpg";
+    $id_supplier = $_POST['id_supplier'];
+    // $nama_supplier = $_POST['nama_supplier'];
 
-    $result = mysqli_query($koneksi, $query);
-    header('location: produk.php');
 
-    // if ($result) {
-    //     echo "<script>
-    //     alert('simpan data sukses');
-    //     document.location= 'member.php';
-    //     </script>";
-    // } else {
-    //     echo "<script>
-    //     alert('simpan data gagal');
-    //     document.location= 'member.php';
-    //     </script>";
-    // }
+    $query = mysqli_query($koneksi, "INSERT INTO barang (kode_barang,nama_barang,harga_beli,harga_jual,stok,image,id_supplier) VALUES ('$kode_barang','$nama_barang','$harga_beli','$harga_jual','$stok','$image_files','$id_supplier')");
+
+    copy($temp, "../images/images_buah/" . $image_files);
+    //         header('location:produk.php');
+    // header('location:produk.php');
+
+    if ($query) {
+        echo "<script>
+    alert('simpan data sukses');
+    document.location= 'produk.php';
+    </script>";
+    } else {
+        echo "<script>
+    alert('simpan data gagal');
+    document.location= 'produk.php';
+    </script>";
+    }
 }
 
 if (isset($_POST['bUbah'])) {
 
-    $ubah = mysqli_query($koneksi, "UPDATE users SET 
-        nama_lengkap = '$_POST[nama]',
-        username = '$_POST[username]',
-        email = '$_POST[email]',
-        no_telp = '$_POST[no_telepon]',
-        password = '$_POST[password]',
-        jk = '$_POST[jenis_kelamin]',
-        alamat = '$_POST[alamat]'
-        WHERE id_pembeli = '$_POST[id_pembeli]'
-    ");
-    // header('location: member.php');
+    $id_barang = $_POST['id_barang'];
+    $kode_barang = $_POST['kode_barang'];
+    $nama_barang = $_POST['nama_barang'];
+    $harga_beli = $_POST['harga_beli'];
+    $harga_jual = $_POST['harga_jual'];
+    $stok = $_POST['stok'];
+    $image = $_FILES['gambar']['name'];
+    $temp = $_FILES['gambar']['tmp_name'];
+    $image_files = $nama_barang . ".jpg";
+    $id_supplier = $_POST['id_supplier'];
 
-    if ($ubah) {
+    $update_query = mysqli_query($koneksi, "UPDATE barang SET kode_barang ='$kode_barang', nama_barang = '$nama_barang',harga_beli = '$harga_beli',harga_jual = '$harga_jual',stok = '$stok',image= '$image_files',id_supplier = '$id_supplier' WHERE id_barang = '$id_barang'");
+
+    // header('location: member.php');
+    copy($temp, "../images/images_buah/" . $image_files);
+
+    if ($update_query) {
         echo "<script>
         alert('ubah data sukses');
         document.location= 'produk.php';
@@ -85,9 +130,6 @@ if (isset($_POST['bhapus'])) {
         </script>";
     }
 }
-
-
-
 
 
 ?>
@@ -124,6 +166,7 @@ if (isset($_POST['bhapus'])) {
 </head>
 
 <body id="page-top">
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -432,11 +475,11 @@ if (isset($_POST['bhapus'])) {
                                             <input type="hidden" name="action" id="action" value="add">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">kode barang</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_buah" required>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_barang" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Nama Buah</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_buah" required>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_barang" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Harga Beli</label>
@@ -528,14 +571,14 @@ if (isset($_POST['bhapus'])) {
                                                 </div>
                                                 <form action="" method="POST" enctype="multipart/form-data">
                                                     <div class="modal-body">
-                                                        <input type="hidden" name="action" id="action" value="add">
+                                                        <input type="hidden" name="id_barang" id="id_barang" value="<?= $id_barang  ?>">
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlInput1" class="form-label">kode barang</label>
-                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_buah" value="<?php echo $kode_barang ?>" required>
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_barang" value="<?php echo $kode_barang ?>" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">Nama Buah</label>
-                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_buah" value="<?php echo $nama_barang ?>" required>
+                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_barang" value="<?php echo $nama_barang ?>" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label">Harga Beli</label>
@@ -559,7 +602,7 @@ if (isset($_POST['bhapus'])) {
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-primary" name="bsimpan">Simpan</button>
+                                                        <button type="submit" class="btn btn-primary" name="bUbah">Ubah</button>
                                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                                     </div>
                                                 </form>
@@ -579,7 +622,7 @@ if (isset($_POST['bhapus'])) {
                                                     <div class="modal-body">
                                                         <input type="hidden" name="id_barang" id="id_barang" value="<?= $id_barang  ?>">
                                                         <h5 class="text-center">Apakah anda yakin akan menghapus data ini ? <br>
-                                                            <span class="text-danger"><?= $row['kode_barang'] ?> - <?= $row['nama_barang']  ?></span>
+                                                            <span class="text-danger"><?= $kode_barang ?> - <?= $nama_barang  ?></span>
                                                         </h5>
 
                                                     </div>

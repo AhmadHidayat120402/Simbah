@@ -416,6 +416,7 @@ if (isset($_POST['bhapus'])) {
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>ID Supplier</th>
                                 <th>Nama</th>
                                 <th>No Telepon</th>
                                 <th>Alamat</th>
@@ -435,6 +436,7 @@ if (isset($_POST['bhapus'])) {
                             ?>
                                 <tr>
                                     <td><?php echo $no++ ?></td>
+                                    <td><?php echo $id_supplier ?></td>
                                     <td><?php echo $nama ?></td>
                                     <td><?php echo $no_telp ?></td>
                                     <td><?php echo $alamat ?></td>
