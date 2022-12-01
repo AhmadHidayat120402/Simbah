@@ -412,6 +412,7 @@
             </div>
           </div> -->
 
+
         <div class="col-md-6 align-items-center mt-2" style="transform: translateX(80px);">
           <h3 class="section-title">Lokasi Toko Buah Pandawa</h3>
           <p class="section-description">Terletak di Jl. Jawa No.64A Kabupaten Jember. Jika anda dari Politeknik Negeri Jember sekitar 3 km untuk sampai
