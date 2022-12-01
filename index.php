@@ -67,10 +67,10 @@
   </header>
 
   <section class="why-choose">
-    <div class="container" id="about" style="padding-top:5rem !important; padding-bottom:5rem !important;" >
+    <div class="container" id="about" style="padding-top:5rem !important; padding-bottom:5rem !important;">
       <div class="d-flex flex-column flex-sm-column
       flex-md-row align-item-center justify-content-between gap-3">
-        <h2 class="section-title w-75" >Mengapa memilih kami?</h2>
+        <h2 class="section-title w-75">Mengapa memilih kami?</h2>
         <p class="section-description"> kami menjual berbagai macam buah yang tentunya buah segar dan sehat</p>
       </div>
       <div class="row mt-5">
@@ -139,7 +139,7 @@
     </div>
   </section>
 
-  <section class="popular-destionation"  >
+  <section class="popular-destionation">
     <div class="container" id="food" style="padding-top:5rem !important; padding-bottom:5rem !important;">
       <div class="d-flex flex-column flex-sm-column
     flex-md-row align-item-center justify-content-between gap-3">
@@ -266,10 +266,10 @@
     </div>
   </section>
 
-  <section class="travel-Packages" id="favFood" style="padding-top:5rem !important;" >
+  <section class="travel-Packages" id="favFood" style="padding-top:5rem !important;">
     <div class="container" ">
-      <h2 class="section-title text-center ">Favorite Buah</h2>
-      <p class="section-description text-center"> favorite buah merupakan jenis buah yang paling banyak digemari pelanggan dan banyak terjual <br> terdapat 3 jenis buah yang paling banyak dikonsumsi yaitu Alpukat, Apel merah, Belimbing.</p>
+      <h2 class=" section-title text-center ">Favorite Buah</h2>
+      <p class=" section-description text-center"> favorite buah merupakan jenis buah yang paling banyak digemari pelanggan dan banyak terjual <br> terdapat 3 jenis buah yang paling banyak dikonsumsi yaitu Alpukat, Apel merah, Belimbing.</p>
       <div class="row mt-5">
         <div class="col-md-4 mt-3">
           <a href="#" class="card text-center">
@@ -383,7 +383,7 @@
     </div>
   </section>
 
-  <section class="subscirber"> 
+  <section class="subscirber">
     <div class="container" id="alamat" style="padding-top:5rem; padding-bottom:5rem;">
       <div class="row ">
         <div class="col-md-6 position-relative">
@@ -393,7 +393,7 @@
             <!-- <img src="images/image/flash-sale 1.svg" alt=""> -->
           </div>
         </div>
-<<<<<<< HEAD
+
         <!-- <div class="col-md-6 align-items-center mt-5" style="transform: translateX(70px);">
           <h2 class="section-title">Pandawa Fruit Store</h2>
           <p class="section-description">Jl. Jawa No.64a, Tegal Botol Lor, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121</p>
@@ -411,17 +411,16 @@
               <p class="section-description">Jam Buka</p>
             </div>
           </div> -->
-=======
-        <div class="col-md-6 align-items-center mt-2" style="transform: translateX(10px);">
+
+        <div class="col-md-6 align-items-center mt-2" style="transform: translateX(80px);">
           <h3 class="section-title">Lokasi Toko Buah Pandawa</h3>
-          <p class="section-description">Terletak di Jl. Jawa No.64A Kabupaten Jember. Jika anda dari Politeknik Negeri Jember sekitar 3 km untuk sampai 
-            ke Toko Buah Pandawa yang berada disebelah kiri jalan. Toko Buah Pandawa ini berwarna krem. Buka setiap hari pada <b>Jam 08.15 - 21.30</b>. 
+          <p class="section-description">Terletak di Jl. Jawa No.64A Kabupaten Jember. Jika anda dari Politeknik Negeri Jember sekitar 3 km untuk sampai
+            ke Toko Buah Pandawa yang berada disebelah kiri jalan. Toko Buah Pandawa ini berwarna krem. Buka setiap hari pada <b>Jam 08.15 - 21.30</b>.
             Anda bisa mencari kebutuhan buah anda di Toko Buah Pandawa.</p>
           <div class="d-flex gap-3 mt-4">
-              <h3>0858-5643-2875</h3>
-              <p class="section-description">(Toko Buah Pandawa)</p>
+            <h3>0858-5643-2875</h3>
+            <p class="section-description">(Toko Buah Pandawa)</p>
           </div>
->>>>>>> c20b7b0c921f8a300e65b76f7c9be6387c97f86f
           <!-- <div class="iconBro bg-white shadow-sm rounded-circle p-3 position-absolute" style="right: -20px; bottom: 65px;"> -->
           <!-- <img src="images/image/world.svg" alt=""> -->
         </div>
@@ -429,8 +428,8 @@
     </div>
     </div>
   </section>
-  <footer class="py-5 footerCuy footer-index" >
-    <div class="container" id="footer" >
+  <footer class="py-5 footerCuy footer-index">
+    <div class="container" id="footer">
       <div class="row mx-auto">
         <div class="col md-3">
           <a href="#" class="text-decoration-none">
