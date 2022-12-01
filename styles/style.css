@@ -84,7 +84,7 @@ section {
 }
 
 section .section-title {
-  font-size: var(--heading-2-size);
+  font-size: 40px;
   font-weight: 700;
 }
 

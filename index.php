@@ -67,7 +67,7 @@
   </header>
 
   <section class="why-choose">
-    <div class="container" id="about" style="padding-top:5rem !important;" >
+    <div class="container" id="about" style="padding-top:5rem !important; padding-bottom:5rem !important;" >
       <div class="d-flex flex-column flex-sm-column
       flex-md-row align-item-center justify-content-between gap-3">
         <h2 class="section-title w-75" >Mengapa memilih kami?</h2>
@@ -140,7 +140,7 @@
   </section>
 
   <section class="popular-destionation"  >
-    <div class="container" id="food" style="padding-top:5rem !important;">
+    <div class="container" id="food" style="padding-top:5rem !important; padding-bottom:5rem !important;">
       <div class="d-flex flex-column flex-sm-column
     flex-md-row align-item-center justify-content-between gap-3">
         <h2 class="section-title w-50">Tersedia Aneka Buah</h2>
@@ -240,7 +240,7 @@
     </div>
   </section>
 
-  <section class="take-break">
+  <section class="take-break" style="padding-top:5rem !important; padding-bottom:5rem !important;">
     <div class="container ">
       <div class="row align-items-center">
         <div class="col-md-6 ">
@@ -318,7 +318,7 @@
   </section>
 
   <section class="testimonial">
-    <div class="container" id="cus" style="padding-top:6rem !important;">
+    <div class="container" id="cus" style="padding-top:5rem !important; padding-bottom:5rem !important">
       <h2 class="section-title">Apa yang mereka katakan tentang kami ?</h2>
       <p class="section-description">Berikut merupakan penilaian dari pelanggan yang sudah membeli buah dari toko kami
         <br>
@@ -332,11 +332,11 @@
               <p class="section-description">" sangat puas dengan pelayanan adminnya "
               </p>
               <div class="d-flex mt-3 gap-3">
-                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="foto" class="foto rounded-circle">
+                <img src="./images/image_people/OrangA.jpg" alt="foto" class="foto rounded-circle">
                 <div class="d-flex flex-column">
-                  <h4 class="card-title">Azim Fadullah</h4>
+                  <h4 class="card-title">Reza Rahardian</h4>
                   <p class="section-description">
-                    membeli apel
+                    Pembeli Apel
                   </p>
                 </div>
               </div>
@@ -350,11 +350,11 @@
               <p class="section-description">" sangat puas dengan pelayanan dan produknya segar semua "
               </p>
               <div class="d-flex mt-3 gap-3">
-                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="foto" class="foto rounded-circle">
+                <img src="./images/image_people/OrangB.jpg" alt="foto" class="foto rounded-circle">
                 <div class="d-flex flex-column">
-                  <h4 class="card-title"> Rehan Ansori</h4>
+                  <h4 class="card-title">Agnes Monica</h4>
                   <p class="section-description">
-                    membeli anggur
+                    Pembeli Anggur
                   </p>
                 </div>
               </div>
@@ -368,11 +368,11 @@
               <p class="section-description">" pesanan dikirim tepat waktu dan kualitas segar "
               </p>
               <div class="d-flex mt-3 gap-3">
-                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="foto" class="foto rounded-circle">
+                <img src="./images/image_people/OrangC.jpg" alt="foto" class="foto rounded-circle">
                 <div class="d-flex flex-column">
-                  <h4 class="card-title">Gede Bagus</h4>
+                  <h4 class="card-title">Iqball Ramadhan</h4>
                   <p class="section-description">
-                    membeli pisang susu
+                    Pembeli Pisang susu
                   </p>
                 </div>
               </div>
@@ -384,41 +384,44 @@
   </section>
 
   <section class="subscirber"> 
-    <div class="container" id="alamat" style="padding-top:5rem;">
+    <div class="container" id="alamat" style="padding-top:5rem; padding-bottom:5rem;">
       <div class="row ">
         <div class="col-md-6 position-relative">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.318529169943!2d113.71703871433064!3d-8.170629484146595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695cd393785a9%3A0x6457ebd393aec71a!2sPandawa%20Fruit%20Store!5e0!3m2!1sen!2sid!4v1667572267418!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           <!-- <img src="images/image/subscribe.png" alt="subcribe" class="subcrib-image rounded-0 w-100"> -->
-          <form action="get" class="inputan bg-white p-5 w-75 mx-auto d-block boxs" style="transform: translateY(-180px) translateX(600px);">
-            <div class="input-group mb-3">
-              <div class="input-group-text">@</div>
-              <input type="text" class="form-control form-control-lg rounded-0" id="specificSizeInputGroupUsername" placeholder="Your Email">
-            </div>
-            <button class="btn btn-lg btn-primary rounded-0 position-absolute w-75" type="button">Subscribe
-              Now</button>
-          </form>
           <div class="position-absolute p-3 rounded-circle bg-white shadow-sm">
             <!-- <img src="images/image/flash-sale 1.svg" alt=""> -->
           </div>
         </div>
-        <div class="col-md-6 align-items-center mt-5" style="transform: translateX(70px);">
-          <h2 class="section-title">Subscribe Newlater</h2>
-          <p class="section-description">If you leave us a message, we’ll do everything possible to help you make the
-            best choices for your personal travel plans. Contact us!</p>
+<<<<<<< HEAD
+        <!-- <div class="col-md-6 align-items-center mt-5" style="transform: translateX(70px);">
+          <h2 class="section-title">Pandawa Fruit Store</h2>
+          <p class="section-description">Jl. Jawa No.64a, Tegal Botol Lor, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121</p>
           <div class="d-flex gap-5 mt-4">
             <div class="d-flex flex-column">
-              <h3 class="flex-title">10k+ </h3>
-              <p class="section-description">Satisfied Travellers</p>
+              <h3 class="flex-title">4.4 </h3>
+              <p class="section-description">Rating</p>
             </div>
             <div class="d-flex flex-column">
-              <h3 class="flex-title">50k+ </h3>
-              <p class="section-description">Tour Packages</p>
+              <h3 class="flex-title">543 </h3>
+              <p class="section-description">Reviews</p>
             </div>
             <div class="d-flex flex-column">
-              <h3 class="flex-title">12k+ </h3>
-              <p class="section-description">Subscriber</p>
+              <h3 class="flex-title">08:15-21:30 </h3>
+              <p class="section-description">Jam Buka</p>
             </div>
+          </div> -->
+=======
+        <div class="col-md-6 align-items-center mt-2" style="transform: translateX(10px);">
+          <h3 class="section-title">Lokasi Toko Buah Pandawa</h3>
+          <p class="section-description">Terletak di Jl. Jawa No.64A Kabupaten Jember. Jika anda dari Politeknik Negeri Jember sekitar 3 km untuk sampai 
+            ke Toko Buah Pandawa yang berada disebelah kiri jalan. Toko Buah Pandawa ini berwarna krem. Buka setiap hari pada <b>Jam 08.15 - 21.30</b>. 
+            Anda bisa mencari kebutuhan buah anda di Toko Buah Pandawa.</p>
+          <div class="d-flex gap-3 mt-4">
+              <h3>0858-5643-2875</h3>
+              <p class="section-description">(Toko Buah Pandawa)</p>
           </div>
+>>>>>>> c20b7b0c921f8a300e65b76f7c9be6387c97f86f
           <!-- <div class="iconBro bg-white shadow-sm rounded-circle p-3 position-absolute" style="right: -20px; bottom: 65px;"> -->
           <!-- <img src="images/image/world.svg" alt=""> -->
         </div>
