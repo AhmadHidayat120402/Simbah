@@ -2,9 +2,12 @@
 
 require '../connect.php';
 session_start();
-if (empty($_SESSION['username'])) {
+if (empty($_SESSION['id_pembeli'])) {
     echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
 }
+$query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
+$query_select = mysqli_query($koneksi, $query);
+$result = mysqli_fetch_array($query_select);
 // $check = array(
 //     "" => "-",
 //     ":" => "",
@@ -421,7 +424,7 @@ if (isset($_POST['bhapus'])) {
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nama_lengkap'] ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $result['nama_lengkap'] ?></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
