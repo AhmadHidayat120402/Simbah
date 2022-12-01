@@ -3,9 +3,9 @@
 include 'session.php';
 include 'connect.php';
 
-// if (empty($_SESSION['username'])) {
-//   echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='login.php'</script>";
-// }
+if (empty($_SESSION['id_pembeli'])) {
+  echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='login.php'</script>";
+}
 
 ?>
 
@@ -37,18 +37,18 @@ include 'connect.php';
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href=".">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="index.php">About</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Packages
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Aneka buah</a></li>
-                  <li><a class="dropdown-item" href="#">Buah favorite</a></li>
+                  <li><a class="dropdown-item" href=".">Aneka buah</a></li>
+                  <li><a class="dropdown-item" href="index.php">Buah favorite</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
@@ -56,9 +56,9 @@ include 'connect.php';
                   Selengkapnya
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Kata customers</a></li>
-                  <li><a class="dropdown-item" href="#">Alamat</a></li>
-                  <li><a class="dropdown-item" href="#">Media sosial</a></li>
+                  <li><a class="dropdown-item" href="index.php">Kata customers</a></li>
+                  <li><a class="dropdown-item" href="index.php">Alamat</a></li>
+                  <li><a class="dropdown-item" href="index.php">Media sosial</a></li>
                 </ul>
               </li>
             </ul>
@@ -258,7 +258,7 @@ include 'connect.php';
         while ($hasil = mysqli_fetch_array($produk)) {
         ?>
           <div class="col-md-3 mt-3">
-            <a href="detail_page.php" class="card border-0 boxs text-decoration-none">
+            <a href="cart.php" class="card border-0 boxs text-decoration-none">
               <img src="images/images_buah/<?php echo $hasil['image']; ?>" alt="gunung bromo" class="images">
               <div class="card-body">
                 <h4 class="card-title fw-bold"><?php echo $hasil['nama_barang']; ?></h4>
