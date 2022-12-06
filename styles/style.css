@@ -126,6 +126,9 @@ section .image {
   width: 50px;
 } */
 
+a .logo {
+  width: 110px;
+}
 .text-manfaat {
   text-justify: auto;
 }
@@ -137,10 +140,13 @@ section .image {
 
 .boxs:hover {
   cursor: pointer;
-  background-color: var(--color-gray);
-  transition: 0.7s;
+  /* background-color: var(--color-gray); */
+  /* transition: 0.7s; */
 }
 
+.popular-destionation .card {
+  margin: 15px 0px !important;
+}
 .popular-destionation .card .bx {
   color: var(--color-primary);
 }

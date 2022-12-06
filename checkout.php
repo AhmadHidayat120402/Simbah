@@ -17,16 +17,10 @@ $result = mysqli_fetch_array($query_select);
 // print_r($_SESSION['keranjang']);
 // echo "</pre>";
 
-
-
 if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
   echo "<script>alert('keranjang kosong, silahkan belanja terlebih dahulu !' )</script>";
   echo "<script>location = 'home.php';</script>";
 }
-
-
-
-
 ?>
 
 
@@ -102,7 +96,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
             <th>Price</th>
             <th>Quantity</th>
             <th>Total</th>
-            <th>Aksi</th>
+
           </tr>
         </thead>
         <tbody>
@@ -122,87 +116,43 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
               <td> Rp <?php echo number_format($pecah['harga_jual']); ?></td>
               <td><?php echo $jumlah; ?></td>
               <td>Rp <?php echo number_format($total); ?></td>
-              <td>
-                <a href="hapuscart.php?id=<?php echo $id_produk ?>" class="btn btn-danger btn-sm">Hapus</a>
-                
-                <!-- // if (isset($_GET['id'])) {
-                //   $insert = mysqli_query($koneksi, "INSERT INTO cart (nama,harga,jumlah,total_harga) VALUES ('$pecah[nama_barang]','$pecah[harga_jual]','$jumlah','$total')");
-                // } -->
-              </td>
+
             </tr>
             <?php $no++; ?>
           <?php } ?>
         </tbody>
       </table>
-      <a href="home.php" class="btn btn-primary">Lanjutkan Belanja</a>
-      <a href="checkout.php" class="btn btn-primary ">Checkout</a>
-      <!-- <div class="card mt-5 m x-auto" style="width: 18rem;">
-        <div class=" card-body text-center">
-          <h5 class="card-title">Checkout</h5>
-          <p class="card-text">Total : Rp 30.000</p>
-          <hr>
-          <a href="#" class="btn btn-primary">Checkout</a>
-        </div>
-      </div> -->
-      <!-- <div class="card-checkout mt-5">
-        <div class="card border-primary">
-          <div class="card-body">
-            <h4 class="card-title text-center">Checkout</h4>
-            <p class="card-text text-center ">Total : Rp 75000</p>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-primary w-100">Checkout</button>
-          </div>
-        </div>
-      </div> -->
+      <form action="" method="POST">
 
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" name="nama" id="nama" readonly value="<?php echo $_SESSION['identitas']['username'] ?>" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" name="nama" id="nama" readonly value="<?php echo $_SESSION['identitas']['no_telp'] ?>" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <select name="ongkir" id="ongkir">
+              <option value="0">pilih ongkos kirim</option>
+              <option value="0"></option>
+              <option value="0"></option>
+            </select>
+          </div>
+        </div>
+
+      </form>
 
     </div>
     </div>
   </section>
+  <pre>
+  <?php print_r($_SESSION['identitas']) ?>
+</pre>
 
-
-  <!-- <footer class="py-5 footerCuy footer-detail ">
-    <div class="container">
-      <div class="row mx-auto">
-        <div class="col md-3">
-          <a href="#" class="text-decoration-none">
-            <h4 class="fw-bold ">SiMbah</h4>
-          </a>
-          <p class="section-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus.</p>
-          <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
-        </div>
-        <div class="col md-2">
-          <h5 class="section-judul fw-bold">Menu</h5>
-          <p class="section-description">Tentang Kami</p>
-          <p class="section-description">Hubungi Kami</p>
-          <p class="section-description">Article</p>
-        </div>
-        <div class="col md-2">
-          <h5 class="section-judul fw-bold">Bantuan</h5>
-          <p class="section-description">Keranjang Buah</p>
-          <p class="section-description">Konfirmasi Pembayaran</p>
-          <p class="section-description">Testimoni Pembayaran</p>
-        </div>
-        <div class="col md-2">
-          <h5 class="section-judul fw-bold">Punya pertanyaan ? </h5>
-          <p class="section-description">Indonesia</p>
-          <p class="section-description">Singapore</p>
-          <p class="section-description">Thailand</p>
-        </div>
-        <div class="col md-2">
-          <h5 class="section-judul fw-bold">Social Media</h5>
-          <p class="section-description">Berikut merupakan sosial media yang kami gunakan untuk melakukan promosi</p>
-          <p class="section-description d-flex gap-4">
-            <i><img src="images/img/logo_ig.jpg" alt="" width="40px"></i>
-            <i><img src="images/img/logo_facebook.jpg" alt="" width="40px"></i>
-            <i><img src="images/img/logo_twitter1.jpg" alt="" width="35px"></i>
-            <i><img src="images/img/logo_WA2.jpg" alt="" width="40px"></i>
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer> -->
 
 
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>

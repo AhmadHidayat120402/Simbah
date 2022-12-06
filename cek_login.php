@@ -14,8 +14,6 @@ $cek_user = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$usern
 
 $user_valid = mysqli_fetch_array($cek_user);
 
-
-
 // uji jika email terdaftar
 if ($user_valid) {
   //  jika username terdaftar
@@ -26,7 +24,7 @@ if ($user_valid) {
 
     session_start();
     $_SESSION['id_pembeli'] = $user_valid['id_pembeli'];
-
+    $_SESSION['identitas'] = $user_valid;
     //  uji level user
     if ($id_status == 1) {
       header('location: Dashboard/index.php');

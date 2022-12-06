@@ -9,9 +9,7 @@
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <link rel="stylesheet" href="styles/style.css">
-
 </head>
-
 <body>
   <header>
     <div class="container">

@@ -3,11 +3,33 @@
 include 'session.php';
 include 'connect.php';
 
+// $query = "SELECT * FROM barang";
+// $query_cari = mysqli_query($koneksi, $query);
+
 if (empty($_SESSION['id_pembeli'])) {
   echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='login.php'</script>";
 }
 
+// function query($query)
+// {
+//   global $koneksi;
+//   $result = mysqli_query($koneksi, $query);
+//   $rows = [];
+//   while ($row = mysqli_fetch_assoc($result)) {
+//     $rows[] = $row;
+//   }
+//   return $rows;
+// }
 
+// if (isset($_POST['cari'])) {
+//   $cari = cari($_POST["search"]);
+// }
+
+// function cari($search)
+// {
+//   $queryy = "SELECT * FROM barang WHERE nama_barang LIKE '%$search%'";
+//   return query($queryy);
+// }
 ?>
 
 
@@ -63,16 +85,16 @@ if (empty($_SESSION['id_pembeli'])) {
                 </ul>
               </li>
             </ul>
-            <form action="#" method="get" class="d-flex align-item-center gap-2 bg-light rounded p-2">
+            <form action="" method="POST" class="d-flex align-item-center gap-2 bg-light rounded p-2">
               <div class="input-group ">
                 <span class="input-group-text bg-transparent border-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                   </svg>
                 </span>
-                <input type="search" name="search" id="search" class=" form-control bg-transparent border-0 " placeholder="search buah">
+                <input type="search" name="search" id="search" class=" form-control bg-transparent border-0 " placeholder="cari buah" autofocus autocomplete="off">
               </div>
-              <button type="submit" class="btn btn-primary">Go</button>
+              <button type="submit" class="btn btn-primary" name="cari">Go</button>
 
             </form>
 
@@ -87,9 +109,9 @@ if (empty($_SESSION['id_pembeli'])) {
             }
 
             ?>
-            <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a>
-            <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center <?php echo $tampilan ?>"><i class='bx bxs-message-dots text-white'></i></a>
-
+            <a href="cart.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a>
+            <a href="Dashboard/index.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center <?php echo $tampilan ?>"><i class='bx bxs-dashboard text-white'></i></a>
+            <!-- <i class='bx bxs-message-dots text-white'></i> -->
 
 
             <!-- <a href="register.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-bell text-white'></i></a> -->
@@ -259,16 +281,19 @@ if (empty($_SESSION['id_pembeli'])) {
         while ($hasil = mysqli_fetch_array($produk)) {
         ?>
           <div class="col-md-3 mt-3">
-            <a href="cart.php" class="card border-0 boxs text-decoration-none">
+            <div class="thumbnail card boxs border-0">
               <img src="images/images_buah/<?php echo $hasil['image']; ?>" alt="gunung bromo" class="images">
               <div class="card-body">
                 <h4 class="card-title fw-bold"><?php echo $hasil['nama_barang']; ?></h4>
                 <p class="d-flex align-items-center gap-2">
                   <i class="laris rounded-pill">Tersedia</i>
-                  <?php echo $hasil['harga_jual']; ?> / kg
+                  <?php echo number_format($hasil['harga_jual']); ?> / kg
                 </p>
                 <hr>
-                <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button>
+                <!-- <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button> -->
+                <a href="beli.php?id=<?php echo $hasil['id_barang'] ?>" class="btn btn-outline-dark rounded-pill">Add To Cart</a>
+                <!-- <input type="submit" class="btn btn-outline-dark rounded-pill" value="add to cart" name="add_to_cart"> -->
+                <a href="detail_page.php" class="btn btn-outline-dark rounded-pill">Detail</a>
               </div>
               <div class="ratings position-absolute top-0 bg-white p-2">
                 <p class="d-flex align-items-center gap-2 m-0 ">
@@ -276,7 +301,7 @@ if (empty($_SESSION['id_pembeli'])) {
                   4.9
                 </p>
               </div>
-            </a>
+            </div>
           </div>
         <?php } ?>
       </div>
@@ -287,7 +312,7 @@ if (empty($_SESSION['id_pembeli'])) {
       <div class="row mx-auto">
         <div class="col md-3">
           <a href="#" class="text-decoration-none">
-            <h4 class="fw-bold ">SiMbah</h4>
+            <h4 class="fw-bold">SiMbah</h4>
           </a>
           <p class="section-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus.</p>
           <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
