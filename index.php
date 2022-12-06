@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -391,25 +392,6 @@
             <!-- <img src="images/image/flash-sale 1.svg" alt=""> -->
           </div>
         </div>
-
-        <!-- <div class="col-md-6 align-items-center mt-5" style="transform: translateX(70px);">
-          <h2 class="section-title">Pandawa Fruit Store</h2>
-          <p class="section-description">Jl. Jawa No.64a, Tegal Botol Lor, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121</p>
-          <div class="d-flex gap-5 mt-4">
-            <div class="d-flex flex-column">
-              <h3 class="flex-title">4.4 </h3>
-              <p class="section-description">Rating</p>
-            </div>
-            <div class="d-flex flex-column">
-              <h3 class="flex-title">543 </h3>
-              <p class="section-description">Reviews</p>
-            </div>
-            <div class="d-flex flex-column">
-              <h3 class="flex-title">08:15-21:30 </h3>
-              <p class="section-description">Jam Buka</p>
-            </div>
-          </div> -->
-
 
         <div class="col-md-6 align-items-center mt-2" style="transform: translateX(80px);">
           <h3 class="section-title">Lokasi Toko Buah Pandawa</h3>
