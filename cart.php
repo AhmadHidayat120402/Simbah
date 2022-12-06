@@ -124,7 +124,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
               <td>Rp <?php echo number_format($total); ?></td>
               <td>
                 <a href="hapuscart.php?id=<?php echo $id_produk ?>" class="btn btn-danger btn-sm">Hapus</a>
-                
+
                 <!-- // if (isset($_GET['id'])) {
                 //   $insert = mysqli_query($koneksi, "INSERT INTO cart (nama,harga,jumlah,total_harga) VALUES ('$pecah[nama_barang]','$pecah[harga_jual]','$jumlah','$total')");
                 // } -->
@@ -204,7 +204,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
     </div>
   </footer> -->
 
-
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
 </body>
 

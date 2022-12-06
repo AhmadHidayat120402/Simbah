@@ -2,13 +2,13 @@
 
 require '../connect.php';
 // session_start();
-if (empty($_SESSION['id_pembeli'])) {
-    echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
-}
+// if (empty($_SESSION['id_pembeli'])) {
+//     echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
+// }
 
-$query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
-$query_select = mysqli_query($koneksi, $query);
-$result = mysqli_fetch_array($query_select);
+// $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
+// $query_select = mysqli_query($koneksi, $query);
+// $result = mysqli_fetch_array($query_select);
 
 if (isset($_POST['bsimpan'])) {
 
@@ -24,19 +24,19 @@ if (isset($_POST['bsimpan'])) {
     $query = "INSERT INTO users (nama_lengkap,username,email,no_telp,password,jk,alamat,id_status) VALUES ('$nama_lengkap','$username','$email','$no_telp','$passVall','$jk','$alamat','3')";
 
     $result = mysqli_query($koneksi, $query);
-    header('location: pelanggan.php');
+    // header('location: index.php?halaman=pembelian');
 
-    // if ($result) {
-    //     echo "<script>
-    //     alert('simpan data sukses');
-    //     document.location= 'member.php';
-    //     </script>";
-    // } else {
-    //     echo "<script>
-    //     alert('simpan data gagal');
-    //     document.location= 'member.php';
-    //     </script>";
-    // }
+    if ($result) {
+        echo "<script>
+        alert('simpan data sukses');
+        document.location= 'index.php?halaman=pembelian';
+        </script>";
+    } else {
+        echo "<script>
+        alert('simpan data gagal');
+        document.location= 'index.php?halaman=pembelian';
+        </script>";
+    }
 }
 
 if (isset($_POST['bUbah'])) {
@@ -56,12 +56,12 @@ if (isset($_POST['bUbah'])) {
     if ($ubah) {
         echo "<script>
         alert('ubah data sukses');
-        document.location= 'pelanggan.php';
+        document.location= 'index.php?halaman=pembelian';
         </script>";
     } else {
         echo "<script>
         alert('ubah data gagal');
-        document.location= 'pelanggan.php';
+        document.location= 'index.php?halaman=pembelian';
         </script>";
     }
 }
@@ -77,12 +77,12 @@ if (isset($_POST['bhapus'])) {
     if ($hapus) {
         echo "<script>
         alert('hapus data sukses');
-        document.location= 'pelanggan.php';
+        document.location= 'index.php?halaman=pembelian';
         </script>";
     } else {
         echo "<script>
         alert('hapus data gagal');
-        document.location= 'pelanggan.php';
+        document.location= 'index.php?halaman=pembelian';
         </script>";
     }
 }
@@ -167,9 +167,9 @@ if (isset($_POST['bhapus'])) {
                 <?php
                 include '../connect.php';
                 $no = 1;
-                $member = mysqli_query($koneksi, "SELECT * FROM users  JOIN pembelian ON pembelian.id_pembeli = users.id_pembeli Order by id DESC");
+                $member = mysqli_query($koneksi, "SELECT * FROM users  JOIN pembelian ON pembelian.id_pembeli = users.id_pembeli Order by id_pembelian DESC");
                 while ($row = mysqli_fetch_array($member)) {
-                    $id = $row['id'];
+                    $id = $row['id_pembelian'];
                     $id_pembeli = $row['id_pembeli'];
                     $nama = $row['nama_lengkap'];
                     $tanggal_pembelian = $row['tanggal_pembelian'];
@@ -185,7 +185,7 @@ if (isset($_POST['bhapus'])) {
                         <td>
                             <a href="#" class="btn btn-warning rounded-circle" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $no ?>"><i class="fas fa-edit"></i></a>
                             <a href="#" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $no ?>"><i class="fas fa-trash"></i> </a>
-                            <a href="index.php?halaman=detail&id=<?= $row['id']; ?>" class="btn btn-primary rounded-pill">Detail</a>
+                            <a href="index.php?halaman=detail&id=<?= $row['id_pembelian']; ?>" class="btn btn-primary rounded-pill">Detail</a>
                         </td>
                     </tr>
 

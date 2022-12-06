@@ -287,7 +287,7 @@ if (empty($_SESSION['id_pembeli'])) {
                 <h4 class="card-title fw-bold"><?php echo $hasil['nama_barang']; ?></h4>
                 <p class="d-flex align-items-center gap-2">
                   <i class="laris rounded-pill">Tersedia</i>
-                  <?php echo number_format($hasil['harga_jual']); ?> / kg
+                  Rp <?php echo number_format($hasil['harga_jual']); ?> / kg
                 </p>
                 <hr>
                 <!-- <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button> -->

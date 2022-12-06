@@ -2,13 +2,13 @@
 
 require '../connect.php';
 // session_start();
-if (empty($_SESSION['id_pembeli'])) {
-    echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
-}
+// if (empty($_SESSION['id_pembeli'])) {
+//     echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
+// }
 
-$query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
-$query_select = mysqli_query($koneksi, $query);
-$result = mysqli_fetch_array($query_select);
+// $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
+// $query_select = mysqli_query($koneksi, $query);
+// $result = mysqli_fetch_array($query_select);
 
 if (isset($_POST['bsimpan'])) {
 
@@ -19,24 +19,24 @@ if (isset($_POST['bsimpan'])) {
     $passVall = $_POST['password'];
     $jk = $_POST['jenis_kelamin'];
     $alamat = $_POST['alamat'];
-    $id_status = $_POST['id_status'];
+    // $id_status = $_POST['id_status'];
 
     $query = "INSERT INTO users (nama_lengkap,username,email,no_telp,password,jk,alamat,id_status) VALUES ('$nama_lengkap','$username','$email','$no_telp','$passVall','$jk','$alamat','3')";
 
     $result = mysqli_query($koneksi, $query);
-    header('location: pelanggan.php');
+    // header('location: index.php?halaman=pelanggan');
 
-    // if ($result) {
-    //     echo "<script>
-    //     alert('simpan data sukses');
-    //     document.location= 'member.php';
-    //     </script>";
-    // } else {
-    //     echo "<script>
-    //     alert('simpan data gagal');
-    //     document.location= 'member.php';
-    //     </script>";
-    // }
+    if ($result) {
+        echo "<script>
+        alert('simpan data sukses');
+        document.location= 'index.php?halaman=pelanggan';
+        </script>";
+    } else {
+        echo "<script>
+        alert('simpan data gagal');
+        document.location= 'index.php?halaman=pelanggan';
+        </script>";
+    }
 }
 
 if (isset($_POST['bUbah'])) {
@@ -56,12 +56,12 @@ if (isset($_POST['bUbah'])) {
     if ($ubah) {
         echo "<script>
         alert('ubah data sukses');
-        document.location= 'pelanggan.php';
+        document.location= 'index.php?halaman=pelanggan';
         </script>";
     } else {
         echo "<script>
         alert('ubah data gagal');
-        document.location= 'pelanggan.php';
+        document.location= 'index.php?halaman=pelanggan';
         </script>";
     }
 }
@@ -77,12 +77,12 @@ if (isset($_POST['bhapus'])) {
     if ($hapus) {
         echo "<script>
         alert('hapus data sukses');
-        document.location= 'pelanggan.php';
+        document.location= 'index.php?halaman=pelanggan';
         </script>";
     } else {
         echo "<script>
         alert('hapus data gagal');
-        document.location= 'pelanggan.php';
+        document.location= 'index.php?halaman=pelanggan';
         </script>";
     }
 }

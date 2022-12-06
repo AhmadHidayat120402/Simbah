@@ -2,12 +2,12 @@
 
 require '../connect.php';
 // session_start();
-if (empty($_SESSION['id_pembeli'])) {
-    echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
-}
-$query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
-$query_select = mysqli_query($koneksi, $query);
-$result = mysqli_fetch_array($query_select);
+// if (empty($_SESSION['id_pembeli'])) {
+//     echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
+// }
+// $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
+// $query_select = mysqli_query($koneksi, $query);
+// $result = mysqli_fetch_array($query_select);
 // $check = array(
 //     "" => "-",
 //     ":" => "",
@@ -72,12 +72,12 @@ if (isset($_POST['bsimpan'])) {
     if ($query) {
         echo "<script>
     alert('simpan data sukses');
-    document.location= 'produk.php';
+    document.location= 'index.php?halaman=produk';
     </script>";
     } else {
         echo "<script>
     alert('simpan data gagal');
-    document.location= 'produk.php';
+    document.location= 'index.php?halaman=produk';
     </script>";
     }
 }
@@ -103,12 +103,12 @@ if (isset($_POST['bUbah'])) {
     if ($update_query) {
         echo "<script>
         alert('ubah data sukses');
-        document.location= 'produk.php';
+        document.location= 'index.php?halaman=produk';
         </script>";
     } else {
         echo "<script>
         alert('ubah data gagal');
-        document.location= 'produk.php';
+        document.location= 'index.php?halaman=produk';
         </script>";
     }
 }
@@ -124,12 +124,12 @@ if (isset($_POST['bhapus'])) {
     if ($hapus) {
         echo "<script>
         alert('hapus data sukses');
-        document.location= 'produk.php';
+        document.location= 'index.php?halaman=produk';
         </script>";
     } else {
         echo "<script>
         alert('hapus data gagal');
-        document.location= 'produk.php';
+        document.location= 'index.php?halaman=produk';
         </script>";
     }
 }
@@ -139,204 +139,204 @@ if (isset($_POST['bhapus'])) {
 
 
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid mt-5">
+<!-- Begin Page Content -->
+<div class="container-fluid mt-5">
 
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Data Produk</h1>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTambah">
-                            Tambah data
-                        </button>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Data Produk</h1>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTambah">
+            Tambah data
+        </button>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="modalTambah" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Produk</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <form action="" method="POST" enctype="multipart/form-data">
-                                        <div class="modal-body">
-                                            <input type="hidden" name="action" id="action" value="add">
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label">kode barang</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_barang" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Nama Buah</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_barang" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Harga Beli</label>
-                                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Beli" name="harga_beli" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Harga Jual</label>
-                                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Jual" name="harga_jual" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Stok</label>
-                                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Gambar</label>
-                                                <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">ID Supplier</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan ID Supplier" name="id_supplier" required>
-                                            </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalTambah" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Produk</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <input type="hidden" name="action" id="action" value="add">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">kode barang</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_barang" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Nama Buah</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_barang" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Harga Beli</label>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Beli" name="harga_beli" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Harga Jual</label>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Jual" name="harga_jual" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Stok</label>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Gambar</label>
+                                <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">ID Supplier</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan ID Supplier" name="id_supplier" required>
+                            </div>
 
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary" name="bsimpan">Simpan</button>
-                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                                        </div>
-                                    </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" name="bsimpan">Simpan</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table id="member" class="table table-striped table-bordered w-100 nowrap" width="100%">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>kode Buah</th>
+                    <th>Nama Buah</th>
+                    <th>Harga Beli</th>
+                    <th>Harga Jual</th>
+                    <th>Stok</th>
+                    <th>Image</th>
+                    <th>Nama Supplier</th>
+                    <th>ID Supplier</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                include '../connect.php';
+                $no = 1;
+                $produk = mysqli_query($koneksi, "SELECT * FROM barang  JOIN supplier ON barang.id_supplier = supplier.id_supplier ");
+                while ($row = mysqli_fetch_array($produk)) {
+
+                    $id_barang = $row['id_barang'];
+                    $kode_barang = $row['kode_barang'];
+                    $nama_barang = $row['nama_barang'];
+                    $harga_beli = $row['harga_beli'];
+                    $harga_jual = $row['harga_jual'];
+                    $stok = $row['stok'];
+                    $image = $row['image'];
+                    $id_supplier = $row['id_supplier'];
+                    $nama_supplier = $row['nama_supplier'];
+                ?>
+                    <tr>
+                        <td><?php echo $no++ ?></td>
+                        <td><?php echo $kode_barang ?></td>
+                        <td><?php echo $nama_barang ?></td>
+                        <td><?php echo $harga_beli ?></td>
+                        <td><?php echo $harga_jual ?></td>
+                        <td><?php echo $stok ?></td>
+                        <td><img src="../images/images_buah/<?php echo $image ?>" width="100%" class="rounded-circle"></td>
+                        <td><?php echo $nama_supplier ?></td>
+                        <td><?php echo $id_supplier ?></td>
+                        <td>
+                            <a href="#" class="btn btn-warning rounded-circle" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $no ?>"><i class="fas fa-edit"></i></a>
+                            <a href="#" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $no ?>"><i class="fas fa-trash"></i> </a>
+                        </td>
+                    </tr>
+                    <!-- awal modal ubah -->
+                    <div class="modal fade" id="modalUbah<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Produk</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <input type="hidden" name="id_barang" id="id_barang" value="<?= $id_barang  ?>">
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlInput1" class="form-label">kode barang</label>
+                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_barang" value="<?php echo $kode_barang ?>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Nama Buah</label>
+                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_barang" value="<?php echo $nama_barang ?>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Harga Beli</label>
+                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Beli" name="harga_beli" value="<?php echo $harga_beli ?>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Harga Jual</label>
+                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Jual" name="harga_jual" value="<?php echo $harga_jual ?>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Stok</label>
+                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok" value="<?php echo $stok ?>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Gambar</label>
+                                            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">ID Supplier</label>
+                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan ID Supplier" name="id_supplier" value="<?php echo $id_supplier ?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary" name="bUbah">Ubah</button>
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="table-responsive">
-                        <table id="member" class="table table-striped table-bordered w-100 nowrap" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>kode Buah</th>
-                                    <th>Nama Buah</th>
-                                    <th>Harga Beli</th>
-                                    <th>Harga Jual</th>
-                                    <th>Stok</th>
-                                    <th>Image</th>
-                                    <th>Nama Supplier</th>
-                                    <th>ID Supplier</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                include '../connect.php';
-                                $no = 1;
-                                $produk = mysqli_query($koneksi, "SELECT * FROM barang  JOIN supplier ON barang.id_supplier = supplier.id_supplier ");
-                                while ($row = mysqli_fetch_array($produk)) {
+                    <!-- akhir modal ubah -->
 
-                                    $id_barang = $row['id_barang'];
-                                    $kode_barang = $row['kode_barang'];
-                                    $nama_barang = $row['nama_barang'];
-                                    $harga_beli = $row['harga_beli'];
-                                    $harga_jual = $row['harga_jual'];
-                                    $stok = $row['stok'];
-                                    $image = $row['image'];
-                                    $id_supplier = $row['id_supplier'];
-                                    $nama_supplier = $row['nama_supplier'];
-                                ?>
-                                    <tr>
-                                        <td><?php echo $no++ ?></td>
-                                        <td><?php echo $kode_barang ?></td>
-                                        <td><?php echo $nama_barang ?></td>
-                                        <td><?php echo $harga_beli ?></td>
-                                        <td><?php echo $harga_jual ?></td>
-                                        <td><?php echo $stok ?></td>
-                                        <td><img src="../images/images_buah/<?php echo $image ?>" width="100%"></td>
-                                        <td><?php echo $nama_supplier ?></td>
-                                        <td><?php echo $id_supplier ?></td>
-                                        <td>
-                                            <a href="#" class="btn btn-warning rounded-circle" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $no ?>"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $no ?>"><i class="fas fa-trash"></i> </a>
-                                        </td>
-                                    </tr>
-                                    <!-- awal modal ubah -->
-                                    <div class="modal fade" id="modalUbah<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Form Data Produk</h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <form action="" method="POST" enctype="multipart/form-data">
-                                                    <div class="modal-body">
-                                                        <input type="hidden" name="id_barang" id="id_barang" value="<?= $id_barang  ?>">
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlInput1" class="form-label">kode barang</label>
-                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_barang" value="<?php echo $kode_barang ?>" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlTextarea1" class="form-label">Nama Buah</label>
-                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Buah" name="nama_barang" value="<?php echo $nama_barang ?>" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlTextarea1" class="form-label">Harga Beli</label>
-                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Beli" name="harga_beli" value="<?php echo $harga_beli ?>" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlTextarea1" class="form-label">Harga Jual</label>
-                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Jual" name="harga_jual" value="<?php echo $harga_jual ?>" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlTextarea1" class="form-label">Stok</label>
-                                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok" value="<?php echo $stok ?>" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlTextarea1" class="form-label">Gambar</label>
-                                                            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleFormControlTextarea1" class="form-label">ID Supplier</label>
-                                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan ID Supplier" name="id_supplier" value="<?php echo $id_supplier ?>" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-primary" name="bUbah">Ubah</button>
-                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
+                    <div class="modal fade" id="modalHapus<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi Hapus Data Produk</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form action="" method="POST">
+                                    <div class="modal-body">
+                                        <input type="hidden" name="id_barang" id="id_barang" value="<?= $id_barang  ?>">
+                                        <h5 class="text-center">Apakah anda yakin akan menghapus data ini ? <br>
+                                            <span class="text-danger"><?= $kode_barang ?> - <?= $nama_barang  ?></span>
+                                        </h5>
+
                                     </div>
-                                    <!-- akhir modal ubah -->
-
-                                    <div class="modal fade" id="modalHapus<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi Hapus Data Produk</h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <form action="" method="POST">
-                                                    <div class="modal-body">
-                                                        <input type="hidden" name="id_barang" id="id_barang" value="<?= $id_barang  ?>">
-                                                        <h5 class="text-center">Apakah anda yakin akan menghapus data ini ? <br>
-                                                            <span class="text-danger"><?= $kode_barang ?> - <?= $nama_barang  ?></span>
-                                                        </h5>
-
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-primary" name="bhapus">Hapus</button>
-                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary" name="bhapus">Hapus</button>
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                     </div>
-                                    <!-- akhir modal ubah -->
-                                <?php
-
-                                }
-                                ?>
-                            </tbody>
-                        </table>
+                                </form>
+                            </div>
+                        </div>
                     </div>
+                    <!-- akhir modal ubah -->
+                <?php
+
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 
 
-                    <!-- akhir modal -->
-                    <script>
-                        $(document).ready(function() {
-                            $('#member').DataTable({
-                                scrollX: true,
-                            });
-                        });
-                    </script>
-                </div>
-                <!-- /.container-fluid -->
+    <!-- akhir modal -->
+    <script>
+        $(document).ready(function() {
+            $('#member').DataTable({
+                scrollX: true,
+            });
+        });
+    </script>
+</div>
+<!-- /.container-fluid -->

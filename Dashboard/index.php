@@ -2,9 +2,9 @@
 require '../connect.php';
 
 session_start();
-// if (empty($_SESSION['id_pembeli'])) {
-//     echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
-// }
+if (empty($_SESSION['id_pembeli'])) {
+    echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
+}
 
 $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
 $query_select = mysqli_query($koneksi, $query);
@@ -396,7 +396,7 @@ $result = mysqli_fetch_array($query_select);
                                 include 'produk.php';
                             } elseif ($_GET['halaman'] == 'supplier') {
                                 include 'supplier.php';
-                            } elseif ($_GET['halaman'] == 'detail_pembelian') {
+                            } elseif ($_GET['halaman'] == 'detail') {
                                 include 'detail_pembelian.php';
                             } else {
                             }
