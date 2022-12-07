@@ -99,8 +99,10 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
 
           </tr>
         </thead>
+
         <tbody>
           <?php $no = 1; ?>
+          <?php $totalbelanja = 0; ?>
           <?php foreach ($_SESSION['keranjang'] as $id_produk => $jumlah) {
             // menampilkan produk yang sedang diperulangkan berdasarkan id_produk
             $ambil = mysqli_query($koneksi, "SELECT * FROM barang WHERE id_barang = '$id_produk'");
@@ -119,38 +121,87 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
 
             </tr>
             <?php $no++; ?>
+            <?php $totalbelanja += $total; ?>
           <?php } ?>
         </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="4">Total Belanja</th>
+            <th>Rp <?php echo number_format($totalbelanja); ?></th>
+          </tr>
+        </tfoot>
       </table>
       <form action="" method="POST">
 
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <input type="text" name="nama" id="nama" readonly value="<?php echo $_SESSION['identitas']['username'] ?>" class="form-control">
+              <input type="text" name="nama" id="nama" readonly value="<?php echo $_SESSION['identitas']['username'] ?>" class="form-control" style="background-color: white !important;">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <input type="text" name="nama" id="nama" readonly value="<?php echo $_SESSION['identitas']['no_telp'] ?>" class="form-control">
+              <input type="text" name="nama" id="nama" readonly value="<?php echo $_SESSION['identitas']['no_telp'] ?>" class="form-control" style="background-color: white !important;">
             </div>
           </div>
           <div class="col-md-4">
-            <select name="ongkir" id="ongkir">
+            <select name="id_ongkir" id="ongkir" class="form-select" style="background-color: white !important;" aria-label="Default select example">
               <option value="0">pilih ongkos kirim</option>
-              <option value="0"></option>
-              <option value="0"></option>
+              <?php
+              include 'connect.php';
+              $ongkir  = mysqli_query($koneksi, "SELECT * FROM ongkir");
+              while ($ambil_ongkir = mysqli_fetch_array($ongkir)) {
+              ?>
+                <option value="<?php echo $ambil_ongkir['id_ongkir'] ?>">
+                  <?php echo $ambil_ongkir['nama_daerah'] ?> -
+                  Rp <?php echo number_format($ambil_ongkir['tarif']) ?>
+                </option>
+              <?php }; ?>
             </select>
           </div>
         </div>
-
+        <button class="btn btn-primary mt-4" name="checkout">Checkout</button>
       </form>
+      <?php
 
+      if (isset($_POST['checkout'])) {
+        $id_pelanggan = $_SESSION['identitas']['id_pembeli'];
+        $id_ongkir = $_POST['id_ongkir'];
+        $tanggal_pembelian  = date('Y-m-d');
+
+        $ambil_tarif = mysqli_query($koneksi, "SELECT * FROM ongkir WHERE id_ongkir = '$id_ongkir'");
+        $arraytarif = mysqli_fetch_array($ambil_tarif);
+        $tarif = $arraytarif['tarif'];
+
+        $total_pembelian = $totalbelanja + $tarif;
+
+        // menyimpan data ke tabel pembelian
+        $simpan = mysqli_query($koneksi, "INSERT INTO pembelian (id_pembeli,id_ongkir,tanggal_pembelian,total_pembelian) VALUES ('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian')");
+
+        // mendapatkan id pembelian barusan terjadi
+        $id_pembelian_barusan = $koneksi->insert_id;
+
+        foreach ($_SESSION['keranjang'] as $id_produk => $jumlah) {
+          $queri_insert = mysqli_query($koneksi, "INSERT INTO pembelian_buah (id_pembelian,id_barang,jumlah) VALUES ('$id_pembelian_barusan','$id_produk','$jumlah')");
+        }
+
+        // mengkosongkan keranjang belanja
+        unset($_SESSION['keranjang']);
+
+
+        // tampilan dialihkan kehalaman nota, dari pembelian barusan
+        echo "<script>alert('pembelian sukses');</script>";
+        echo "<script>location = 'nota.php?id=$id_pembelian_barusan';</script>";
+      }
+
+
+      ?>
     </div>
     </div>
   </section>
   <pre>
   <?php print_r($_SESSION['identitas']) ?>
+  <?php print_r($_SESSION['keranjang']) ?>
 </pre>
 
 
