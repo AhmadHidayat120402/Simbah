@@ -2,6 +2,8 @@
 
 include 'session.php';
 include 'connect.php';
+// mendapatkan id_barang dari url
+
 
 // $query = "SELECT * FROM barang";
 // $query_cari = mysqli_query($koneksi, $query);
@@ -60,29 +62,10 @@ if (empty($_SESSION['id_pembeli'])) {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href=".">Home</a>
+                <a href="home.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"> <i class='bx bxs-home text-white'></i> Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.php">About</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Packages
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href=".">Aneka buah</a></li>
-                  <li><a class="dropdown-item" href="index.php">Buah favorite</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Selengkapnya
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="index.php">Kata customers</a></li>
-                  <li><a class="dropdown-item" href="index.php">Alamat</a></li>
-                  <li><a class="dropdown-item" href="index.php">Media sosial</a></li>
-                </ul>
+                <a href="riwayat.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i> Riwayat Belanja</a>
               </li>
             </ul>
             <form action="" method="POST" class="d-flex align-item-center gap-2 bg-light rounded p-2">
@@ -109,7 +92,8 @@ if (empty($_SESSION['id_pembeli'])) {
             }
 
             ?>
-            <a href="cart.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a>
+
+            <a href="riwayat.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a>
             <a href="Dashboard/index.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center <?php echo $tampilan ?>"><i class='bx bxs-dashboard text-white'></i></a>
             <!-- <i class='bx bxs-message-dots text-white'></i> -->
 
@@ -293,7 +277,7 @@ if (empty($_SESSION['id_pembeli'])) {
                 <!-- <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button> -->
                 <a href="beli.php?id=<?php echo $hasil['id_barang'] ?>" class="btn btn-outline-dark rounded-pill">Add To Cart</a>
                 <!-- <input type="submit" class="btn btn-outline-dark rounded-pill" value="add to cart" name="add_to_cart"> -->
-                <a href="detail_page.php" class="btn btn-outline-dark rounded-pill">Detail</a>
+                <a href="detail_produk.php?id=<?php echo $hasil['id_barang']; ?>" class="btn btn-outline-dark rounded-pill">Detail</a>
               </div>
               <div class="ratings position-absolute top-0 bg-white p-2">
                 <p class="d-flex align-items-center gap-2 m-0 ">
@@ -305,7 +289,7 @@ if (empty($_SESSION['id_pembeli'])) {
           </div>
         <?php } ?>
 
-        
+
       </div>
   </section>
 

@@ -96,6 +96,7 @@ if (isset($_POST['bhapus'])) {
                     <th>No</th>
                     <th>Nama Pelanggan</th>
                     <th>Tanggal</th>
+                    <th>Status Pembelian</th>
                     <th>Total</th>
                     <th>Action</th>
                 </tr>
@@ -110,6 +111,7 @@ if (isset($_POST['bhapus'])) {
                     $id_pembeli = $row['id_pembeli'];
                     $nama = $row['nama_lengkap'];
                     $tanggal_pembelian = $row['tanggal_pembelian'];
+                    $status_pembelian = $row['status_pembayaran'];
                     $total = $row['total_pembelian'];
                     $email = $row['email'];
 
@@ -119,11 +121,24 @@ if (isset($_POST['bhapus'])) {
                         <td><?php echo $no++ ?></td>
                         <td><?php echo $nama ?></td>
                         <td><?php echo $tanggal_pembelian ?></td>
+                        <td><?php echo $status_pembelian ?></td>
                         <td><?php echo $total ?></td>
                         <td>
+                            <!-- 
+                            <a href="#" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#modalHapus<? //echo $no 
+                                                                                                                                ?>"><i class="fas fa-trash"></i> </a> -->
+                            <a href="index.php?halaman=detail&id_beli=<?= $row['id_pembelian']; ?>" class="btn btn-primary rounded-pill">Detail</a>
 
-                            <a href="#" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $no ?>"><i class="fas fa-trash"></i> </a>
-                            <a href="index.php?halaman=detail&id=<?= $row['id_pembelian']; ?>" class="btn btn-primary rounded-pill">Detail</a>
+                            <?php
+                            if ($status_pembelian !== 'pending') { ?>
+                                <a href="index.php?halaman=pembayaran&id=<?php echo $id ?>" class="btn btn-success rounded-pill">Pembayaran</a>
+                            <?php  } ?>
+
+
+
+
+
+
                         </td>
                     </tr>
                     <div class="modal fade" id="modalHapus<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

@@ -53,6 +53,7 @@ if (isset($_POST['bsimpan'])) {
     // $slug = strtolower(strtr($nama_barang,$check));
     $harga_beli = $_POST['harga_beli'];
     $harga_jual = $_POST['harga_jual'];
+    $berat = $_POST['berat_buah'];
     $stok = $_POST['stok'];
 
     $image = $_FILES['gambar']['name'];
@@ -63,7 +64,7 @@ if (isset($_POST['bsimpan'])) {
     // $nama_supplier = $_POST['nama_supplier'];
 
 
-    $query = mysqli_query($koneksi, "INSERT INTO barang (kode_barang,nama_barang,harga_beli,harga_jual,stok,image,id_supplier) VALUES ('$kode_barang','$nama_barang','$harga_beli','$harga_jual','$stok','$image_files','$id_supplier')");
+    $query = mysqli_query($koneksi, "INSERT INTO barang (kode_barang,nama_barang,harga_beli,harga_jual,stok,berat_buah,image,id_supplier) VALUES ('$kode_barang','$nama_barang','$harga_beli','$harga_jual','$stok','$berat','$image_files','$id_supplier')");
 
     copy($temp, "../images/images_buah/" . $image_files);
     //         header('location:produk.php');
@@ -89,13 +90,14 @@ if (isset($_POST['bUbah'])) {
     $nama_barang = $_POST['nama_barang'];
     $harga_beli = $_POST['harga_beli'];
     $harga_jual = $_POST['harga_jual'];
+    $berat = $_POST['berat_buah'];
     $stok = $_POST['stok'];
     $image = $_FILES['gambar']['name'];
     $temp = $_FILES['gambar']['tmp_name'];
     $image_files = $nama_barang . ".jpg";
     $id_supplier = $_POST['id_supplier'];
 
-    $update_query = mysqli_query($koneksi, "UPDATE barang SET kode_barang ='$kode_barang', nama_barang = '$nama_barang',harga_beli = '$harga_beli',harga_jual = '$harga_jual',stok = '$stok',image= '$image_files',id_supplier = '$id_supplier' WHERE id_barang = '$id_barang'");
+    $update_query = mysqli_query($koneksi, "UPDATE barang SET kode_barang ='$kode_barang', nama_barang = '$nama_barang',harga_beli = '$harga_beli',harga_jual = '$harga_jual',stok = '$stok',berat_buah = '$berat',image= '$image_files',id_supplier = '$id_supplier' WHERE id_barang = '$id_barang'");
 
     // header('location: member.php');
     copy($temp, "../images/images_buah/" . $image_files);
@@ -177,6 +179,10 @@ if (isset($_POST['bhapus'])) {
                                 <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Jual" name="harga_jual" required>
                             </div>
                             <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Berat Buah</label>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Berat Buah" name="berat_buah" required>
+                            </div>
+                            <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Stok</label>
                                 <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok" required>
                             </div>
@@ -208,6 +214,7 @@ if (isset($_POST['bhapus'])) {
                     <th>Nama Buah</th>
                     <th>Harga Beli</th>
                     <th>Harga Jual</th>
+                    <th>Berat Buah</th>
                     <th>Stok</th>
                     <th>Image</th>
                     <th>Nama Supplier</th>
@@ -227,6 +234,7 @@ if (isset($_POST['bhapus'])) {
                     $nama_barang = $row['nama_barang'];
                     $harga_beli = $row['harga_beli'];
                     $harga_jual = $row['harga_jual'];
+                    $berat = $row['berat_buah'];
                     $stok = $row['stok'];
                     $image = $row['image'];
                     $id_supplier = $row['id_supplier'];
@@ -238,6 +246,7 @@ if (isset($_POST['bhapus'])) {
                         <td><?php echo $nama_barang ?></td>
                         <td><?php echo $harga_beli ?></td>
                         <td><?php echo $harga_jual ?></td>
+                        <td><?php echo $berat ?></td>
                         <td><?php echo $stok ?></td>
                         <td><img src="../images/images_buah/<?php echo $image ?>" width="100%" class="rounded-circle"></td>
                         <td><?php echo $nama_supplier ?></td>
@@ -273,6 +282,10 @@ if (isset($_POST['bhapus'])) {
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">Harga Jual</label>
                                             <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Harga Jual" name="harga_jual" value="<?php echo $harga_jual ?>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Berat Buah</label>
+                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Berat Buah" name="berat_buah" required value="<?= $berat ?>">
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">Stok</label>

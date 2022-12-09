@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,700&family=Quicksand:wght@400;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,700&family=Quicksand:wght@400;700&display=swap"); */
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 :root {
   --color-primary: #d8db64;
   --color-secondary: #22334d;
@@ -21,7 +22,7 @@
 } */
 
 * {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: var(--color-secondary);
   box-sizing: border-box;
   text-decoration: none;
@@ -142,6 +143,11 @@ a .logo {
   cursor: pointer;
   /* background-color: var(--color-gray); */
   /* transition: 0.7s; */
+}
+.boxss {
+  box-shadow: 5px 2px 5px 2px rgba(1, 1, 1, 0.2);
+  border-radius: 15px 15px;
+  transition: 1s;
 }
 
 .popular-destionation .card {

@@ -33,6 +33,15 @@ $result = mysqli_fetch_array($query_select);
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
+
+  <!-- cdn -->
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+
   <title>Nota Pembelian</title>
 
 </head>
@@ -87,127 +96,74 @@ $result = mysqli_fetch_array($query_select);
 
   <section class="kontent">
     <div class="container">
-      <h2 class="fw-bold">Nota Pembelian</h2>
-      <?php
-      require 'connect.php';
-      // include 'Dashboard/pembelian.php';
-      $query_pembelian = "SELECT * FROM users JOIN pembelian ON pembelian.id_pembeli = users.id_pembeli WHERE pembelian.id_pembelian = '$_GET[id]'";
-
-      $hasil_keputusan = mysqli_query($koneksi, $query_pembelian);
-      $ambil = mysqli_fetch_array($hasil_keputusan);
-
-      ?>
-      <!-- <h1>data orang yang beli $ambil</h1> -->
-      <!-- <pre> <?php //print_r($ambil); ?></pre> -->
-
-      <!-- <h1>data orang yang login di session </h1> -->
-      <!-- <pre><?php //print_r($_SESSION);  ?></pre> -->
-
-      <!-- jika pelanggan ynag beli tidak sama dengan pelanggan yang login, maka dilarikan ke halaman riwayat.php atau lainnya karena dia tidak berhak melihat nota orang lain  -->
-      <!-- pelanggan yang beli harus pelanggan yang login -->
-
-      <?php
-      // mendapatkan id_pelanggan yang beli
-      $idpelangganyangbeli = $ambil['id_pembeli'];
-
-      // mendapatkan id_pelanggan yang login dari session
-      $idpelangganyanglogin = $_SESSION['identitas']['id_pembeli'];
-
-      if ($idpelangganyangbeli !== $idpelangganyanglogin) {
-        echo "<script> alert ('Anda tidak berhak mengakses halaman ini');</script>";
-        echo "<script>location='riwayat.php';</script>";
-      }
-
-
-
-
-      ?>
-
-
-      <div class="row mt-5 border border-black rounded p-1">
-        <div class="col-md-3">
-          <h3 class="fw-bold">Kios Pandawa</h3>
-          jl.Jawa Jember Jawa Timur <br>
-          08990-423-789 <br>
-          padawabuah@gmail.com
-        </div>
-        <div class="col-md-3">
-          <h3 class="fw-bold">Pembelian</h3>
-          No. Pembelian : <?php echo $ambil['id_pembelian']; ?> <br>
-          Tanggal : <?php echo $ambil['tanggal_pembelian']; ?> <br>
-          Total : <?php echo number_format($ambil['total_pembelian']); ?>
-        </div>
-        <div class="col-md-3">
-          <h3 class="fw-bold">Pelanggan</h3>
-          <?php echo $ambil['username']; ?><br>
-          <p>
-            <?php echo $ambil['no_telp']; ?> <br>
-            <?php echo $ambil['email']; ?>
-          </p>
-        </div>
-        <div class="col-md-3">
-          <h3 class="fw-bold">Pengiriman</h3>
-          <?php echo $ambil['nama_daerah'] ?><br>
-          Ongkos Kirim : Rp <?php echo number_format($ambil['tarif']); ?> <br>
-          Alamat : <?php echo $ambil['alamat_pengiriman']; ?>
-        </div>
-      </div>
-
-      <div class="table-responsive mt-5">
-        <table id="detail_pembelian" class="table table-striped table-bordered w-100 nowrap">
+      <h2 class="fw-bold">Riwayat Belanja <?php echo $_SESSION['identitas']['nama_lengkap']; ?></h2>
+      <div class="table-responsive">
+        <table class="table table-bordered mt-5" id="riwayat">
           <thead>
             <tr>
               <th>No</th>
-              <th>Nama Produk</th>
-              <th>Harga</th>
-              <th>Berat</th>
-              <th>Jumlah</th>
-              <th>SubBerat</th>
-              <th>SubTotal</th>
+              <th>Tanggal</th>
+              <th>Status</th>
+              <th>Total</th>
+              <th>Opsi</th>
             </tr>
           </thead>
           <tbody>
+            <!-- mendapatkan id_pembeli yang login dari session -->
             <?php
-
-            require 'connect.php';
-            // include 'Dashboard/pembelian.php';
             $no = 1;
-            $query_produk = mysqli_query($koneksi, "SELECT * FROM pembelian_buah WHERE id_pembelian = '$_GET[id]'");
-            while ($ambil_query = mysqli_fetch_array($query_produk)) { ?>
-              <tr>
-                <td><?php echo $no++; ?></td>
-                <td><?php echo $ambil_query['nama']; ?></td>
-                <td>Rp <?php echo number_format($ambil_query['harga']); ?></td>
-                <td><?php echo $ambil_query['berat']; ?> Gr</td>
-                <td><?php echo $ambil_query['jumlah']; ?></td>
-                <td><?php echo $ambil_query['subberat']; ?> Gr</td>
-                <td>Rp <?php echo number_format($ambil_query['subharga']); ?></td>
-              </tr>
-            <?php }
-
+            $id_pembeli = $_SESSION['identitas']['id_pembeli'];
+            $tampil_data = mysqli_query($koneksi, "SELECT * FROM pembelian WHERE id_pembeli = '$id_pembeli' ");
+            while ($ambil_data = mysqli_fetch_array($tampil_data)) {
             ?>
+              <tr>
+                <td><?php echo $no++ ?></td>
+                <td><?php echo $ambil_data['tanggal_pembelian']; ?></td>
+                <td>
+                  <?php echo $ambil_data['status_pembayaran']; ?> <br>
+                  <?php
+                  if (!empty($ambil_data['resi_pengiriman'])) { ?>
+                    Resi : <?php echo $ambil_data['resi_pengiriman']; ?>
+                  <?php } ?>
+
+                </td>
+                <td> Rp <?php echo number_format($ambil_data['total_pembelian']); ?></td>
+                <td>
+                  <a href="nota.php?id=<?php echo $ambil_data['id_pembelian']; ?>" class="btn btn-info">Nota</a>
+
+                  <?php if ($ambil_data['status_pembayaran'] == 'pending') : ?>
+                    <a href="pembayaran.php?id=<?php echo $ambil_data['id_pembelian']; ?>" class="btn btn-success"> Input Pembayaran</a>
+                  <?php else : ?>
+                    <a href="lihat_pembayaran.php?id=<?php echo $ambil_data['id_pembelian']; ?>" class="btn btn-warning">Lihat Pembayaran</a>
+                  <?php endif ?>
+                </td>
+              </tr>
+            <?php } ?>
           </tbody>
         </table>
-        <div class="row">
-          <div class="col-md-5">
-            <div class="alert alert-info">
-              <p>
-                silahkan melakukan pembayaran Rp <?php echo number_format($ambil['total_pembelian']); ?> ke <br>
-                <strong>BANK MANDIRI 137-001088-3276 AN. Ahmad Hidayat</strong>
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
-      <script>
-        $(document).ready(function() {
-          $('#detail_pembelian').DataTable();
-        });
-      </script>
     </div>
+    <script>
+      $(document).ready(function() {
+        $('#riwayat').DataTable();
+      });
+    </script>
   </section>
 
   <script src="vendor/boostrap/js/bootstrap.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+
 </body>
 
 </html>

@@ -398,7 +398,9 @@ $result = mysqli_fetch_array($query_select);
                                 include 'supplier.php';
                             } elseif ($_GET['halaman'] == 'detail') {
                                 include 'detail_pembelian.php';
-                            } else {
+                            }
+                             elseif($_GET['halaman'] == 'pembayaran') {
+                                include 'pembayaran.php';
                             }
                         } else {
                             // include 'index.php';

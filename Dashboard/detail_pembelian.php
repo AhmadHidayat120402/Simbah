@@ -1,7 +1,7 @@
 <h2>Detail Pembelian</h2>
 <?php
 require '../connect.php';
-$query_pembelian = "SELECT * FROM users JOIN pembelian ON pembelian.id_pembeli = users.id_pembeli WHERE pembelian.id_pembelian = '$_GET[id]'";
+$query_pembelian = "SELECT * FROM users JOIN pembelian ON pembelian.id_pembeli = users.id_pembeli WHERE pembelian.id_pembelian = '$_GET[id_beli]'";
 
 $hasil_keputusan = mysqli_query($koneksi, $query_pembelian);
 $ambil = mysqli_fetch_array($hasil_keputusan);
@@ -31,7 +31,7 @@ $ambil = mysqli_fetch_array($hasil_keputusan);
       <?php
       require '../connect.php';
       $no = 1;
-      $query_produk = mysqli_query($koneksi, "SELECT * FROM pembelian_buah JOIN barang ON pembelian_buah.id_barang =  barang.id_barang WHERE pembelian_buah.id_pembelian ='$_GET[id]'");
+      $query_produk = mysqli_query($koneksi, "SELECT * FROM pembelian_buah JOIN barang ON pembelian_buah.id_barang =  barang.id_barang WHERE pembelian_buah.id_pembelian ='$_GET[id_beli]'");
       while ($ambil_query = mysqli_fetch_array($query_produk)) { ?>
         <tr>
           <td><?php echo $no++; ?></td>
