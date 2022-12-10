@@ -172,6 +172,11 @@ $result = mysqli_fetch_array($query_select);
                     <i class="fas fa-fw fa-table"></i>
                     <span>pembelian</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?halaman=laporan_pembelian">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Laporan</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -398,9 +403,10 @@ $result = mysqli_fetch_array($query_select);
                                 include 'supplier.php';
                             } elseif ($_GET['halaman'] == 'detail') {
                                 include 'detail_pembelian.php';
-                            }
-                             elseif($_GET['halaman'] == 'pembayaran') {
+                            } elseif ($_GET['halaman'] == 'pembayaran') {
                                 include 'pembayaran.php';
+                            } elseif ($_GET['halaman'] == 'laporan_pembelian') {
+                                include 'laporan_pembelian.php';
                             }
                         } else {
                             // include 'index.php';
