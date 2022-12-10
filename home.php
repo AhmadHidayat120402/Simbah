@@ -68,17 +68,9 @@ if (empty($_SESSION['id_pembeli'])) {
                 <a href="riwayat.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i> Riwayat Belanja</a>
               </li>
             </ul>
-            <form action="" method="POST" class="d-flex align-item-center gap-2 bg-light rounded p-2">
-              <div class="input-group ">
-                <span class="input-group-text bg-transparent border-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                  </svg>
-                </span>
-                <input type="search" name="search" id="search" class=" form-control bg-transparent border-0 " placeholder="cari buah" autofocus autocomplete="off">
-              </div>
-              <button type="submit" class="btn btn-primary" name="cari">Go</button>
-
+            <form action="pencarian.php" method="GET" class="d-flex align-item-center gap-2 bg-light rounded p-2">
+              <input type="search" name="keyword" id="search" class=" form-control bg-transparent border-0 " placeholder="cari buah" autofocus autocomplete="off">
+              <button class="btn btn-primary">Cari</button>
             </form>
 
             <?php
