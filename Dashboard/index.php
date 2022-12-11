@@ -163,6 +163,11 @@ $result = mysqli_fetch_array($query_select);
                     <span>supplier</span></a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="index.php?halaman=Kategori">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Kategori</span></a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=produk">
                     <i class="fas fa-fw fa-table"></i>
                     <span>produk</span></a>
@@ -407,6 +412,10 @@ $result = mysqli_fetch_array($query_select);
                                 include 'pembayaran.php';
                             } elseif ($_GET['halaman'] == 'laporan_pembelian') {
                                 include 'laporan_pembelian.php';
+                            } elseif ($_GET['halaman'] == 'detail_produk') {
+                                include 'detail_produk.php';
+                            // }elseif($_GET['halaman'] == 'download_laporan'){
+                            //     include 'download_laporan.php';
                             }
                         } else {
                             // include 'index.php';

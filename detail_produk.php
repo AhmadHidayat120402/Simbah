@@ -5,22 +5,23 @@ include 'session.php';
 // include 'Dashboard/pembelian.php';
 // include 'Dashboard/detail_pembelian.php';
 
-
-
 $id_produk = $_GET['id'];
 
 // query ambil data
 $query_barang = mysqli_query($koneksi, "SELECT * FROM barang WHERE id_barang = '$id_produk'");
 $ambil_query_barang = mysqli_fetch_array($query_barang);
 
-echo "<pre>";
-print_r($ambil_query_barang);
-echo "</pre>";
-
-
+// echo "<pre>";
+// print_r($ambil_query_barang);
+// echo "</pre>";
 
 if (empty($_SESSION['id_pembeli'])) {
   echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='login.php'</script>";
+}
+
+if (empty($_GET['id'])) {
+  echo "<script>alert('belum ada buah dikeranjang pembelian');</script>";
+  echo "<script>location='home.php';</script>";
 }
 $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
 $query_select = mysqli_query($koneksi, $query);
@@ -51,51 +52,7 @@ $result = mysqli_fetch_array($query_select);
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
-    <div class="container-fluid mt-auto">
-      <a class="navbar-brand" href="#">
-        <h2 class="logo">SiMbah</h2>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="home.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">About</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Packages
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="home.php">Aneka buah</a></li>
-              <li><a class="dropdown-item" href="index.php">Buah favorite</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Selengkapnya
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="index.php">Kata customers</a></li>
-              <li><a class="dropdown-item" href="index.php">Alamat</a></li>
-              <li><a class="dropdown-item" href="index.php">Media sosial</a></li>
-            </ul>
-          </li>
-        </ul>
-        <a href="cart.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a>
-
-        <a href="register.php" class=" btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-user text-white'></i><?php echo $result['nama_lengkap'] ?>
-
-          <a href="logout.php" class="btn btn-outline-light rounded-pill px-4 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-log-out text-white align-items-center justify-content-center'></i>Logout</a>
-          <!-- <a href="login.php" class="btn btn-outline-light rounded-pill px-3 py-2">Login</a> -->
-      </div>
-    </div>
-  </nav>
+  <?php include 'header.php'; ?>
 
   <section class="kontent">
     <div class="container">

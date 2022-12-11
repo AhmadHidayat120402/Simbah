@@ -34,6 +34,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <link rel="stylesheet" href="styles/style.css">
+  <script src="vendor/boostrap/js/jquery-3.6.1.min.js"></script>
   <title>Simbah</title>
 </head>
 
@@ -164,6 +165,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
           <textarea name="alamat_pengiriman" id="alamat_pengiriman" cols="20" rows="3" class="form-control" placeholder="masukkan alamat lengkap pengiriman (termasuk kode pos)" style="background-color: white !important;"></textarea>
 
         </div>
+
         <button class="btn btn-primary mt-4" name="checkout">Checkout</button>
       </form>
       <?php
@@ -183,7 +185,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
         $total_pembelian = $totalbelanja + $tarif;
 
         // menyimpan data ke tabel pembelian
-        $simpan = mysqli_query($koneksi, "INSERT INTO pembelian (id_pembeli,id_ongkir,tanggal_pembelian,total_pembelian,nama_daerah,tarif,alamat_pengiriman) VALUES ('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian','$nama_daerah','$tarif','$alamat_pengiriman')");
+        $simpan = mysqli_query($koneksi, "INSERT INTO pembelian (id_pembeli,id_ongkir,tanggal_pembelian,total_pembelian,nama_daerah,tarif,alamat_pengiriman,status_pembayaran,resi_pengiriman) VALUES ('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian','$nama_daerah','$tarif','$alamat_pengiriman','pending','null')");
 
         // mendapatkan id pembelian barusan terjadi
         $id_pembelian_barusan = mysqli_insert_id($koneksi);
@@ -206,7 +208,6 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
 
           // skrip update stok
           $koneksi->query("UPDATE barang SET stok = stok - $jumlah WHERE id_barang = '$id_produk'");
-
         }
 
         // mengkosongkan keranjang belanja
@@ -224,8 +225,8 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
     </div>
   </section>
   <pre>
-  <?php print_r($_SESSION['identitas']) ?>
-  <?php print_r($_SESSION['keranjang']) ?>
+  <?php //print_r($_SESSION['identitas']) ?>
+  <?php //print_r($_SESSION['keranjang']) ?>
 </pre>
 
 

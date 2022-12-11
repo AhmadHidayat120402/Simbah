@@ -62,10 +62,10 @@ if (empty($_SESSION['id_pembeli'])) {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a href="home.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"> <i class='bx bxs-home text-white'></i> Home</a>
+                <a href="home.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center border-0"> <i class='bx bxs-home text-white'></i> Home</a>
               </li>
               <li class="nav-item">
-                <a href="riwayat.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i> Riwayat Belanja</a>
+                <a href="riwayat.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center border-0"><i class="bx bx-cart text-white"></i> Riwayat Belanja</a>
               </li>
             </ul>
             <form action="pencarian.php" method="GET" class="d-flex align-item-center gap-2 bg-light rounded p-2">
@@ -85,8 +85,8 @@ if (empty($_SESSION['id_pembeli'])) {
 
             ?>
 
-            <a href="riwayat.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a>
-            <a href="Dashboard/index.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center <?php echo $tampilan ?>"><i class='bx bxs-dashboard text-white'></i></a>
+            <a href="riwayat.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center border-0"><i class="bx bx-cart text-white "></i>(0)</a>
+            <a href="Dashboard/index.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center border-0 <?php echo $tampilan ?>"><i class='bx bxs-dashboard text-white'></i></a>
             <!-- <i class='bx bxs-message-dots text-white'></i> -->
 
 

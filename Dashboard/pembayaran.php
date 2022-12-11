@@ -53,9 +53,13 @@ echo "</pre>"
     <label for="status">Status</label>
     <select name="status" id="status" class="form-select" style="background-color: white !important;" aria-label="Default select example">
       <option value="">Pilih Status</option>
-      <option value="lunas">Lunas</option>
-      <option value="barang dikirim">Barang Dikirim</option>
-      <option value="batal">Batal</option>
+      <option value="pending">pending</option>
+      <option value="lunas">lunas</option>
+      <option value="barang dikirim">barang dikirim</option>
+      <option value="dibatalkan">dibatalkan</option>
+      <option value="sudah mengirim pembayaran">sudah mengirim pembayaran</option>
+      <option value="belum dibayar">belum dibayar</option>
+      <option value="barang sudah sampai">barang sudah sampai</option>
     </select>
   </div>
   <button class="btn btn-primary" name="proses">Proses</button>

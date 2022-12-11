@@ -61,10 +61,11 @@ if (isset($_POST['bsimpan'])) {
     // Mendapat extention
     $image_files = $nama_barang . ".jpg";
     $id_supplier = $_POST['id_supplier'];
+    $deskripsi = $_POST['deskripsi'];
     // $nama_supplier = $_POST['nama_supplier'];
 
 
-    $query = mysqli_query($koneksi, "INSERT INTO barang (kode_barang,nama_barang,harga_beli,harga_jual,stok,berat_buah,image,id_supplier) VALUES ('$kode_barang','$nama_barang','$harga_beli','$harga_jual','$stok','$berat','$image_files','$id_supplier')");
+    $query = mysqli_query($koneksi, "INSERT INTO barang (kode_barang,nama_barang,harga_beli,harga_jual,stok,berat_buah,image,id_supplier,deskripsi) VALUES ('$kode_barang','$nama_barang','$harga_beli','$harga_jual','$stok','$berat','$image_files','$id_supplier','$deskripsi')");
 
     copy($temp, "../images/images_buah/" . $image_files);
     //         header('location:produk.php');
@@ -188,11 +189,18 @@ if (isset($_POST['bhapus'])) {
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Gambar</label>
-                                <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*" required>
+                                <div class="letak-input" style="margin-bottom: 10px;">
+                                    <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*" required>
+                                </div>
+                                <!-- <span class="btn btn-primary btn-tambah"><i class="fas fa-plus"></i></span> -->
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">ID Supplier</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan ID Supplier" name="id_supplier" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan deskripsi produk" name="deskripsi" required>
                             </div>
 
                         </div>
@@ -214,11 +222,8 @@ if (isset($_POST['bhapus'])) {
                     <th>Nama Buah</th>
                     <th>Harga Beli</th>
                     <th>Harga Jual</th>
-                    <th>Berat Buah</th>
                     <th>Stok</th>
                     <th>Image</th>
-                    <th>Nama Supplier</th>
-                    <th>ID Supplier</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -239,6 +244,7 @@ if (isset($_POST['bhapus'])) {
                     $image = $row['image'];
                     $id_supplier = $row['id_supplier'];
                     $nama_supplier = $row['nama_supplier'];
+                    $deskripsi = $row['deskripsi'];
                 ?>
                     <tr>
                         <td><?php echo $no++ ?></td>
@@ -246,14 +252,13 @@ if (isset($_POST['bhapus'])) {
                         <td><?php echo $nama_barang ?></td>
                         <td><?php echo $harga_beli ?></td>
                         <td><?php echo $harga_jual ?></td>
-                        <td><?php echo $berat ?></td>
                         <td><?php echo $stok ?></td>
-                        <td><img src="../images/images_buah/<?php echo $image ?>" width="100%" class="rounded-circle"></td>
-                        <td><?php echo $nama_supplier ?></td>
-                        <td><?php echo $id_supplier ?></td>
+                        <td><img src="../images/images_buah/<?php echo $image ?>" width="100px" class="rounded-circle"></td>
+
                         <td>
                             <a href="#" class="btn btn-warning rounded-circle" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $no ?>"><i class="fas fa-edit"></i></a>
                             <a href="#" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $no ?>"><i class="fas fa-trash"></i> </a>
+                            <a href="index.php?halaman=detail_produk&id=<?php echo $id_barang ?>" class="btn btn-primary rounded-pill">Detail</a>
                         </td>
                     </tr>
                     <!-- awal modal ubah -->
@@ -293,7 +298,7 @@ if (isset($_POST['bhapus'])) {
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">Gambar</label>
-                                            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*" required>
+                                            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*" required value="<?php echo $image ?>">
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">ID Supplier</label>
@@ -341,8 +346,6 @@ if (isset($_POST['bhapus'])) {
             </tbody>
         </table>
     </div>
-
-
     <!-- akhir modal -->
     <script>
         $(document).ready(function() {
@@ -351,5 +354,12 @@ if (isset($_POST['bhapus'])) {
             });
         });
     </script>
+    <!-- <script>
+        $(document).ready(function() {
+            $(".btn-tambah").on("click", function() {
+                $(".letak-input").append("<input type='file' class='form-control'  name='gambar[]' >");
+            })
+        })
+    </script> -->
 </div>
 <!-- /.container-fluid -->

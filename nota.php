@@ -98,10 +98,12 @@ $result = mysqli_fetch_array($query_select);
 
       ?>
       <!-- <h1>data orang yang beli $ambil</h1> -->
-      <!-- <pre> <?php //print_r($ambil); ?></pre> -->
+      <!-- <pre> <?php //print_r($ambil); 
+                  ?></pre> -->
 
       <!-- <h1>data orang yang login di session </h1> -->
-      <!-- <pre><?php //print_r($_SESSION);  ?></pre> -->
+      <!-- <pre><?php //print_r($_SESSION);  
+                ?></pre> -->
 
       <!-- jika pelanggan ynag beli tidak sama dengan pelanggan yang login, maka dilarikan ke halaman riwayat.php atau lainnya karena dia tidak berhak melihat nota orang lain  -->
       <!-- pelanggan yang beli harus pelanggan yang login -->
@@ -194,7 +196,9 @@ $result = mysqli_fetch_array($query_select);
               <p>
                 silahkan melakukan pembayaran Rp <?php echo number_format($ambil['total_pembelian']); ?> ke <br>
                 <strong>BANK MANDIRI 137-001088-3276 AN. Ahmad Hidayat</strong>
+
               </p>
+              <a href="pembayaran.php?id=<?php echo $ambil['id_pembelian']; ?>" class="btn btn-primary rounded-pill">pembayaran</a>
             </div>
           </div>
         </div>
@@ -204,6 +208,8 @@ $result = mysqli_fetch_array($query_select);
           $('#detail_pembelian').DataTable();
         });
       </script>
+
+
     </div>
   </section>
 

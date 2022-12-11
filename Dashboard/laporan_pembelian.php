@@ -3,12 +3,14 @@ include '../connect.php';
 $semuadata = [];
 $tgl_mulai = "-";
 $tgl_selesai = "-";
+$status = "";
 
 if (isset($_POST['kirim'])) {
   $tgl_mulai = $_POST['tglm'];
   $tgl_selesai = $_POST['tgls'];
+  $status = $_POST['status'];
 
-  $ambil = $koneksi->query("SELECT * FROM users u LEFT JOIN pembelian p ON u.id_pembeli =  p.id_pembeli WHERE tanggal_pembelian BETWEEN '$tgl_mulai' AND '$tgl_selesai' ");
+  $ambil = $koneksi->query("SELECT * FROM users u LEFT JOIN pembelian p ON u.id_pembeli =  p.id_pembeli WHERE status_pembayaran = '$status' AND tanggal_pembelian BETWEEN '$tgl_mulai' AND '$tgl_selesai' ");
 
   while ($pecah =  $ambil->fetch_assoc()) {
     $semuadata[] = $pecah;
@@ -44,21 +46,37 @@ if (isset($_POST['kirim'])) {
     </div>
     <form action="" method="post">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-3">
           <div class="form-group">
-            <label for="tglm">Tanggal Mulai</label>
+            <label for="tglm">Dari Tanggal</label>
             <input type="date" name="tglm" id="tglm" class="form-control" value="<?php echo $tgl_mulai ?>">
           </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-3">
           <div class="form-group">
-            <label for="tgls">Tanggal Selesai</label>
+            <label for="tgls">Sampai Tanggal</label>
             <input type="date" name="tgls" id="tgls" class="form-control" value="<?php echo $tgl_selesai ?>">
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="tgls">Status</label>
+            <select name="status" id="status" class="form-select">
+              <option value="">Pilih Status</option>
+              <option value="pending" <?php echo $status == "pending" ? "selected" : ""; ?>>pending</option>
+              <option value="lunas" <?php echo $status == "lunas" ? "selected" : ""; ?>>lunas</option>
+              <option value="barang dikirim" <?php echo $status == "barang dikirm" ? "selected" : ""; ?>>barang dikirim</option>
+              <option value="dibatalkan" <?php echo $status == "dibatalkan" ? "selected" : ""; ?>>dibatalkan</option>
+              <option value="sudah mengirim pembayaran" <?php echo $status == "sudah mengirim pembayaran" ? "selected" : ""; ?>>sudah mengirim pembayaran</option>
+              <option value="belum dibayar" <?php echo $status == "belum dibayar" ? "selected" : ""; ?>>belum dibayar</option>
+              <option value="barang sudah sampai" <?php echo $status == "barang sudah sampai" ? "selected" : ""; ?>>barang sudah sampai</option>
+
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
           <label>&nbsp;</label><br>
-          <button class="btn btn-primary rounded-pill" name="kirim">Lihat</button>
+          <button class="btn btn-primary rounded-pill" name="kirim">Lihat Laporan</button>
         </div>
       </div>
     </form>
@@ -81,7 +99,7 @@ if (isset($_POST['kirim'])) {
             <tr>
               <td><?php echo $key + 1 ?></td>
               <td><?php echo $value['nama_lengkap']; ?></td>
-              <td><?php echo $value['tanggal_pembelian']; ?></td>
+              <td><?php echo date("d F Y", strtotime($value['tanggal_pembelian'])) ?></td>
               <td>Rp <?php echo number_format($value['total_pembelian']); ?></td>
               <td><?php echo $value['status_pembayaran']; ?></td>
             </tr>
@@ -93,6 +111,7 @@ if (isset($_POST['kirim'])) {
           <th></th>
         </tfoot>
       </table>
+      <a href="download_laporan.php?tglm= <?php echo $tgl_mulai ?>&tgls=<?php echo $tgl_selesai ?>&status=<?php echo $status ?>" class="text-decoration-none">Download PDF</a>
     </div>
     <script>
       $(document).ready(function() {
@@ -105,3 +124,5 @@ if (isset($_POST['kirim'])) {
 </body>
 
 </html>
+
+

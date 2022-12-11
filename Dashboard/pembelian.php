@@ -133,12 +133,6 @@ if (isset($_POST['bhapus'])) {
                             if ($status_pembelian !== 'pending') { ?>
                                 <a href="index.php?halaman=pembayaran&id=<?php echo $id ?>" class="btn btn-success rounded-pill">Pembayaran</a>
                             <?php  } ?>
-
-
-
-
-
-
                         </td>
                     </tr>
                     <div class="modal fade" id="modalHapus<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
