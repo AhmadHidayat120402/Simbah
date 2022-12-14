@@ -23,12 +23,12 @@ if (isset($_POST['bsimpan'])) {
     if ($result) {
         echo "<script>
         alert('simpan data sukses');
-        document.location= 'index.php?halaman=supplier';
+        document.location= 'indexx.php?halaman=supplier';
         </script>";
     } else {
         echo "<script>
         alert('simpan data gagal');
-        document.location= 'index.php?halaman=supplier';
+        document.location= 'indexx.php?halaman=supplier';
         </script>";
     }
 }
@@ -44,12 +44,12 @@ if (isset($_POST['bUbah'])) {
     if ($ubah) {
         echo "<script>
         alert ('berhasil ubah data');
-        document.location = 'index.php?halaman=supplier';
+        document.location = 'indexx.php?halaman=supplier';
         </script>";
     } else {
         echo "<script>
         alert ('gagal ubah data');
-        document.location = 'index.php?halaman=supplier';
+        document.location = 'indexx.php?halaman=supplier';
         </script>";
     }
 }
@@ -60,12 +60,12 @@ if (isset($_POST['bhapus'])) {
     if ($queryHapus) {
         echo "<script>
         alert ('berhasil hapus data');
-        document.location = 'index.php?halaman=supplier';
+        document.location = 'indexx.php?halaman=supplier';
         </script>";
     } else {
         echo "<script>
         alert ('gagal hapus data');
-        document.location = 'index.php?halaman=supplier';
+        document.location = 'indexx.php?halaman=supplier';
         </script>";
     }
 }

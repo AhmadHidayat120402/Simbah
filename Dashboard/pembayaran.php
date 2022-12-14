@@ -72,7 +72,7 @@ if (isset($_POST['proses'])) {
   $koneksi->query("UPDATE pembelian SET resi_pengiriman = '$resi', status_pembayaran = '$status' WHERE id_pembelian = '$id_pembelian'");
 
   echo "<script>alert('data pembelian terupdate');</script>";
-  echo "<script>location='index.php?halaman=pembelian';</script>";
+  echo "<script>location='indexx.php?halaman=pembelian';</script>";
 }
 
 

@@ -25,12 +25,12 @@ if (isset($_POST['bsimpan'])) {
     if ($result) {
         echo "<script>
         alert('simpan data sukses');
-        document.location= 'index.php?halaman=pembelian';
+        document.location= 'indexx.php?halaman=pembelian';
         </script>";
     } else {
         echo "<script>
         alert('simpan data gagal');
-        document.location= 'index.php?halaman=pembelian';
+        document.location= 'indexx.php?halaman=pembelian';
         </script>";
     }
 }
@@ -48,12 +48,12 @@ if (isset($_POST['bUbah'])) {
     if ($ubah) {
         echo "<script>
         alert('ubah data sukses');
-        document.location= 'index.php?halaman=pembelian';
+        document.location= 'indexx.php?halaman=pembelian';
         </script>";
     } else {
         echo "<script>
         alert('ubah data gagal');
-        document.location= 'index.php?halaman=pembelian';
+        document.location= 'indexx.php?halaman=pembelian';
         </script>";
     }
 }
@@ -69,12 +69,12 @@ if (isset($_POST['bhapus'])) {
     if ($hapus) {
         echo "<script>
         alert('hapus data sukses');
-        document.location= 'index.php?halaman=pembelian';
+        document.location= 'indexx.php?halaman=pembelian';
         </script>";
     } else {
         echo "<script>
         alert('hapus data gagal');
-        document.location= 'index.php?halaman=pembelian';
+        document.location= 'indexx.php?halaman=pembelian';
         </script>";
     }
 }
@@ -127,11 +127,11 @@ if (isset($_POST['bhapus'])) {
                             <!-- 
                             <a href="#" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#modalHapus<? //echo $no 
                                                                                                                                 ?>"><i class="fas fa-trash"></i> </a> -->
-                            <a href="index.php?halaman=detail&id_beli=<?= $row['id_pembelian']; ?>" class="btn btn-primary rounded-pill">Detail</a>
+                            <a href="indexx.php?halaman=detail&id_beli=<?= $row['id_pembelian']; ?>" class="btn btn-primary rounded-pill">Detail</a>
 
                             <?php
                             if ($status_pembelian !== 'pending') { ?>
-                                <a href="index.php?halaman=pembayaran&id=<?php echo $id ?>" class="btn btn-success rounded-pill">Pembayaran</a>
+                                <a href="indexx.php?halaman=pembayaran&id=<?php echo $id ?>" class="btn btn-success rounded-pill">Pembayaran</a>
                             <?php  } ?>
                         </td>
                     </tr>

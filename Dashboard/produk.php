@@ -74,12 +74,12 @@ if (isset($_POST['bsimpan'])) {
     if ($query) {
         echo "<script>
     alert('simpan data sukses');
-    document.location= 'index.php?halaman=produk';
+    document.location= 'indexx.php?halaman=produk';
     </script>";
     } else {
         echo "<script>
     alert('simpan data gagal');
-    document.location= 'index.php?halaman=produk';
+    document.location= 'indexx.php?halaman=produk';
     </script>";
     }
 }
@@ -106,12 +106,12 @@ if (isset($_POST['bUbah'])) {
     if ($update_query) {
         echo "<script>
         alert('ubah data sukses');
-        document.location= 'index.php?halaman=produk';
+        document.location= 'indexx.php?halaman=produk';
         </script>";
     } else {
         echo "<script>
         alert('ubah data gagal');
-        document.location= 'index.php?halaman=produk';
+        document.location= 'indexx.php?halaman=produk';
         </script>";
     }
 }
@@ -127,12 +127,12 @@ if (isset($_POST['bhapus'])) {
     if ($hapus) {
         echo "<script>
         alert('hapus data sukses');
-        document.location= 'index.php?halaman=produk';
+        document.location= 'indexx.php?halaman=produk';
         </script>";
     } else {
         echo "<script>
         alert('hapus data gagal');
-        document.location= 'index.php?halaman=produk';
+        document.location= 'indexx.php?halaman=produk';
         </script>";
     }
 }
@@ -258,7 +258,7 @@ if (isset($_POST['bhapus'])) {
                         <td>
                             <a href="#" class="btn btn-warning rounded-circle" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $no ?>"><i class="fas fa-edit"></i></a>
                             <a href="#" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $no ?>"><i class="fas fa-trash"></i> </a>
-                            <a href="index.php?halaman=detail_produk&id=<?php echo $id_barang ?>" class="btn btn-primary rounded-pill">Detail</a>
+                            <a href="indexx.php?halaman=detail_produk&id=<?php echo $id_barang ?>" class="btn btn-primary rounded-pill">Detail</a>
                         </td>
                     </tr>
                     <!-- awal modal ubah -->

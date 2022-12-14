@@ -10,6 +10,31 @@ $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
 $query_select = mysqli_query($koneksi, $query);
 $result = mysqli_fetch_array($query_select);
 
+include '../connect.php';
+$produk = mysqli_query($koneksi, "select nama_barang from barang");
+$queryy = mysqli_query($koneksi, "select stok from barang");
+
+
+include('../connect.php');
+$label = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
+for ($bulan = 1; $bulan < 13; $bulan++) {
+    $query = mysqli_query($koneksi, "select sum(total_pembelian) as jumlah from pembelian where MONTH(tanggal_pembelian)='$bulan'");
+    $row = $query->fetch_array();
+    $jumlah_produk[] = $row['jumlah'];
+}
+
+// $data_penjualan = mysqli_query($koneksi, "SELECT tanggal_pembelian, SUM(total_pembelian) AS total FROM pembelian GROUP BY tanggal_pembelian");
+
+// $data_tanggal = array();
+// $data_total = array();
+
+// while ($data = mysqli_fetch_array($data_penjualan)) {
+//     $data_tanggal[] = date('d-m-Y', strtotime($data['tanggal_pembelian'])); // Memasukan tanggal ke dalam array
+//     $data_total[] = $data['total']; // Memasukan total ke dalam array
+// }
+
+
 ?>
 
 
@@ -41,6 +66,11 @@ $result = mysqli_fetch_array($query_select);
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="../vendor/boostrap/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="../styles/style.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../vendor/icons/css/boxicons.min.css">
+    <script src="../vendor/boostrap/js/Chart.js/Chart.min.js"></script>
+
+
 
 </head>
 
@@ -136,49 +166,49 @@ $result = mysqli_fetch_array($query_select);
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php?halaman=pemilik">
+                <a class="nav-link" href="indexx.php?halaman=pemilik">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>pemilik</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php?halaman=karyawan">
+                <a class="nav-link" href="indexx.php?halaman=karyawan">
                     <i class="fas fa-fw fa-table"></i>
                     <span>karyawan</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?halaman=member">
+                <a class="nav-link" href="indexx.php?halaman=member">
                     <i class="fas fa-fw fa-table"></i>
                     <span>member</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?halaman=pelanggan">
+                <a class="nav-link" href="indexx.php?halaman=pelanggan">
                     <i class="fas fa-fw fa-table"></i>
                     <span>pelanggan</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?halaman=supplier">
+                <a class="nav-link" href="indexx.php?halaman=supplier">
                     <i class="fas fa-fw fa-table"></i>
                     <span>supplier</span></a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=Kategori">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Kategori</span></a>
-            </li>
+            </li> -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php?halaman=produk">
+                <a class="nav-link" href="indexx.php?halaman=produk">
                     <i class="fas fa-fw fa-table"></i>
                     <span>produk</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?halaman=pembelian">
+                <a class="nav-link" href="indexx.php?halaman=pembelian">
                     <i class="fas fa-fw fa-table"></i>
                     <span>pembelian</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?halaman=laporan_pembelian">
+                <a class="nav-link" href="indexx.php?halaman=laporan_pembelian">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Laporan</span></a>
             </li>
@@ -385,6 +415,251 @@ $result = mysqli_fetch_array($query_select);
                     <a href="../logout.php" class="btn btn-light rounded-pill px-4 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-log-out text-white align-items-center justify-content-center'></i> Logout</a>
 
                 </nav>
+                <div class="container">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-header">
+                                <h3 class="fw-bold">Dashboard</h3>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="card border-white text-white bg-primary mb-3" style="max-width: 18rem;">
+                                            <div class="card-body text-white">
+                                                <h5 class="card-title"><i class='bx bx-user'></i> Pemilik</h5>
+                                            </div>
+                                            <?php
+                                            include '../connect.php';
+                                            $ambil = $koneksi->query("SELECT COUNT(*) as jumlah_baris FROM users WHERE id_status = 2 ");
+                                            while ($row = $ambil->fetch_assoc()) {
+
+                                            ?>
+                                                <a href="indexx.php?halaman=pemilik" class="card-footer border-white text-decoration-none"><?php echo $row['jumlah_baris']; ?> Orang</a>
+                                            <?php } ?>
+                                            <!-- <div class="card-footer border-white"> Orang</div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-white text-white text-bg-secondary mb-3" style="max-width: 18rem;">
+                                            <div class="card-body text-white">
+                                                <h5 class="card-title"><i class='bx bx-user-circle'></i> Karyawan</h5>
+                                            </div>
+                                            <?php
+                                            include '../connect.php';
+                                            $ambil = $koneksi->query("SELECT COUNT(*) as jumlah_baris FROM users WHERE id_status = 1");
+                                            while ($row = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <a href="indexx.php?halaman=karyawan" class="card-footer border-white text-decoration-none"><?php echo $row['jumlah_baris'] ?> Orang</a>
+                                            <?php } ?>
+                                            <!-- <div class="card-footer border-white"> Orang</div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-white text-white text-bg-success mb-3" style="max-width: 18rem;">
+                                            <div class="card-body text-white">
+                                                <h5 class="card-title"><i class='bx bxs-user'></i> member</h5>
+                                            </div>
+                                            <?php
+                                            include '../connect.php';
+                                            $ambil = $koneksi->query("SELECT COUNT(*) as jumlah_baris FROM users WHERE id_status = 4");
+                                            while ($row = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <a href="indexx.php?halaman=member" class="card-footer border-white text-decoration-none"><?php echo $row['jumlah_baris'] ?> Orang</a>
+                                            <?php } ?>
+                                            <!-- <div class="card-footer border-white"> Orang</div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-white text-white text-bg-danger mb-3" style="max-width: 18rem;">
+                                            <div class="card-body text-white">
+                                                <h5 class="card-title"><i class='bx bxs-user-circle'></i> Pelanggan</h5>
+                                            </div>
+                                            <?php
+                                            include '../connect.php';
+                                            $ambil = $koneksi->query("SELECT COUNT(*) as jumlah_baris FROM users WHERE id_status = 3");
+                                            while ($row = $ambil->fetch_assoc()) {
+                                            ?>
+
+                                                <a href="indexx.php?halaman=pelanggan" class="card-footer border-white text-decoration-none"><?php echo $row['jumlah_baris'] ?> Orang</a>
+                                            <?php } ?>
+                                            <!-- <div class="card-footer border-white"> Orang</div> -->
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- <div class="card">
+                        <div class="card-body">
+                            <div class="card-header">
+                                <h3 cla>Dashboard</h3> -->
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="card border-white text-white text-bg-warning mb-3" style="max-width: 18rem;">
+                                            <div class="card-body text-white">
+                                                <h5 class="card-title"><i class='bx bxs-user-rectangle'></i> Supplier</h5>
+                                            </div>
+                                            <?php
+                                            include '../connect.php';
+                                            $ambil = $koneksi->query("SELECT COUNT(*) as jumlah_baris FROM supplier");
+                                            while ($row = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <a href="indexx.php?halaman=supplier" class="card-footer border-white text-decoration-none"><?php echo $row['jumlah_baris'] ?> Orang</a>
+                                            <?php } ?>
+                                            <!-- <div class="card-footer border-white"> Orang</div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-white text-white text-bg-info mb-3" style="max-width: 18rem;">
+                                            <div class="card-body text-white">
+                                                <h5 class="card-title"><i class='bx bx-package'></i> Produk</h5>
+                                            </div>
+                                            <?php
+                                            include '../connect.php';
+                                            $ambil = $koneksi->query("SELECT COUNT(*) as jumlah_produk FROM barang");
+                                            while ($row = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <a href="indexx.php?halaman=produk" class="card-footer border-white text-decoration-none"><?php echo $row['jumlah_produk'] ?> Produk</a>
+                                            <?php } ?>
+                                            <!-- <div class="card-footer border-white"> Orang</div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-white text-white text-bg-primary mb-3" style="max-width: 18rem;">
+                                            <div class="card-body text-white">
+                                                <h5 class="card-title"><i class="bx bx-cart text-white"></i> Pembelian</h5>
+                                            </div>
+                                            <?php
+                                            include '../connect.php';
+                                            $ambil = $koneksi->query("SELECT COUNT(*) as jumlah_produk FROM pembelian");
+                                            while ($row = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <a href="indexx.php?halaman=pembelian" class="card-footer border-white text-decoration-none"><?php echo $row['jumlah_produk'] ?> Pembelian</a>
+                                            <?php } ?>
+                                            <!-- <div class="card-footer border-white"> Orang</div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-white text-white text-bg-dark mb-3" style="max-width: 18rem;">
+                                            <div class="card-body text-white">
+                                                <h5 class="card-title"><i class='bx bxs-report'></i> Laporan</h5>
+                                            </div>
+                                            <?php
+                                            include '../connect.php';
+                                            $ambil = $koneksi->query("SELECT COUNT(*) as jumlah_produk FROM pembelian");
+                                            while ($row = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <a href="indexx.php?halaman=laporan_pembelian" class="card-footer border-white text-decoration-none"><?php echo $row['jumlah_produk'] ?> Laporan Pembelian</a>
+                                            <?php } ?>
+                                            <!-- <div class="card-footer border-white"> Orang</div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header">
+                                        <h3 class="fw-bold">Grafik Penjualan Buah</h3>
+                                    </div>
+                                    <center>
+                                        <canvas id="penjualan">
+
+                                        </canvas>
+                                    </center>
+                                </div>
+                            </div>
+                            <script>
+                                var ctx = document.getElementById('penjualan').
+                                getContext('2d');
+                                var mychart = new Chart(ctx, {
+                                    type: 'line',
+                                    data: {
+                                        labels: [<?php while ($b = mysqli_fetch_array($produk)) {
+                                                        echo '"' . $b['nama_barang'] . '",';
+                                                    } ?>],
+                                        datasets: [{
+                                            label: 'Grafik Penjualan',
+                                            data: [<?php while ($p = mysqli_fetch_array($queryy)) {
+                                                        echo '"' . $p['stok'] . '",';
+                                                    } ?>],
+                                            backgroundColor: 'rgba(108, 170, 236, 0.15)',
+                                            borderColor: 'blue',
+                                            borderWith: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                })
+                            </script>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header">
+                                        <h3 class="fw-bold">Grafik Penjualan Buah setiap Bulan</h3>
+                                    </div>
+                                    <center>
+                                        <canvas id="penjualan_perbulan">
+
+                                        </canvas>
+                                    </center>
+                                </div>
+                            </div>
+                            <script>
+                                var ctx = document.getElementById("penjualan_perbulan").getContext('2d');
+                                var myChart = new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: <?php echo json_encode($label); ?>,
+                                        datasets: [{
+                                            label: 'Grafik Penjualan',
+                                            data: <?php echo json_encode($jumlah_produk); ?>,
+                                            backgroundColor: 'rgba(113, 218, 79, 0.15)',
+                                            borderColor: 'green',
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+                            </script>
+                            <!-- <div class="col-xl-12 col-lg-12">
+                        <div class="card shadow mb-4"> -->
+                            <!-- Card Header - Dropdown -->
+                            <!-- <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Penjualan Buah</h6>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                        <div class="dropdown-header">Dropdown Header:</div>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- Card Body -->
+                            <!-- <div class="card-body"> -->
+                            <!-- <div class="chart-area">
+                                    <canvas id="myAreaChart"></canvas>
+                                </div>
+                            </div> -->
+
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
 
 
                 <section>
@@ -414,8 +689,8 @@ $result = mysqli_fetch_array($query_select);
                                 include 'laporan_pembelian.php';
                             } elseif ($_GET['halaman'] == 'detail_produk') {
                                 include 'detail_produk.php';
-                            // }elseif($_GET['halaman'] == 'download_laporan'){
-                            //     include 'download_laporan.php';
+                                // }elseif($_GET['halaman'] == 'download_laporan'){
+                                //     include 'download_laporan.php';
                             }
                         } else {
                             // include 'index.php';
@@ -477,6 +752,7 @@ $result = mysqli_fetch_array($query_select);
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
