@@ -191,7 +191,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
       <?php
 
       if (isset($_POST['checkout'])) {
-        if ($result['id_status'] == '4') {
+        if ($result['id_status'] == '4' OR $result['id_status'] == '2' OR $result['id_status'] == '1') {
           $id_pelanggan = $_SESSION['identitas']['id_pembeli'];
           $id_ongkir = $_POST['id_ongkir'];
           $id_diskon = $_POST['id_diskon'];

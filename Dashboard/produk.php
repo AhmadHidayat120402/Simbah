@@ -55,6 +55,8 @@ if (isset($_POST['bsimpan'])) {
     $harga_jual = $_POST['harga_jual'];
     $berat = $_POST['berat_buah'];
     $stok = $_POST['stok'];
+    $busuk = $_POST['busuk'];
+    $rusak = $_POST['rusak'];
 
     $image = $_FILES['gambar']['name'];
     $temp = $_FILES['gambar']['tmp_name'];
@@ -65,7 +67,7 @@ if (isset($_POST['bsimpan'])) {
     // $nama_supplier = $_POST['nama_supplier'];
 
 
-    $query = mysqli_query($koneksi, "INSERT INTO barang (kode_barang,nama_barang,harga_beli,harga_jual,stok,berat_buah,image,id_supplier,deskripsi) VALUES ('$kode_barang','$nama_barang','$harga_beli','$harga_jual','$stok','$berat','$image_files','$id_supplier','$deskripsi')");
+    $query = mysqli_query($koneksi, "INSERT INTO barang (kode_barang,nama_barang,harga_beli,harga_jual,stok,busuk,rusak,berat_buah,image,id_supplier,deskripsi) VALUES ('$kode_barang','$nama_barang','$harga_beli','$harga_jual','$stok','$busuk','$rusak','$berat','$image_files','$id_supplier','$deskripsi')");
 
     copy($temp, "../images/images_buah/" . $image_files);
     //         header('location:produk.php');
@@ -93,12 +95,15 @@ if (isset($_POST['bUbah'])) {
     $harga_jual = $_POST['harga_jual'];
     $berat = $_POST['berat_buah'];
     $stok = $_POST['stok'];
+    $busuk = $_POST['busuk'];
+    $rusak = $_POST['rusak'];
+    $buah = $busuk + $rusak;
     $image = $_FILES['gambar']['name'];
     $temp = $_FILES['gambar']['tmp_name'];
     $image_files = $nama_barang . ".jpg";
     $id_supplier = $_POST['id_supplier'];
 
-    $update_query = mysqli_query($koneksi, "UPDATE barang SET kode_barang ='$kode_barang', nama_barang = '$nama_barang',harga_beli = '$harga_beli',harga_jual = '$harga_jual',stok = '$stok',berat_buah = '$berat',image= '$image_files',id_supplier = '$id_supplier' WHERE id_barang = '$id_barang'");
+    $update_query = mysqli_query($koneksi, "UPDATE barang SET kode_barang ='$kode_barang', nama_barang = '$nama_barang',harga_beli = '$harga_beli',harga_jual = '$harga_jual',stok = '$stok' - '$buah',busuk = '$busuk',rusak ='$rusak',berat_buah = '$berat',image= '$image_files',id_supplier = '$id_supplier' WHERE id_barang = '$id_barang'");
 
     // header('location: member.php');
     copy($temp, "../images/images_buah/" . $image_files);
@@ -188,6 +193,14 @@ if (isset($_POST['bhapus'])) {
                                 <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok" required>
                             </div>
                             <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Busuk</label>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Jumlah Buah Busuk" name="busuk" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Rusak</label>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Jumlah Buah Rusak" name="rusak" required>
+                            </div>
+                            <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Gambar</label>
                                 <div class="letak-input" style="margin-bottom: 10px;">
                                     <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar Buah" name="gambar" accept="image/*" required>
@@ -241,6 +254,8 @@ if (isset($_POST['bhapus'])) {
                     $harga_jual = $row['harga_jual'];
                     $berat = $row['berat_buah'];
                     $stok = $row['stok'];
+                    $busuk = $row['busuk'];
+                    $rusak = $row['rusak'];
                     $image = $row['image'];
                     $id_supplier = $row['id_supplier'];
                     $nama_supplier = $row['nama_supplier'];
@@ -295,6 +310,14 @@ if (isset($_POST['bhapus'])) {
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">Stok</label>
                                             <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Stok Buah" name="stok" value="<?php echo $stok ?>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Busuk</label>
+                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Jumlah Buah Busuk" name="busuk" value="<?php echo $busuk ?>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Rusak</label>
+                                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Jumlah Buah Rusak" name="rusak" value="<?php echo $rusak ?>" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">Gambar</label>

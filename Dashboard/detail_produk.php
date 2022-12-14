@@ -30,7 +30,8 @@ $pecah = $ambil->fetch_assoc();
           </tr>
           <!-- <tr>
             <th>ID Kategori </th>
-            <td><?php //echo $pecah['id_kategori'] ?></td>
+            <td><?php //echo $pecah['id_kategori'] 
+                ?></td>
           </tr> -->
           <tr>
             <th>ID Supplier </th>
@@ -59,6 +60,14 @@ $pecah = $ambil->fetch_assoc();
           <tr>
             <th>Stok Buah </th>
             <td><?php echo $pecah['stok'] ?></td>
+          </tr>
+          <tr>
+            <th>Buah Busuk </th>
+            <td><?php echo $pecah['busuk'] ?></td>
+          </tr>
+          <tr>
+            <th>Buah Rusak </th>
+            <td><?php echo $pecah['rusak'] ?></td>
           </tr>
           <tr>
             <th>Berat Buah </th>
