@@ -24,5 +24,14 @@ if (isset($_SESSION['keranjang'][$id_produk])) {
 
 // larikan halaman ke cart.php jika berhasil maka akan menuju ke halaman keranjang
 
-echo "<script>alert('produk telah masuk ke keranjang'); </script>";
+echo "<script>
+alert('produk telah masuk ke keranjang'); 
+</script>";
 echo "<script>location='cart.php'</script>";
+// echo "<script>
+// const btn = document.getElementById('add');
+//     btn.addEventListener('click', function() {
+//       Swal.fire('produk telah masuk ke keranjang');
+//       location = 'cart.php';
+//     });
+// </script>";

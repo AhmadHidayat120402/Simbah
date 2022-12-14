@@ -7,27 +7,39 @@ if (isset($_POST['submit'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  // cek user ada nggak
-  $cekuser = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username' and password = '$password'");
-  // user ada berapa
-  $hitung = mysqli_num_rows($cekuser);
+  $cek_user = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username' and password = '$password'");
 
-  if ($hitung > 0) {
-    // kalau data ditemukan
-    $ambildatalevel = mysqli_fetch_array($cekuser);
-    $level = $ambildatalevel['level'];
+  $user_valid = mysqli_fetch_array($cek_user);
 
-    if ($level == 'owner') {
-      $_SESSION['log'] = 'Logged';
-      $_SESSION['level'] = 'level';
-      header('location: Dashboard/index.php');
-    } elseif ($level == "karyawan") {
-      header('location: Dashboard/index.php');
-    } elseif ($level == "member") {
-      header('location: home.php');
-    } elseif ($level == "pelanggan") {
-      header('location: home.php');
+  // uji jika email terdaftar
+  if ($user_valid) {
+    //  jika username terdaftar
+    // cek password sesuai atau tidak
+    if ($password == $user_valid['password'] && $id_status = $user_valid['id_status']) {
+
+      // jika password sesuai buat session
+
+      session_start();
+      $_SESSION['id_pembeli'] = $user_valid['id_pembeli'];
+      $_SESSION['identitas'] = $user_valid;
+      echo $success =  "Login berhasil";
+      //  uji level user
+      if ($id_status == 1) {
+        header('location: Dashboard/index.php');
+      } elseif ($id_status == 2) {
+        header('location: Dashboard/index.php');
+      } elseif ($id_status == 3) {
+        header('location: home.php');
+      } elseif ($id_status == 4) {
+        header('location: home.php');
+      }
+    } else {
+      echo $errorr = 'Maaf, login gagal, password anda tidak sesuai!';
+      header('login.php');
     }
+  } else {
+    echo $errorr = 'Maaf, login gagal, password anda tidak sesuai!';
+    header('login.php');
   }
 }
 // else {
@@ -83,12 +95,13 @@ if (isset($_POST['submit'])) {
             <button class="btn btn-primary" type="submit">Login</button>
           </div>
           <div class="d-grid gap-2 mt-3 mb-5">
-           <span style="color: #fff;">Belum punya akun? <a href="register.php" class="text-center  text-decoration-none" style="color:#d8db64; font: bold;">Register</a></span>
+            <span style="color: #fff;">Belum punya akun? <a href="register.php" class="text-center  text-decoration-none" style="color:#d8db64; font: bold;">Register</a></span>
           </div>
         </form>
       </div>
     </div>
   </div>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
 </body>
 

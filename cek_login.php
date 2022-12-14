@@ -3,7 +3,6 @@
 // panggil koneksi db
 require "connect.php";
 
-
 // $pass = password_hash($password, PASSWORD_DEFAULT);
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -25,6 +24,7 @@ if ($user_valid) {
     session_start();
     $_SESSION['id_pembeli'] = $user_valid['id_pembeli'];
     $_SESSION['identitas'] = $user_valid;
+    echo $success =  "Login berhasil";
     //  uji level user
     if ($id_status == 1) {
       header('location: Dashboard/index.php');
@@ -36,8 +36,49 @@ if ($user_valid) {
       header('location: home.php');
     }
   } else {
-    echo "<script>alert('Maaf, login gagal, password anda tidak sesuai!'); document.location='login.php'</script>";
+    echo $errorr = 'Maaf, login gagal, password anda tidak sesuai!';
+    header('login.php');
   }
 } else {
-  echo "<script>alert('Maaf, login gagal, username anda tidak terdaftar'); document.location='login.php'</script>";
+  echo $errorr = 'Maaf, login gagal, password anda tidak sesuai!';
+  header('login.php');
 }
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<?php
+if (isset($user_valid)) {  ?>
+  <script>
+    swal({
+      title: "<?php echo $success ?>",
+      icon: "success",
+      button: "OKE",
+      
+    })
+  </script>
+<?php  } ?>
+<?php
+if (!isset($user_valid)) {  ?>
+  <script>
+    swal({
+      title: "<?php echo $errorr ?>",
+      icon: "error",
+      button: "OKE",
+    })
+  </script>
+<?php  } ?>
+
+</html>

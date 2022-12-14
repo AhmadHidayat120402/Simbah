@@ -267,13 +267,13 @@ if (empty($_SESSION['id_pembeli'])) {
                 </p>
                 <hr>
                 <!-- <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button> -->
-                <a href="beli.php?id=<?php echo $hasil['id_barang'] ?>" class="btn btn-outline-dark rounded-pill">Add To Cart</a>
+                <a href="beli.php?id=<?php echo $hasil['id_barang'] ?>" class="btn btn-outline-dark rounded-pill" id="add">Add To Cart</a>
                 <!-- <input type="submit" class="btn btn-outline-dark rounded-pill" value="add to cart" name="add_to_cart"> -->
                 <a href="detail_produk.php?id=<?php echo $hasil['id_barang']; ?>" class="btn btn-outline-dark rounded-pill">Detail</a>
               </div>
               <div class="ratings position-absolute top-0 bg-white p-2">
                 <p class="d-flex align-items-center gap-2 m-0 ">
-                  <i class="bx bxs-star"></i>
+                  <i class="bx bxs-star" style="color: #d8db64 !important;"></i>
                   4.9
                 </p>
               </div>

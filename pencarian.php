@@ -121,7 +121,7 @@ while ($pecah = $ambil->fetch_assoc()) {
               </div>
               <div class="ratings position-absolute top-0 bg-white p-2">
                 <p class="d-flex align-items-center gap-2 m-0 ">
-                  <i class="bx bxs-star"></i>
+                  <i class="bx bxs-star" style="color: #d8db64 !important;"></i>
                   4.9
                 </p>
               </div>
