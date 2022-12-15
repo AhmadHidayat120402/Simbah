@@ -51,7 +51,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="home.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
@@ -159,26 +159,18 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
               <?php }; ?>
             </select>
           </div>
+          <div class="col-md-3">
+            <?php
 
-          <div class="col-md-3" id="diskon">
-            <select name="id_diskon" id="ongkir" class="form-select" style="background-color: white !important;" aria-label="Default select example" <?php
-                                                                                                                                                      $tampilan = '';
-                                                                                                                                                      if ($result['id_status'] == '3') { ?> disabled='disabled' ; <?php  } else ?> <?php { ?> <?php } ?>>
-              <option value="">pilih potongan harga</option>
-              <?php
-              include 'connect.php';
-              $dsikon  = mysqli_query($koneksi, "SELECT * FROM diskon");
-              while ($ambil_diskon = mysqli_fetch_array($dsikon)) {
-              ?>
-                <option value="
-                <?php echo $ambil_diskon['id_diskon'] ?>">
-                  <?php echo $ambil_diskon['persen'] ?> % -
-                  <?php echo $ambil_diskon['nilai'] ?>
-                </option>
-              <?php } ?>
+            if ($result['id_status'] == '3') { ?>
 
-            </select>
+
+              <input type="hidden" name="diskonn" id="" placeholder="masukkan diskon tanpa %" class="form-control" style="background-color: white !important;">
+            <?php } else { ?>
+              <input type="number" name="diskon" id="" placeholder="masukkan diskon tanpa %" class="form-control" style="background-color: white !important;">
+            <?php } ?>
           </div>
+
         </div>
         <div class="form-group mt-3">
           <label for="">Alamat Lengkap Pengiriman</label>
@@ -191,27 +183,25 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
       <?php
 
       if (isset($_POST['checkout'])) {
-        if ($result['id_status'] == '4' OR $result['id_status'] == '2' OR $result['id_status'] == '1') {
+        if ($result['id_status'] == '4' or $result['id_status'] == '2' or $result['id_status'] == '1') {
           $id_pelanggan = $_SESSION['identitas']['id_pembeli'];
           $id_ongkir = $_POST['id_ongkir'];
-          $id_diskon = $_POST['id_diskon'];
+          $diskonku = $_POST['diskon'];
           $tanggal_pembelian  = date('Y-m-d');
           $alamat_pengiriman = $_POST['alamat_pengiriman'];
-
 
           $ambil_tarif = mysqli_query($koneksi, "SELECT * FROM ongkir WHERE id_ongkir = '$id_ongkir'");
           $arraytarif = mysqli_fetch_array($ambil_tarif);
           $tarif = $arraytarif['tarif'];
           $nama_daerah = $arraytarif['nama_daerah'];
 
-          $ambil_diskon = mysqli_query($koneksi, "SELECT * FROM diskon WHERE id_diskon = '$id_diskon'");
-          $arraydiskon = mysqli_fetch_array($ambil_diskon);
-          $diskon = (isset($arraydiskon['persen']));
-          $nilai = (isset($arraydiskon['nilai']));
 
-          $total_pembelian = $totalbelanja + $tarif * $nilai;
+          $total_pembelian = $totalbelanja + $tarif;
+          $total_all =   $total_pembelian - (($diskonku * 100000) / 100);
+          // $total_all = $total_pembelian * $diskonku / 100;
+
           // menyimpan data ke tabel pembelian
-          $simpan = mysqli_query($koneksi, "INSERT INTO pembelian (id_pembeli,id_ongkir,tanggal_pembelian,total_pembelian,nama_daerah,tarif,alamat_pengiriman,status_pembayaran,resi_pengiriman) VALUES ('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian','$nama_daerah','$tarif','$alamat_pengiriman','pending','null')");
+          $simpan = mysqli_query($koneksi, "INSERT INTO pembelian (id_pembeli,id_ongkir,diskon,tanggal_pembelian,total_pembelian,nama_daerah,tarif,alamat_pengiriman,status_pembayaran,resi_pengiriman) VALUES ('$id_pelanggan','$id_ongkir','$diskonku','$tanggal_pembelian','$total_all','$nama_daerah','$tarif','$alamat_pengiriman','pending','null')");
 
           // mendapatkan id pembelian barusan terjadi
           $id_pembelian_barusan = mysqli_insert_id($koneksi);
@@ -235,43 +225,30 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
             // skrip update stok
             $koneksi->query("UPDATE barang SET stok = stok - $jumlah WHERE id_barang = '$id_produk'");
           }
-
           // mengkosongkan keranjang belanja
           unset($_SESSION['keranjang']);
-
-
           // tampilan dialihkan kehalaman nota, dari pembelian barusan
           echo "<script>alert('pembelian sukses');</script>";
           echo "<script>location = 'nota.php?id=$id_pembelian_barusan';</script>";
         } elseif ($result['id_status'] == '3') {
 
-
           $id_pelanggan = $_SESSION['identitas']['id_pembeli'];
           $id_ongkir = $_POST['id_ongkir'];
-          // $id_diskon = $_POST['id_diskon'];
           $tanggal_pembelian  = date('Y-m-d');
           $alamat_pengiriman = $_POST['alamat_pengiriman'];
-
-
 
           $ambil_tarif = mysqli_query($koneksi, "SELECT * FROM ongkir WHERE id_ongkir = '$id_ongkir'");
           $arraytarif = mysqli_fetch_array($ambil_tarif);
           $tarif = $arraytarif['tarif'];
           $nama_daerah = $arraytarif['nama_daerah'];
 
-          // $ambil_diskon = mysqli_query($koneksi, "SELECT * FROM diskon WHERE id_diskon = '$id_diskon'");
-          // $arraydiskon = mysqli_fetch_array($ambil_diskon);
-          // $diskon = $arraydiskon['persen'];
-          // $nilai = $arraydiskon['nilai'];
-
           $total_pembelian = $totalbelanja + $tarif;
 
           // menyimpan data ke tabel pembelian
-          $simpan = mysqli_query($koneksi, "INSERT INTO pembelian (id_pembeli,id_ongkir,tanggal_pembelian,total_pembelian,nama_daerah,tarif,alamat_pengiriman,status_pembayaran,resi_pengiriman) VALUES ('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian','$nama_daerah','$tarif','$alamat_pengiriman','pending','null')");
+          $simpan = mysqli_query($koneksi, "INSERT INTO pembelian (id_pembeli,id_ongkir,diskon,tanggal_pembelian,total_pembelian,nama_daerah,tarif,alamat_pengiriman,status_pembayaran,resi_pengiriman) VALUES ('$id_pelanggan','$id_ongkir','0','$tanggal_pembelian','$total_pembelian','$nama_daerah','$tarif','$alamat_pengiriman','pending','null')");
 
           // mendapatkan id pembelian barusan terjadi
           $id_pembelian_barusan = mysqli_insert_id($koneksi);
-
 
           foreach ($_SESSION['keranjang'] as $id_produk => $jumlah) {
 

@@ -6,7 +6,8 @@ $query_pembelian = "SELECT * FROM users JOIN pembelian ON pembelian.id_pembeli =
 $hasil_keputusan = mysqli_query($koneksi, $query_pembelian);
 $ambil = mysqli_fetch_array($hasil_keputusan);
 ?>
-<pre><?php print_r($ambil); ?></pre>
+<!-- <pre><?php //print_r($ambil); 
+          ?></pre> -->
 <strong><?php echo $ambil['username']; ?></strong> <br>
 <p>
   <?php echo $ambil['no_telp']; ?> <br>
@@ -14,6 +15,7 @@ $ambil = mysqli_fetch_array($hasil_keputusan);
 </p>
 <p>
   Tanggal : <?php echo $ambil['tanggal_pembelian']; ?> <br>
+  mendapatkan diskon : <?php echo $ambil['diskon'] ?> % <br>
   Total : Rp <?php echo number_format($ambil['total_pembelian']); ?>
 </p>
 <div class="table-responsive">
@@ -21,10 +23,13 @@ $ambil = mysqli_fetch_array($hasil_keputusan);
     <thead>
       <tr>
         <th>No</th>
+        <!-- <th>Status</th> -->
         <th>Nama Produk</th>
         <th>Harga</th>
         <th>Jumlah</th>
         <th>SubTotal</th>
+        <!-- <th>Diskon</th> -->
+
       </tr>
     </thead>
     <tbody>

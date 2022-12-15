@@ -11,9 +11,9 @@ $ambil = $koneksi->query(" SELECT * FROM pembayaran WHERE id_pembelian = '$id_pe
 $detail = $ambil->fetch_assoc();
 
 
-echo "<pre>";
-print_r($detail);
-echo "</pre>"
+// echo "<pre>";
+// print_r($detail);
+// echo "</pre>"
 
 ?>
 
@@ -34,7 +34,7 @@ echo "</pre>"
       </tr>
       <tr>
         <th>Tanggal</th>
-        <td> Rp <?php echo $detail['tanggal']; ?></td>
+        <td><?php echo $detail['tanggal']; ?></td>
       </tr>
     </table>
   </div>

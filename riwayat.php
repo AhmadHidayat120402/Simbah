@@ -93,7 +93,7 @@ $result = mysqli_fetch_array($query_select);
       </div>
     </div>
   </nav>
-
+  
   <section class="kontent">
     <div class="container">
       <h2 class="fw-bold">Riwayat Belanja <?php echo $_SESSION['identitas']['nama_lengkap']; ?></h2>
