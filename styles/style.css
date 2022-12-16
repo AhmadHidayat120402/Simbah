@@ -313,3 +313,13 @@ a .logo {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
+
+.login-form {
+  width: 380px;
+  height: 700px;
+  padding: 20px;
+  border-radius: 20px;
+  overflow-y: scroll;
+  /* background: transparent; */
+  background: rgba(0, 0, 0, 0.5);
+}

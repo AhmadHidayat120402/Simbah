@@ -76,9 +76,9 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
             </ul>
           </li>
         </ul>
-        <a href="cart.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a>
+        <!-- <a href="cart.php" class="btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class="bx bx-cart text-white"></i>(0)</a> -->
 
-        <a href="register.php" class=" btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-user text-white'></i><?php echo $result['nama_lengkap'] ?>
+        <a href="profile.php" class=" btn btn-outline-light rounded-pill px-3 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-user text-white'></i><?php echo $result['username'] ?>
 
           <a href="logout.php" class="btn btn-outline-light rounded-pill px-4 py-2 m-2 align-items-center justify-content-center"><i class='bx bx-log-out text-white align-items-center justify-content-center'></i>Logout</a>
           <!-- <a href="login.php" class="btn btn-outline-light rounded-pill px-3 py-2">Login</a> -->
@@ -100,7 +100,6 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
 
           </tr>
         </thead>
-
         <tbody>
           <?php $no = 1; ?>
           <?php $totalbelanja = 0; ?>
@@ -167,7 +166,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
 
               <input type="hidden" name="diskonn" id="" placeholder="masukkan diskon tanpa %" class="form-control" style="background-color: white !important;">
             <?php } else { ?>
-              <input type="number" name="diskon" id="" placeholder="masukkan diskon tanpa %" class="form-control" style="background-color: white !important;">
+              <input type="number" name="diskon" id="" placeholder="masukkan diskon tanpa %" class="form-control" style="background-color: white !important;" min="1">
             <?php } ?>
           </div>
 
