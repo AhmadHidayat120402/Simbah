@@ -318,7 +318,7 @@ if (empty($_SESSION['id_pembeli'])) {
     <div class="container">
       <div class="row mx-auto">
         <div class="col md-3">
-          <a href="#" class="text-decoration-none">
+          <a href="index.php" class="text-decoration-none">
             <h4 class="fw-bold">SiMbah</h4>
           </a>
           <p class="section-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus.</p>

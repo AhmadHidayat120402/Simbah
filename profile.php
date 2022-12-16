@@ -65,7 +65,7 @@ if (isset($_POST['ubah'])) {
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/profile.css">
-  
+
   <title>Profile</title>
 </head>
 
@@ -130,11 +130,10 @@ if (isset($_POST['ubah'])) {
     </div>
   </nav>
   <br><br>
-  <div class="container mt-5">
-
+  <div class="container mt-5 boxs mb-5" style="max-width: 600px; margin:0 auto ;">
     <div class="satu" style="max-width: 500px; margin:0 auto ;">
-      <div class="card-title text-center">
-        <h3>Data User : <?php echo $pecah['username']; ?></h3>
+      <div class="card-title text-center mt-5">
+        <h3 class="mt-3">Data User : <?php echo $pecah['username']; ?></h3>
       </div>
       <div class="card-body">
         <form method="POST" action="">
@@ -179,9 +178,9 @@ if (isset($_POST['ubah'])) {
       </div>
 
 
-
     </div>
-    <!-- <div class="card mt-3 mb-4" style="max-width: 500px; margin:0 auto ;">
+  </div>
+  <!-- <div class="card mt-3 mb-4" style="max-width: 500px; margin:0 auto ;">
       <div class="card-title text-center">
         <h3>Ganti Password</h3>
       </div>
@@ -189,8 +188,9 @@ if (isset($_POST['ubah'])) {
         <form action="" method="post">
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-black">Password Lama</label>
-            <input type="password" class="form-control btn-register-form" id="exampleInputPassword1" style="background-color: white !important;" placeholder="Masukkan Password" required name="passwordlama" value="<?php // echo $pecah['password'] ?>"> -->
-          <!-- </div>
+            <input type="password" class="form-control btn-register-form" id="exampleInputPassword1" style="background-color: white !important;" placeholder="Masukkan Password" required name="passwordlama" value="<?php // echo $pecah['password'] 
+                                                                                                                                                                                                                      ?>"> -->
+  <!-- </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-black">Password Baru</label>
             <input type="password" class="form-control btn-register-form" id="exampleInputPassword1" style="background-color: white !important;" placeholder="Masukkan Password Baru" required name="passwordbaru">
@@ -200,7 +200,7 @@ if (isset($_POST['ubah'])) {
 
         </form>
       </div> -->
-    </div>
+
   </div>
 
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
