@@ -75,14 +75,16 @@ $pecah = $ambil->fetch_assoc();
           </tr>
           <tr>
             <th>Deskripsi </th>
-            <td><?php echo $pecah['deskripsi'] ?></td>
+            <th></th>
           </tr>
-
+        
+            
+        
         </table>
       </div>
       <div class="col-md 6">
         <img src="../images/images_buah/<?php echo $pecah['image'] ?>" alt="image" width="450px">
-
+        <?php echo $pecah['deskripsi'] ?>
       </div>
     </div>
   </div>

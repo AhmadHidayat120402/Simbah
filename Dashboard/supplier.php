@@ -21,15 +21,9 @@ if (isset($_POST['bsimpan'])) {
 
     // header('location: index.php?halaman=supplier');
     if ($result) {
-        echo "<script>
-        alert('simpan data sukses');
-        document.location= 'indexx.php?halaman=supplier';
-        </script>";
+        echo $success = "Data Berhasil Diinputkan";
     } else {
-        echo "<script>
-        alert('simpan data gagal');
-        document.location= 'indexx.php?halaman=supplier';
-        </script>";
+        echo $error = "Data Gagal Diinputkan !";
     }
 }
 
@@ -71,6 +65,16 @@ if (isset($_POST['bhapus'])) {
 }
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier</title>
+</head>
+<body>
+    
 
 
 
@@ -218,3 +222,5 @@ if (isset($_POST['bhapus'])) {
         });
     </script>
 </div>
+</body>
+</html>

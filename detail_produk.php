@@ -46,7 +46,7 @@ $result = mysqli_fetch_array($query_select);
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
-  <title>Nota Pembelian</title>
+  <title>Detail Buah</title>
 
 </head>
 
@@ -67,7 +67,7 @@ $result = mysqli_fetch_array($query_select);
           <form action="" method="post">
             <div class="form-group">
               <div class="input-group mt-5">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus dolorem placeat, quae quod eveniet laborum eaque dolores quas adipisci ducimus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum, quas ullam recusandae est quod enim laborum doloremque atque? Hic, atque?</p>
+                <p><?php echo $ambil_query_barang['deskripsi']; ?></p>
                 <input type="number" name="jumlah" id="" class="form-control" style="background-color: white !important;" placeholder="masukkan jumlah buah yang ingin dibeli" min="1" max="<?php echo $ambil_query_barang['stok']; ?>">
                 <div class="input-group-btn">
                   <button class="btn btn-primary" name="beli">Beli</button>
@@ -94,7 +94,7 @@ $result = mysqli_fetch_array($query_select);
 
 
 
-          <p><?php echo $ambil_query_barang['deskripsi']; ?></p>
+
         </div>
       </div>
 

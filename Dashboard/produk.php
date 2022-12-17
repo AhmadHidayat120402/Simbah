@@ -102,8 +102,9 @@ if (isset($_POST['bUbah'])) {
     $temp = $_FILES['gambar']['tmp_name'];
     $image_files = $nama_barang . ".jpg";
     $id_supplier = $_POST['id_supplier'];
+    $deskripsii = $_POST['deskripsi'];
 
-    $update_query = mysqli_query($koneksi, "UPDATE barang SET kode_barang ='$kode_barang', nama_barang = '$nama_barang',harga_beli = '$harga_beli',harga_jual = '$harga_jual',stok = '$stok' - '$buah',busuk = '$busuk',rusak ='$rusak',berat_buah = '$berat',image= '$image_files',id_supplier = '$id_supplier' WHERE id_barang = '$id_barang'");
+    $update_query = mysqli_query($koneksi, "UPDATE barang SET kode_barang ='$kode_barang', nama_barang = '$nama_barang',harga_beli = '$harga_beli',harga_jual = '$harga_jual',stok = '$stok' - '$buah',busuk = '$busuk',rusak ='$rusak',berat_buah = '$berat',image= '$image_files',id_supplier = '$id_supplier' ,deskripsi = '$deskripsii' WHERE id_barang = '$id_barang'");
 
     // header('location: member.php');
     copy($temp, "../images/images_buah/" . $image_files);
@@ -170,7 +171,7 @@ if (isset($_POST['bhapus'])) {
                             <input type="hidden" name="action" id="action" value="add">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">kode barang</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_barang" required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kode buah" name="kode_barang" required autofocus>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Nama Buah</label>
@@ -213,7 +214,7 @@ if (isset($_POST['bhapus'])) {
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan deskripsi produk" name="deskripsi" required>
+                                <textarea name="deskripsi" id="alamat" cols="30" rows="2" class="form-control" style="background-color: white !important;" required placeholder="Masukkan Deskripsi Buah"></textarea>
                             </div>
 
                         </div>
@@ -326,6 +327,10 @@ if (isset($_POST['bhapus'])) {
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">ID Supplier</label>
                                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan ID Supplier" name="id_supplier" value="<?php echo $id_supplier ?>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
+                                            <textarea name="deskripsi" id="deskripsi" cols="30" rows="2" class="form-control" style="background-color: white !important;" required><?php echo $deskripsi ?></textarea>
                                         </div>
                                     </div>
                                     <div class="modal-footer">

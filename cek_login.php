@@ -80,5 +80,4 @@ if (!isset($user_valid)) {  ?>
     })
   </script>
 <?php  } ?>
-
 </html>

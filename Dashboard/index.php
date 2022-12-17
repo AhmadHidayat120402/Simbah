@@ -244,16 +244,12 @@ for ($bulan = 1; $bulan < 13; $bulan++) {
                     </button>
 
                     <!-- Topbar Search -->
-                    <h3 class="text-center fw-bold" style="margin-left: 60px !important;">Selamat Datang <?php echo $result['nama_lengkap'] ?></h3>
+
+                    <h3 class="text-center fw-bold" style="margin-left: 60px !important; background-color: azure !important;">Selamat Datang <?php echo $result['nama_lengkap'] ?></h3>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
-
-
-
                         <!-- Nav Item - Messages -->
-
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
