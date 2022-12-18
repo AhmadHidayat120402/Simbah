@@ -149,6 +149,13 @@ $result = mysqli_fetch_array($query_select);
       });
     </script>
   </section>
+  <footer class="footerCuy footer_home">
+    <div class="container">
+      <div class="text-center" style="margin-top:290px ;">
+        <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
+      </div>
+    </div>
+  </footer>
 
   <script src="vendor/boostrap/js/bootstrap.min.js"></script>
   <!-- Core plugin JavaScript-->

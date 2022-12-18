@@ -100,6 +100,7 @@ $result = mysqli_fetch_array($query_select);
 
     </div>
   </section>
+  <?php include 'footer.php' ?>
 
   <script src="vendor/boostrap/js/bootstrap.min.js"></script>
 </body>

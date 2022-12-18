@@ -44,10 +44,37 @@ if (empty($_SESSION['id_pembeli'])) {
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
+  <!-- librari font awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+          $('i').css({
+            "opacity": "1",
+            "pointer-events": "auto"
+          });
+        } else {
+          $('i').css({
+            "opacity": "0",
+            "pointer-events": "none"
+          });
+        }
+      });
+      $('i').click(function() {
+        $('html').animate({
+          scrollTop: 0
+        }, 500);
+      });
+    });
+  </script>
   <title>Simbah</title>
 </head>
 
 <body>
+  <div>
+    <i class="fa fa-chevron-up"></i>
+  </div>
   <header>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
@@ -272,9 +299,8 @@ if (empty($_SESSION['id_pembeli'])) {
 
   <section class="popular-destionation">
     <div class="container">
-      <div class="d-flex flex-column flex-sm-column
-    flex-md-row align-item-center justify-content-between gap-3 ">
-        <h3 class="section-titlee w-50 fw-bold">Aneka Buah</h3>
+      <div class="justify-content-center align-items-center py-3 ">
+        <h3 class="section-titlee w-50 fw-bold p-3">Aneka Buah</h3>
         <!-- <a href="#" class="btn btn-primary btn btn-outline-dark rounded-0 mt-2 fw-bold">Explore More</a> -->
       </div>
 
@@ -321,7 +347,7 @@ if (empty($_SESSION['id_pembeli'])) {
           <a href="index.php" class="text-decoration-none">
             <h4 class="fw-bold">SiMbah</h4>
           </a>
-          <p class="section-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus.</p>
+          <p class="section-description">Sistem Informasi Penjualan dan Pemesanan Buah di Toko Buah Pandawa.</p>
           <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
         </div>
         <div class="col md-2">

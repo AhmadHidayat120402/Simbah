@@ -52,7 +52,8 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
 
   <?php include 'header.php'; ?>
 
-  <section class="content-cart">
+
+  <section class="content-cart mt-5">
     <div class="container">
       <h1 class="cart-title">Produk Cart</h1>
       <table class="table table-striped" id="cart">
@@ -126,6 +127,14 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
     </script>
     </div>
   </section>
+
+  <footer class="footerCuy footer_home">
+    <div class="container">
+      <div class="text-center" style="margin-top:290px ;">
+        <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
+      </div>
+    </div>
+  </footer>
 
 
   <!-- <footer class="py-5 footerCuy footer-detail ">

@@ -283,12 +283,20 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
     </div>
     </div>
   </section>
-  <pre>
+  <!-- <pre> -->
   <?php //print_r($_SESSION['identitas']) 
   ?>
   <?php //print_r($_SESSION['keranjang']) 
   ?>
-</pre>
+  <!-- </pre>
+ -->
+  <footer class="footerCuy footer_home">
+    <div class="container">
+      <div class="text-center" style="margin-top:290px ;">
+        <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
+      </div>
+    </div>
+  </footer>
 
 
 

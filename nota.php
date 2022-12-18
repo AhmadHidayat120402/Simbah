@@ -88,7 +88,7 @@ $result = mysqli_fetch_array($query_select);
 
   <section class="kontent">
     <div class="container">
-      <h2 class="fw-bold text-center">Nota Pembelian</h2>
+      <h2 class="fw-bold text-center boxs p-3">Nota Pembelian</h2>
       <?php
       require 'connect.php';
       // include 'Dashboard/pembelian.php';
@@ -129,7 +129,7 @@ $result = mysqli_fetch_array($query_select);
 
       <div class="row mt-5">
         <div class="col-md-3">
-          <div class="boxs text-center">
+          <div class="boxs text-center p-3">
             <h3 class="fw-bold">Kios Pandawa</h3>
             jl.Jawa Jember Jawa Timur <br>
             08990-423-789 <br>
@@ -137,7 +137,7 @@ $result = mysqli_fetch_array($query_select);
           </div>
         </div>
         <div class="col-md-3">
-          <div class="boxs text-center">
+          <div class="boxs text-center p-3">
             <h3 class="fw-bold">Pembelian</h3>
             No. Pembelian : <?php echo $ambil['id_pembelian']; ?> <br>
             Tanggal : <?php echo $ambil['tanggal_pembelian']; ?> <br>
@@ -145,7 +145,7 @@ $result = mysqli_fetch_array($query_select);
           </div>
         </div>
         <div class="col-md-3">
-          <div class="boxs text-center">
+          <div class="boxs text-center p-2">
             <h3 class="fw-bold">Pelanggan</h3>
             <?php echo $ambil['username']; ?><br>
             <p>
@@ -155,7 +155,7 @@ $result = mysqli_fetch_array($query_select);
           </div>
         </div>
         <div class="col-md-3">
-          <div class="boxs text-center">
+          <div class="boxs text-center p-3">
             <h3 class="fw-bold">Pengiriman</h3>
             <?php echo $ambil['nama_daerah'] ?><br>
             Ongkos Kirim : Rp <?php echo number_format($ambil['tarif']); ?> <br>
@@ -220,7 +220,15 @@ $result = mysqli_fetch_array($query_select);
 
 
     </div>
+
   </section>
+  <footer class="footerCuy footer_home">
+    <div class="container">
+      <div class="text-center" style="margin-top:290px ;">
+        <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
+      </div>
+    </div>
+  </footer>
 
   <script src="vendor/boostrap/js/bootstrap.min.js"></script>
 </body>

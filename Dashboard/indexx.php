@@ -173,6 +173,11 @@ $result = mysqli_fetch_array($query_select);
           <span>produk</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="indexx.php?halaman=ongkir">
+          <i class="fas fa-fw fa-table"></i>
+          <span>ongkir</span></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="indexx.php?halaman=pembelian">
           <i class="fas fa-fw fa-table"></i>
           <span>pembelian</span></a>
@@ -275,8 +280,8 @@ $result = mysqli_fetch_array($query_select);
                 include 'laporan_pembelian.php';
               } elseif ($_GET['halaman'] == 'detail_produk') {
                 include 'detail_produk.php';
-                // }elseif($_GET['halaman'] == 'download_laporan'){
-                //     include 'download_laporan.php';
+              } elseif ($_GET['halaman'] == 'ongkir') {
+                include 'ongkir.php';
               }
             } else {
               // include 'index.php';
@@ -299,7 +304,7 @@ $result = mysqli_fetch_array($query_select);
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2021</span>
+            <span>Copyright &copy; SiMbah 2022</span>
           </div>
         </div>
       </footer>

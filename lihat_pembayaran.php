@@ -121,7 +121,7 @@ if ($_SESSION['identitas']['id_pembeli'] !== $pecah['id_pembeli']) {
   </nav>
 
   <section class="kontent">
-    <div class="container">
+    <div class="container boxs p-4">
       <h2 class="fw-bold">Lihat Pembayaran <?php echo $_SESSION['identitas']['nama_lengkap']; ?></h2>
       <div class="row">
         <div class="col-md-6">
@@ -145,11 +145,18 @@ if ($_SESSION['identitas']['id_pembeli'] !== $pecah['id_pembeli']) {
           </table>
         </div>
         <div class="col-md-6">
-          <img src="bukti_pembayaran/<?php echo $pecah['bukti']; ?>" alt="image" class="img-responsive" width="300px">
+          <img src="bukti_pembayaran/<?php echo $pecah['bukti']; ?>" alt="image" class="img-responsive text-center" width="300px">
         </div>
 
       </div>
   </section>
+  <footer class="footerCuy footer_home">
+    <div class="container">
+      <div class="text-center" style="margin-top:290px ;">
+        <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
+      </div>
+    </div>
+  </footer>
 
   <script src="vendor/boostrap/js/bootstrap.min.js"></script>
   <!-- Core plugin JavaScript-->

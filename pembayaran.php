@@ -170,7 +170,13 @@ if ($id_pelanggan_login !== $id_pelanggan_beli) {
     ?>
 
   </section>
-
+  <footer class="footerCuy footer_home">
+    <div class="container">
+      <div class="text-center" style="margin-top:290px ;">
+        <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
+      </div>
+    </div>
+  </footer>
   <script src="vendor/boostrap/js/bootstrap.min.js"></script>
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>

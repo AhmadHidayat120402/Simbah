@@ -133,7 +133,7 @@ if (isset($_POST['ubah'])) {
   <div class="container mt-5 boxs mb-5" style="max-width: 600px; margin:0 auto ;">
     <div class="satu" style="max-width: 500px; margin:0 auto ;">
       <div class="card-title text-center mt-5">
-        <h3 class="mt-3">Data User : <?php echo $pecah['username']; ?></h3>
+        <h3 class="mt-5 py-4">Data User : <?php echo $pecah['username']; ?></h3>
       </div>
       <div class="card-body">
         <form method="POST" action="">
@@ -202,7 +202,13 @@ if (isset($_POST['ubah'])) {
       </div> -->
 
   </div>
-
+  <footer class="footerCuy footer_home">
+    <div class="container">
+      <div class="text-center" style="margin-top:290px ;">
+        <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
+      </div>
+    </div>
+  </footer>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
 </body>
