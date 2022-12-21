@@ -137,7 +137,7 @@ $result = mysqli_fetch_array($query_select);
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="indexx.php?halaman=pemilik">
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class='bx bx-user'></i>
           <span>pemilik</span></a>
       </li>
 
