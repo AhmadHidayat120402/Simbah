@@ -9,10 +9,7 @@ if (empty($_SESSION['id_pembeli'])) {
 $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
 $query_select = mysqli_query($koneksi, $query);
 $result = mysqli_fetch_array($query_select);
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -138,29 +135,29 @@ $result = mysqli_fetch_array($query_select);
       <li class="nav-item">
         <a class="nav-link" href="indexx.php?halaman=pemilik">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>pemilik</span></a>
+          <span>Pemilik</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="indexx.php?halaman=karyawan">
           <i class="fas fa-fw fa-table"></i>
-          <span>karyawan</span></a>
+          <span>Karyawan</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="indexx.php?halaman=member">
           <i class="fas fa-fw fa-table"></i>
-          <span>member</span></a>
+          <span>Member</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="indexx.php?halaman=pelanggan">
           <i class="fas fa-fw fa-table"></i>
-          <span>pelanggan</span></a>
+          <span>Pelanggan</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="indexx.php?halaman=supplier">
           <i class="fas fa-fw fa-table"></i>
-          <span>supplier</span></a>
+          <span>Supplier</span></a>
       </li>
       <!-- <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=Kategori">
@@ -170,17 +167,17 @@ $result = mysqli_fetch_array($query_select);
       <li class="nav-item">
         <a class="nav-link" href="indexx.php?halaman=produk">
           <i class="fas fa-fw fa-table"></i>
-          <span>produk</span></a>
+          <span>Produk</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="indexx.php?halaman=ongkir">
           <i class="fas fa-fw fa-table"></i>
-          <span>ongkir</span></a>
+          <span>Ongkir</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="indexx.php?halaman=pembelian">
           <i class="fas fa-fw fa-table"></i>
-          <span>pembelian</span></a>
+          <span>Pembelian</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="indexx.php?halaman=laporan_pembelian">
