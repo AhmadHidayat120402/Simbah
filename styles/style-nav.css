@@ -1,0 +1,64 @@
+* {
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'open sans', sans-serif;
+}
+.container{
+    width: 1100px;
+    position: relative;
+    margin: auto;
+}
+.judul a {
+    font-size: 50px;
+    font-family:  Courier;
+    font-weight: 800;
+    float: left;
+    color: #ECB390;
+}
+.menu {
+    float: right;
+}
+nav {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    line-height: 80px;
+    position: sticky;
+    position: -webkit-sticky ;
+    top: 0px;
+    background: #ffffff;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+nav ul li {
+    float: left;
+}
+nav ul li a {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 0px 16px 0px 16px;
+    text-decoration: none;
+}
+nav ul li a :hover{
+    text-decoration: underline;
+}
+img {
+width: 700px;
+height: 500px;
+}
+section {
+    margin :auto;
+    display: flex;
+    margin-bottom: 50px;
+
+}

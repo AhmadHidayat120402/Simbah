@@ -164,62 +164,55 @@ for ($bulan = 1; $bulan < 13; $bulan++) {
                 Kelola Data
             </div>
 
-            <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=pemilik">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Pemilik</span></a>
+                    <span>pemilik</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=karyawan">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Karyawan</span></a>
+                    <span>karyawan</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=member">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Member</span></a>
+                    <span>member</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=pelanggan">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Pelanggan</span></a>
+                    <span>pelanggan</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=supplier">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Supplier</span></a>
+                    <span>supplier</span></a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="index.php?halaman=Kategori">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Kategori</span></a>
-            </li> -->
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=produk">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Produk</span></a>
+                    <span>produk</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=ongkir">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Ongkir</span></a>
+                    <span>ongkir</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=pembelian">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Pembelian</span></a>
+                    <span>pembelian</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=laporan_pembelian">
-                    <i class="fas fa-fw fa-table"></i>
+                <i class='bx bxs-report'></i>
                     <span>Laporan</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../logout.php">
-                    <i class="fas fa-fw fa-table"></i>
+                <i class='bx bx-log-out '></i>
                     <span>Logout</span></a>
             </li>
 
