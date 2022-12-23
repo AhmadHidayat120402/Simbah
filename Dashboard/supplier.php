@@ -236,13 +236,12 @@ if (isset($_POST['bhapus'])) {
         <script>
             $('#btn').on('click', function() {
                 Swal.fire({
-                  
-                  
-                  
+
                     icon: 'success',
                     title: 'Berhasil Hapus Data',
                     showConfirmButton: false,
-                    timer: 50000
+                    timer: 20000
+
                 })
             })
         </script>

@@ -43,28 +43,28 @@ if (isset($_POST['register'])) {
         <form method="POST" action="register.php">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label text-white">Nama lengkap</label>
-            <input type="text" class="form-control btn-register-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Nama" required name="nama_lengkap">
+            <input type="text" class="form-control btn-register-form nama" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Nama" required name="nama_lengkap">
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label text-white">Username</label>
-            <input type="text" class="form-control btn-register-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Username" required name="username">
+            <input type="text" class="form-control btn-register-form namaUnik" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Username" required name="username">
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label text-white">Email</label>
-            <input type="email" class="form-control btn-register-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Email" required name="email">
+            <input type="email" class="form-control btn-register-form email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Email" required name="email">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-white">No Telepon</label>
-            <input type="text" class="form-control btn-register-form" id="exampleInputPassword1" placeholder="Masukkan No Telepon" required name="no_telp">
+            <input type="text" class="form-control btn-register-form no" id="exampleInputPassword1" placeholder="Masukkan No Telepon" required name="no_telp">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-white">Password</label>
-            <input type="password" class="form-control btn-register-form" id="exampleInputPassword1" placeholder="Masukkan Password" required name="password">
+            <input type="password" class="form-control btn-register-form pass" id="exampleInputPassword1" placeholder="Masukkan Password" required name="password">
           </div>
 
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-check-label text-white mb-2">Jenis Kelamin</label>
-            <div class="p-2 btn-register-form text-white-50">
+            <div class="p-2 btn-register-form text-white-50" id="jk">
               <p class="m-0 mb-1"><input type="radio" class="form-check-input" name="jk" id="jk" value="laki-laki"> Laki-laki</p>
               <p class="m-0"><input type="radio" class="form-check-input" name="jk" id="jk" value="perempuan"> Perempuan</p>
             </div>
@@ -72,7 +72,7 @@ if (isset($_POST['register'])) {
 
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-white">Alamat</label>
-            <input type="text" class="form-control btn-register-form" id="exampleInputPassword1" placeholder="Masukkan Alamat" required name="alamat">
+            <input type="text" class="form-control btn-register-form alamat" id="exampleInputPassword1"  placeholder="Masukkan Alamat" required name="alamat">
           </div>
 
           <!-- <div class="mb-3">
@@ -82,13 +82,43 @@ if (isset($_POST['register'])) {
 
 
           <div class="d-grid gap-2 mb-3">
-            <button type="submit" class="btn btn-primary" name="register">Submit</button>
+            <button type="submit" class="btn btn-primary" name="register" id="register">Submit</button>
           </div>
         </form>
       </div>
     </div>
   </div>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
-</body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="vendor\sweetalert\dist\sweetalert2.all.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type= "text/javascript">
+    $(function (){
+      $('#register').click(function(e){
 
+        var valid = this.form.checkValidity();
+        if(valid){
+        
+        var namaLengkap =$('.nama').val();
+        var username =$('.namaUnik') .val();
+        var email =$('.email').val();
+        var noTelpon =$('.no').val();
+        var password =$('.pass').val();
+        var jeniskelamain =$('#jk').val();
+        var alamat =$('.alamat').val(); 
+        Swal.fire({
+                                icon: 'success',
+                                title: 'ANDA BERHASIL LOGIN',
+                                text: 'Semoga Harinya Menyenangkan ❤️'
+                            }).then((result) => {
+                                window.location.href = 'login.php'
+                            })
+      // })
+        }else{
+          alert('Masukkan data anda');
+        }
+      });
+    }) ;
+  </script>
+</body>
 </html>

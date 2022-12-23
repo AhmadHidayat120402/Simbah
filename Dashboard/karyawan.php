@@ -132,7 +132,7 @@ if (isset($_POST['bhapus'])) {
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Jenis Kelamin</label>
                                 <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
-                                    <option value="Laki">Laki</option>
+                                    <option value="Laki">Laki-Laki</option>
                                     <option value="Perempuan">Perempuan</option>
                                 </select>
                             </div>
@@ -234,7 +234,7 @@ if (isset($_POST['bhapus'])) {
                                             <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
                                                 <option value="<?= $jenis_kelamin  ?>">
                                                     <?= $jenis_kelamin ?></option>
-                                                <option value="Laki">Laki</option>
+                                                <option value="Laki laki">Laki Laki</option>
                                                 <option value="Perempuan">Perempuan</option>
                                             </select>
                                         </div>
