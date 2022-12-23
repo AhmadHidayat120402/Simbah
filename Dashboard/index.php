@@ -164,14 +164,12 @@ for ($bulan = 1; $bulan < 13; $bulan++) {
                 Kelola Data
             </div>
 
-            <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=pemilik">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>pemilik</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=karyawan">
                     <i class="fas fa-fw fa-table"></i>
@@ -192,11 +190,6 @@ for ($bulan = 1; $bulan < 13; $bulan++) {
                     <i class="fas fa-fw fa-table"></i>
                     <span>supplier</span></a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="index.php?halaman=Kategori">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Kategori</span></a>
-            </li> -->
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=produk">
                     <i class="fas fa-fw fa-table"></i>
@@ -214,12 +207,12 @@ for ($bulan = 1; $bulan < 13; $bulan++) {
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=laporan_pembelian">
-                    <i class="fas fa-fw fa-table"></i>
+                <i class='bx bxs-report'></i>
                     <span>Laporan</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../logout.php">
-                    <i class="fas fa-fw fa-table"></i>
+                <i class='bx bx-log-out '></i>
                     <span>Logout</span></a>
             </li>
 
