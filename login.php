@@ -1,54 +1,3 @@
-<?php
-
-session_start();
-include 'connect.php';
-
-if (isset($_POST['submit'])) {
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-
-  $cek_user = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username' and password = '$password'");
-
-  $user_valid = mysqli_fetch_array($cek_user);
-
-  // uji jika email terdaftar
-  if ($user_valid) {
-    //  jika username terdaftar
-    // cek password sesuai atau tidak
-    if ($password == $user_valid['password'] && $id_status = $user_valid['id_status']) {
-
-      // jika password sesuai buat session
-
-      session_start();
-      $_SESSION['id_pembeli'] = $user_valid['id_pembeli'];
-      $_SESSION['identitas'] = $user_valid;
-      echo $success =  "Login berhasil";
-      //  uji level user
-      if ($id_status == 1) {
-        header('location: Dashboard/index.php');
-      } elseif ($id_status == 2) {
-        header('location: Dashboard/index.php');
-      } elseif ($id_status == 3) {
-        header('location: home.php');
-      } elseif ($id_status == 4) {
-        header('location: home.php');
-      }
-    } else {
-      echo $errorr = 'Maaf, login gagal, password anda tidak sesuai!';
-      header('login.php');
-    }
-  } else {
-    echo $errorr = 'Maaf, login gagal, password anda tidak sesuai!';
-    header('login.php');
-  }
-}
-// else {
-//     echo "<script>alert('Maaf, login gagal, password anda tidak sesuai!'); document.location='login.php'</script>";
-//   }
-// } else {
-//   echo "<script>alert('Maaf, login gagal, username anda tidak terdaftar'); document.location='login.php'</script>";
-// }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,23 +10,20 @@ if (isset($_POST['submit'])) {
   <link rel="stylesheet" href="styles/login.css">
   <title>Simbah</title>
 </head>
-
 <body>
-
   <div class="global-container">
     <div class="card login-form">
       <h1 class="card-title text-center text-white mb-5">
         Login
       </h1>
       <div class="card-text">
-        <form method="POST" action="cek_login.php">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label text-white">Username</label>
-            <input type="text" class="form-control btn-login-form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Username" required autofocus name="username">
+            <label for="username" class="form-label text-white">Username</label>
+            <input type="text" class="form-control btn-login-form" id="username" aria-describedby="usernameHelp" placeholder="Masukkan Username" required autofocus name="username">
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label text-white">Password</label>
-            <input type="password" class="form-control btn-login-form" id="exampleInputPassword1" placeholder="Masukkan Password" required name="password">
+            <label for="password" class="form-label text-white">Password</label>
+            <input type="password" class="form-control btn-login-form" id="password" placeholder="Masukkan Password" required name="password">
           </div>
           <!-- <div class="mb-3">
             <select class="form-control" name="level" id="level">
@@ -92,18 +38,82 @@ if (isset($_POST['submit'])) {
             <label class="form-check-label text-white" for="exampleCheck1">Check me out</label>
           </div> -->
           <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="submit">Login</button>
+            <button id="SignIn" class="btn btn-primary">Login</button>
           </div>
           <div class="d-grid gap-2 mt-3 mb-5">
             <span style="color: #fff;">Belum punya akun? <a href="register.php" class="text-center  text-decoration-none" style="color:#d8db64; font: bold;">Register</a></span>
           </div>
-        </form>
       </div>
     </div>
   </div>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
-  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function() {
+                $("#SignIn").click( function() {
+                    var username = $("#username").val();
+                    var password = $("#password").val();
+                    if (username.length == "") {
+                        Swal.fire({
+                        title: 'Oops...',
+                        text: 'Username must be filled dumbass!'
+                        });
+                    } else if(password.length == "") {
+                        Swal.fire({
+                        title: 'Oops...',
+                        text: 'Password must be filled dumbass!'
+                        });
+                    } else {
+                        $.ajax({
+                            url: "cek_login.php",
+                            type: "POST",
+                            dataType: "json",
+                            data: {
+                                "username": username,
+                                "password": password
+                            },
+                            success: function(response){
+                                console.log(response)
+                                if (response.status == true) {
+                                    Swal.fire({
+                                        icon: response.icon,
+                                        title: response.title,
+                                        text: response.text,
+                                        timer: 3000,
+                                        showCancelButton: false,
+                                        showConfirmButton: false
+                                    })
+                                    .then (function() {
+                                        if ( response.id_status == '1' ) {
+                                            window.location.href = "Dashboard/index.php";
+                                        } else if ( response.id_status == '2' ) {
+                                            window.location.href = "Dashboard/index.php";
+                                        } else if ( response.id_status == '3' ) {
+                                            window.location.href = "home.php";
+                                        } else if ( response.id_status == '4' ) {
+                                            window.location.href = "home.php";
+                                        }
+                                    });
+                                } else if (response.status == false) {
+                                    Swal.fire({
+                                        icon: response.icon,
+                                        title: response.title,
+                                        text: response.text,
+                                    });
+                                }
+                            },
+                            error:function(response){
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Server Error!',
+                                });
+                            }
+                        })
+                    }
+                }); 
+            });
+        </script>
 </body>
-
 </html>
