@@ -3,7 +3,7 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$db = "pandawa_buah";
+$db = "db_simbah";
 $koneksi = mysqli_connect($server, $username, $password, $db);
 //  or die(mysqli_error($koneksi));
 
