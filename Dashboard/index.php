@@ -166,53 +166,53 @@ for ($bulan = 1; $bulan < 13; $bulan++) {
 
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=pemilik">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class='bx bx-user'></i>
                     <span>pemilik</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=karyawan">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class='bx bx-user-circle'></i>
                     <span>karyawan</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=member">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class='bx bxs-user'></i>
                     <span>member</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=pelanggan">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class='bx bxs-user-circle'></i>
                     <span>pelanggan</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=supplier">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class='bx bxs-user-rectangle'></i>
                     <span>supplier</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=produk">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class='bx bx-package'></i>
                     <span>produk</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=ongkir">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class='bx bx-cycling'></i>
                     <span>ongkir</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=pembelian">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="bx bx-cart text-white"></i>
                     <span>pembelian</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="indexx.php?halaman=laporan_pembelian">
-                <i class='bx bxs-report'></i>
+                    <i class='bx bxs-report'></i>
                     <span>Laporan</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../logout.php">
-                <i class='bx bx-log-out '></i>
+                    <i class='bx bx-log-out '></i>
                     <span>Logout</span></a>
             </li>
 
