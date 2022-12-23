@@ -24,10 +24,18 @@ if ($user_valid) {
     session_start();
     $_SESSION['id_pembeli'] = $user_valid['id_pembeli'];
     $_SESSION['identitas'] = $user_valid;
-    echo $success =  "Login berhasil";
+    // echo $success =  "Login berhasil";
     //  uji level user
     if ($id_status == 1) {
-      header('location: Dashboard/index.php');
+      echo "<script>
+      Swal.fire({
+          icon: 'success',
+          title: 'ANDA BERHASIL LOGIN',
+          text: 'Semoga Harinya Menyenangkan ❤️'
+      }).then((result) => {
+          window.location.href = 'Dashboard/index.php'
+      })
+</script>";
     } elseif ($id_status == 2) {
       header('location: Dashboard/index.php');
     } elseif ($id_status == 3) {
@@ -59,15 +67,19 @@ if ($user_valid) {
 
 </body>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
 <?php
 if (isset($user_valid)) {  ?>
-  <script>
-    swal({
-      title: "<?php echo $success ?>",
-      icon: "success",
-      button: "OKE",
-      
-    })
+  <script type="text/javascript" >
+    Swal.fire({
+                               
+                                title: 'ANDA BERHASIL LOGIN',
+                               
+                                button: "Oke"
+                            }).then((result) => {
+                                window.location.href = 'Dashboard/index.php'
+                            })
   </script>
 <?php  } ?>
 <?php
