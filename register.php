@@ -72,7 +72,7 @@ if (isset($_POST['register'])) {
 
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-white">Alamat</label>
-            <input type="text" class="form-control btn-register-form alamat" id="exampleInputPassword1"  placeholder="Masukkan Alamat" required name="alamat">
+            <input type="text" class="form-control btn-register-form alamat" id="exampleInputPassword1" placeholder="Masukkan Alamat" required name="alamat">
           </div>
 
           <!-- <div class="mb-3">
@@ -92,33 +92,36 @@ if (isset($_POST['register'])) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="vendor\sweetalert\dist\sweetalert2.all.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script type= "text/javascript">
-    $(function (){
-      $('#register').click(function(e){
+  <script type="text/javascript">
+    $(function() {
+      $('#register').click(function(e) {
 
         var valid = this.form.checkValidity();
-        if(valid){
-        
-        var namaLengkap =$('.nama').val();
-        var username =$('.namaUnik') .val();
-        var email =$('.email').val();
-        var noTelpon =$('.no').val();
-        var password =$('.pass').val();
-        var jeniskelamain =$('#jk').val();
-        var alamat =$('.alamat').val(); 
-        Swal.fire({
-                                icon: 'success',
-                                title: 'ANDA BERHASIL LOGIN',
-                                text: 'Semoga Harinya Menyenangkan ❤️'
-                            }).then((result) => {
-                                window.location.href = 'login.php'
-                            })
-      // })
-        }else{
+        if (valid) {
+
+          var namaLengkap = $('.nama').val();
+          var username = $('.namaUnik').val();
+          var email = $('.email').val();
+          var noTelpon = $('.no').val();
+          var password = $('.pass').val();
+          var jeniskelamain = $('#jk').val();
+          var alamat = $('.alamat').val();
+          Swal.fire({
+            icon: 'success',
+            title: 'ANDA BERHASIL LOGIN',
+            text: 'Semoga Harinya Menyenangkan ❤️',
+            timer: 40000
+
+          }).then((result) => {
+            window.location.href = 'login.php'
+          })
+          // })
+        } else {
           alert('Masukkan data anda');
         }
       });
-    }) ;
+    });
   </script>
 </body>
+
 </html>
