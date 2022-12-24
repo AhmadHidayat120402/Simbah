@@ -10,66 +10,7 @@ require '../connect.php';
 // $query_select = mysqli_query($koneksi, $query);
 // $result = mysqli_fetch_array($query_select);
 
-if (isset($_POST['bsimpan'])) {
-  $nama_daerah = $_POST['nama_daerah'];
-  $tarif = $_POST['tarif'];
 
-  $query = "INSERT INTO ongkir (nama_daerah,tarif) VALUES ('$nama_daerah','$tarif')";
-
-  $result = mysqli_query($koneksi, $query);
-
-  // header('location: index.php?halaman=supplier');
-  if ($result) {
-    // echo $success = "Data Berhasil Diinputkan";
-    echo "<script>
-        alert ('berhasil tambah data');
-        document.location = 'indexx.php?halaman=ongkir';
-        </script>";
-  } else {
-    // echo $error = "Data Gagal Diinputkan !";
-    echo "<script>
-        alert ('Gagal tambah data');
-        document.location = 'indexx.php?halaman=ongkir';
-        </script>";
-  }
-}
-
-
-if (isset($_POST['bUbah'])) {
-  $ubah = mysqli_query($koneksi, "UPDATE ongkir SET
-    nama_daerah = '$_POST[nama_daerah]',
-    tarif = '$_POST[tarif]'
-     WHERE id_ongkir = '$_POST[id_ongkir]'
-    ");
-
-  if ($ubah) {
-    echo "<script>
-        alert ('berhasil ubah data');
-        document.location = 'indexx.php?halaman=ongkir';
-        </script>";
-  } else {
-    echo "<script>
-        alert ('gagal ubah data');
-        document.location = 'indexx.php?halaman=ongkir';
-        </script>";
-  }
-}
-
-if (isset($_POST['bhapus'])) {
-  $queryHapus = mysqli_query($koneksi, "DELETE FROM ongkir WHERE id_ongkir = '$_POST[id_ongkir]'");
-
-  if ($queryHapus) {
-    echo "<script>
-        alert ('berhasil hapus data');
-        document.location = 'indexx.php?halaman=ongkir';
-        </script>";
-  } else {
-    echo "<script>
-        alert ('gagal hapus data');
-        document.location = 'indexx.php?halaman=ongkir';
-        </script>";
-  }
-}
 
 ?>
 <!DOCTYPE html>
@@ -208,6 +149,87 @@ if (isset($_POST['bhapus'])) {
         ?>
       </tbody>
     </table>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+    <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+    <?php
+    if (isset($_POST['bsimpan'])) {
+      $nama_daerah = $_POST['nama_daerah'];
+      $tarif = $_POST['tarif'];
+
+      $query = "INSERT INTO ongkir (nama_daerah,tarif) VALUES ('$nama_daerah','$tarif')";
+
+      $result = mysqli_query($koneksi, $query);
+
+      // header('location: index.php?halaman=supplier');
+      if ($result) {
+        $success = "Data Berhasil Disimpan";
+      } else {
+        // echo $error = "Data Gagal Diinputkan !";
+        echo "<script>
+            alert ('Gagal tambah data');
+            document.location = 'indexx.php?halaman=ongkir';
+            </script>";
+      }
+    }
+
+
+    if (isset($_POST['bUbah'])) {
+      $ubah = mysqli_query($koneksi, "UPDATE ongkir SET
+        nama_daerah = '$_POST[nama_daerah]',
+        tarif = '$_POST[tarif]'
+         WHERE id_ongkir = '$_POST[id_ongkir]'
+        ");
+
+      if ($ubah) {
+        echo "<script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Ubah data berhasil',
+            }).then((result) => {
+                window.location.href = 'indexx.php?halaman=pelanggan';
+            })
+    </script>";
+      } else {
+        echo "<script>
+            alert ('gagal ubah data');
+            document.location = 'indexx.php?halaman=ongkir';
+            </script>";
+      }
+    }
+
+    if (isset($_POST['bhapus'])) {
+      $queryHapus = mysqli_query($koneksi, "DELETE FROM ongkir WHERE id_ongkir = '$_POST[id_ongkir]'");
+
+      if ($queryHapus) {
+        echo "<script>
+            alert ('berhasil hapus data');
+            document.location = 'indexx.php?halaman=ongkir';
+            </script>";
+      } else {
+        echo "<script>
+            alert ('gagal hapus data');
+            document.location = 'indexx.php?halaman=ongkir';
+            </script>";
+      }
+    }
+    ?>
+    <?php if (isset($success)) { ?>
+      <script>
+        Swal.fire({
+          title: "<?= $success; ?>",
+          icon: "success",
+          button: "OKE!",
+          timer: 2000
+        });
+        then((result) => {
+          window.location.href = 'indexx.php?halaman=ongkir';
+        });
+      </script>
+    <?php } ?>
+
+
     <script>
       $(document).ready(function() {
         $('#ongkir').DataTable();
