@@ -165,6 +165,14 @@ require '../connect.php';
       // header('location: index.php?halaman=supplier');
       if ($result) {
         $success = "Data Berhasil Disimpan";
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: ' $success',
+        }).then((result) => {
+            window.location.href = 'indexx.php?halaman=pelanggan';
+        })
+              </script>";
       } else {
         // echo $error = "Data Gagal Diinputkan !";
         echo "<script>
@@ -215,19 +223,7 @@ require '../connect.php';
       }
     }
     ?>
-    <?php if (isset($success)) { ?>
-      <script>
-        Swal.fire({
-          title: "<?= $success; ?>",
-          icon: "success",
-          button: "OKE!",
-          timer: 2000
-        });
-        then((result) => {
-          window.location.href = 'indexx.php?halaman=ongkir';
-        });
-      </script>
-    <?php } ?>
+
 
 
     <script>

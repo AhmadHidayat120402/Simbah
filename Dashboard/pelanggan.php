@@ -59,7 +59,7 @@ require '../connect.php';
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Jenis Kelamin</label>
                                 <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
-                                    <option value="Laki">Laki</option>
+                                    <option value="Laki laki">Laki laki</option>
                                     <option value="Perempuan">Perempuan</option>
                                 </select>
                             </div>
@@ -159,9 +159,8 @@ require '../connect.php';
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">Jenis Kelamin</label>
                                             <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
-                                                <option value="<?= $jenis_kelamin  ?>">
-                                                    <?= $jenis_kelamin ?></option>
-                                                <option value="Laki">Laki</option>
+                                                <?= $jenis_kelamin ?></option>
+                                                <option value="Laki laki">Laki laki</option>
                                                 <option value="Perempuan">Perempuan</option>
                                             </select>
                                         </div>

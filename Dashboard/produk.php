@@ -46,102 +46,7 @@ require '../connect.php';
 //     header('location:produk.php');
 // }
 
-if (isset($_POST['bsimpan'])) {
 
-    $kode_barang = $_POST['kode_barang'];
-    $nama_barang = $_POST['nama_barang'];
-    // $slug = strtolower(strtr($nama_barang,$check));
-    $harga_beli = $_POST['harga_beli'];
-    $harga_jual = $_POST['harga_jual'];
-    $berat = $_POST['berat_buah'];
-    $stok = $_POST['stok'];
-    $busuk = $_POST['busuk'];
-    $rusak = $_POST['rusak'];
-
-    $image = $_FILES['gambar']['name'];
-    $temp = $_FILES['gambar']['tmp_name'];
-    // Mendapat extention
-    $image_files = $nama_barang . ".jpg";
-    $id_supplier = $_POST['id_supplier'];
-    $deskripsi = $_POST['deskripsi'];
-    // $nama_supplier = $_POST['nama_supplier'];
-
-
-    $query = mysqli_query($koneksi, "INSERT INTO barang (kode_barang,nama_barang,harga_beli,harga_jual,stok,busuk,rusak,berat_buah,image,id_supplier,deskripsi) VALUES ('$kode_barang','$nama_barang','$harga_beli','$harga_jual','$stok','$busuk','$rusak','$berat','$image_files','$id_supplier','$deskripsi')");
-
-    copy($temp, "../images/images_buah/" . $image_files);
-    //         header('location:produk.php');
-    // header('location:produk.php');
-
-    if ($query) {
-        echo "<script>
-    alert('simpan data sukses');
-    document.location= 'indexx.php?halaman=produk';
-    </script>";
-    } else {
-        echo "<script>
-    alert('simpan data gagal');
-    document.location= 'indexx.php?halaman=produk';
-    </script>";
-    }
-}
-
-if (isset($_POST['bUbah'])) {
-
-    $id_barang = $_POST['id_barang'];
-    $kode_barang = $_POST['kode_barang'];
-    $nama_barang = $_POST['nama_barang'];
-    $harga_beli = $_POST['harga_beli'];
-    $harga_jual = $_POST['harga_jual'];
-    $berat = $_POST['berat_buah'];
-    $stok = $_POST['stok'];
-    $busuk = $_POST['busuk'];
-    $rusak = $_POST['rusak'];
-    $buah = $busuk + $rusak;
-    $image = $_FILES['gambar']['name'];
-    $temp = $_FILES['gambar']['tmp_name'];
-    $image_files = $nama_barang . ".jpg";
-    $id_supplier = $_POST['id_supplier'];
-    $deskripsii = $_POST['deskripsi'];
-
-    $update_query = mysqli_query($koneksi, "UPDATE barang SET kode_barang ='$kode_barang', nama_barang = '$nama_barang',harga_beli = '$harga_beli',harga_jual = '$harga_jual',stok = '$stok' - '$buah',busuk = '$busuk',rusak ='$rusak',berat_buah = '$berat',image= '$image_files',id_supplier = '$id_supplier' ,deskripsi = '$deskripsii' WHERE id_barang = '$id_barang'");
-
-    // header('location: member.php');
-    copy($temp, "../images/images_buah/" . $image_files);
-
-    if ($update_query) {
-        echo "<script>
-        alert('ubah data sukses');
-        document.location= 'indexx.php?halaman=produk';
-        </script>";
-    } else {
-        echo "<script>
-        alert('ubah data gagal');
-        document.location= 'indexx.php?halaman=produk';
-        </script>";
-    }
-}
-
-if (isset($_POST['bhapus'])) {
-
-    $hapus = mysqli_query($koneksi, "DELETE FROM barang
-        WHERE id_barang = '$_POST[id_barang]'
-    ");
-
-    // header('location: member.php');
-
-    if ($hapus) {
-        echo "<script>
-        alert('hapus data sukses');
-        document.location= 'indexx.php?halaman=produk';
-        </script>";
-    } else {
-        echo "<script>
-        alert('hapus data gagal');
-        document.location= 'indexx.php?halaman=produk';
-        </script>";
-    }
-}
 
 
 ?>
@@ -366,6 +271,7 @@ if (isset($_POST['bhapus'])) {
                             </div>
                         </div>
                     </div>
+
                     <!-- akhir modal ubah -->
                 <?php
 
@@ -374,6 +280,118 @@ if (isset($_POST['bhapus'])) {
             </tbody>
         </table>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+    <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <?php
+
+    if (isset($_POST['bsimpan'])) {
+
+        $kode_barang = $_POST['kode_barang'];
+        $nama_barang = $_POST['nama_barang'];
+        // $slug = strtolower(strtr($nama_barang,$check));
+        $harga_beli = $_POST['harga_beli'];
+        $harga_jual = $_POST['harga_jual'];
+        $berat = $_POST['berat_buah'];
+        $stok = $_POST['stok'];
+        $busuk = $_POST['busuk'];
+        $rusak = $_POST['rusak'];
+
+        $image = $_FILES['gambar']['name'];
+        $temp = $_FILES['gambar']['tmp_name'];
+        // Mendapat extention
+        $image_files = $nama_barang . ".jpg";
+        $id_supplier = $_POST['id_supplier'];
+        $deskripsi = $_POST['deskripsi'];
+        // $nama_supplier = $_POST['nama_supplier'];
+
+
+        $query = mysqli_query($koneksi, "INSERT INTO barang (kode_barang,nama_barang,harga_beli,harga_jual,stok,busuk,rusak,berat_buah,image,id_supplier,deskripsi) VALUES ('$kode_barang','$nama_barang','$harga_beli','$harga_jual','$stok','$busuk','$rusak','$berat','$image_files','$id_supplier','$deskripsi')");
+
+        copy($temp, "../images/images_buah/" . $image_files);
+        //         header('location:produk.php');
+        // header('location:produk.php');
+
+        if ($query) {
+            $success = "Data Produk Berhasil Disimpan";
+            echo "<script>
+            Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=produk';
+        })
+              </script>";
+        } else {
+            echo "<script>
+        alert('simpan data gagal');
+        document.location= 'indexx.php?halaman=produk';
+        </script>";
+        }
+    }
+
+    if (isset($_POST['bUbah'])) {
+
+        $id_barang = $_POST['id_barang'];
+        $kode_barang = $_POST['kode_barang'];
+        $nama_barang = $_POST['nama_barang'];
+        $harga_beli = $_POST['harga_beli'];
+        $harga_jual = $_POST['harga_jual'];
+        $berat = $_POST['berat_buah'];
+        $stok = $_POST['stok'];
+        $busuk = $_POST['busuk'];
+        $rusak = $_POST['rusak'];
+        $buah = $busuk + $rusak;
+        $image = $_FILES['gambar']['name'];
+        $temp = $_FILES['gambar']['tmp_name'];
+        $image_files = $nama_barang . ".jpg";
+        $id_supplier = $_POST['id_supplier'];
+        $deskripsii = $_POST['deskripsi'];
+
+        $update_query = mysqli_query($koneksi, "UPDATE barang SET kode_barang ='$kode_barang', nama_barang = '$nama_barang',harga_beli = '$harga_beli',harga_jual = '$harga_jual',stok = '$stok' - '$buah',busuk = '$busuk',rusak ='$rusak',berat_buah = '$berat',image= '$image_files',id_supplier = '$id_supplier' ,deskripsi = '$deskripsii' WHERE id_barang = '$id_barang'");
+
+        // header('location: member.php');
+        copy($temp, "../images/images_buah/" . $image_files);
+
+        if ($update_query) {
+            $success = "Data Berhasil Diubah";
+            echo "<script>
+            Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=produk';
+        })
+              </script>";
+        } else {
+            echo "<script>
+            alert('ubah data gagal');
+            document.location= 'indexx.php?halaman=produk';
+            </script>";
+        }
+    }
+
+    if (isset($_POST['bhapus'])) {
+
+        $hapus = mysqli_query($koneksi, "DELETE FROM barang
+            WHERE id_barang = '$_POST[id_barang]'
+        ");
+
+        // header('location: member.php');
+
+        if ($hapus) {
+            echo "<script>
+            alert('hapus data sukses');
+            document.location= 'indexx.php?halaman=produk';
+            </script>";
+        } else {
+            echo "<script>
+            alert('hapus data gagal');
+            document.location= 'indexx.php?halaman=produk';
+            </script>";
+        }
+    }
+    ?>
     <!-- akhir modal -->
     <script>
         $(document).ready(function() {
