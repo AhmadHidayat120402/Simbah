@@ -31,6 +31,7 @@
     });
   </script>
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="styles/style.css">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <style>
@@ -109,7 +110,7 @@
     </div>
   </header>
 
-  <section class="why-choose">
+  <section data-aos="fade-up" data-aos-duration="2000" class="why-choose">
     <div class="container" id="about" style="padding-top:5rem !important; padding-bottom:5rem !important;">
       <div class="d-flex flex-column flex-sm-column
       flex-md-row align-item-center justify-content-between gap-3">
@@ -182,7 +183,7 @@
     </div>
   </section>
 
-  <section class="popular-destionation">
+  <section data-aos="fade-up" data-aos-duration="2000" class="popular-destionation">
     <div class="container" id="food" style="padding-top:5rem !important; padding-bottom:5rem !important;">
       <div class="d-flex flex-column flex-sm-column
     flex-md-row align-item-center justify-content-between gap-3">
@@ -283,7 +284,7 @@
     </div>
   </section>
 
-  <section class="take-break" style="padding-top:5rem !important; padding-bottom:5rem !important;">
+  <section data-aos="fade-up" data-aos-duration="2000" class="take-break" style="padding-top:5rem !important; padding-bottom:5rem !important;">
     <div class="container ">
       <div class="row align-items-center">
         <div class="col-md-6 ">
@@ -309,7 +310,7 @@
     </div>
   </section>
 
-  <section class="travel-Packages" id="favFood" style="padding-top:5rem !important;">
+  <section data-aos="fade-up" data-aos-duration="2000" class="travel-Packages" id="favFood" style="padding-top:5rem !important;">
     <div class="container" ">
       <h2 class=" section-title text-center ">Favorite Buah</h2>
       <p class=" section-description text-center"> favorite buah merupakan jenis buah yang paling banyak digemari pelanggan dan banyak terjual <br> terdapat 3 jenis buah yang paling banyak dikonsumsi yaitu Alpukat, Apel merah, Belimbing.</p>
@@ -360,7 +361,7 @@
     </div>
   </section>
 
-  <section class="testimonial">
+  <section data-aos="fade-up" data-aos-duration="2000" class="testimonial">
     <div class="container" id="cus" style="padding-top:5rem !important; padding-bottom:5rem !important">
       <h2 class="section-title">Apa yang mereka katakan tentang kami ?</h2>
       <p class="section-description">Berikut merupakan penilaian dari pelanggan yang sudah membeli buah dari toko kami
@@ -426,7 +427,7 @@
     </div>
   </section>
 
-  <section class="subscirber">
+  <section data-aos="fade-up" data-aos-duration="2000" class="subscirber">
     <div class="container" id="alamat" style="padding-top:5rem; padding-bottom:5rem;">
       <div class="row ">
         <div class="col-md-6 position-relative">
@@ -453,7 +454,7 @@
     </div>
     </div>
   </section>
-  <footer class="py-5 footerCuy footer-index">
+  <footer data-aos="fade-up" data-aos-duration="2000" class="py-5 footerCuy footer-index">
     <div class="container" id="footer">
       <div class="row mx-auto">
         <div class="col md-3">
@@ -495,6 +496,10 @@
     </div>
   </footer>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
