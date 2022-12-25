@@ -26,6 +26,22 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+/* 
+.fas {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: none;
+  font-size: 25px;
+  background-color: #198754;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+} */
 
 a {
   color: var(--color-secondary);
@@ -151,6 +167,7 @@ a .logo {
 
 .popular-destionation .card {
   margin: 15px 0px !important;
+  /* height: 600px; */
 }
 .popular-destionation .card .bx {
   color: var(--color-primary);
@@ -312,4 +329,3 @@ a .logo {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
-

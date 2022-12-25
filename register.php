@@ -110,7 +110,7 @@ if (isset($_POST['register'])) {
             icon: 'success',
             title: 'ANDA BERHASIL LOGIN',
             text: 'Semoga Harinya Menyenangkan ❤️',
-            timer: 40000
+            // timer: 50000
 
           }).then((result) => {
             window.location.href = 'login.php'
