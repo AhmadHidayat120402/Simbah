@@ -7,11 +7,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simbah</title>
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
+  <script src="vendor/boostrap/js/jquery-3.6.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+          $('strong').css({
+            "opacity": "1",
+            "pointer-events": "auto"
+          });
+        } else {
+          $('strong').css({
+            "opacity": "0",
+            "pointer-events": "none"
+          });
+        }
+      });
+      $('strong').click(function() {
+        $('html').animate({
+          scrollTop: 0
+        }, 500);
+      });
+    });
+  </script>
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <link rel="stylesheet" href="styles/style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <style>
+    div strong {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: none;
+      font-size: 25px;
+      background-color: #d8db64;
+      color: white;
+      padding: 7px 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+  </style>
 </head>
 
 <body>
+<div>
+    <strong class="fas fa-chevron-up" id="scroll"></strong>
+  </div>
   <header>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">

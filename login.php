@@ -80,9 +80,9 @@
                                         icon: response.icon,
                                         title: response.title,
                                         text: response.text,
-                                        timer: 3000,
+                                        timer: 1500,
                                         showCancelButton: false,
-                                        showConfirmButton: false
+                                        showConfirmButton: true
                                     })
                                     .then (function() {
                                         if ( response.id_status == '1' ) {

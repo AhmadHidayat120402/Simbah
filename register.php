@@ -111,6 +111,7 @@ if (isset($_POST['register'])) {
             title: 'ANDA BERHASIL LOGIN',
             text: 'Semoga Harinya Menyenangkan ❤️',
             timer: 40000
+            showConfirmButton: true
 
           }).then((result) => {
             window.location.href = 'login.php'
