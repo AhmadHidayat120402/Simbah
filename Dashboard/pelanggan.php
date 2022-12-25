@@ -10,83 +10,6 @@ require '../connect.php';
 // $query_select = mysqli_query($koneksi, $query);
 // $result = mysqli_fetch_array($query_select);
 
-if (isset($_POST['bsimpan'])) {
-
-    $nama_lengkap = $_POST['nama'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $no_telp = $_POST['no_telepon'];
-    $passVall = $_POST['password'];
-    $jk = $_POST['jenis_kelamin'];
-    $alamat = $_POST['alamat'];
-    // $id_status = $_POST['id_status'];
-
-    $query = "INSERT INTO users (nama_lengkap,username,email,no_telp,password,jk,alamat,id_status) VALUES ('$nama_lengkap','$username','$email','$no_telp','$passVall','$jk','$alamat','3')";
-
-    $result = mysqli_query($koneksi, $query);
-    // header('location: index.php?halaman=pelanggan');
-
-    if ($result) {
-        echo "<script>
-        alert('simpan data sukses');
-        document.location= 'indexx.php?halaman=pelanggan';
-        </script>";
-    } else {
-        echo "<script>
-        alert('simpan data gagal');
-        document.location= 'indexx.php?halaman=pelanggan';
-        </script>";
-    }
-}
-
-if (isset($_POST['bUbah'])) {
-
-    $ubah = mysqli_query($koneksi, "UPDATE users SET 
-        nama_lengkap = '$_POST[nama]',
-        username = '$_POST[username]',
-        email = '$_POST[email]',
-        no_telp = '$_POST[no_telepon]',
-        password = '$_POST[password]',
-        jk = '$_POST[jenis_kelamin]',
-        alamat = '$_POST[alamat]'
-        WHERE id_pembeli = '$_POST[id_pembeli]'
-    ");
-    // header('location: member.php');
-
-    if ($ubah) {
-        echo "<script>
-        alert('ubah data sukses');
-        document.location= 'indexx.php?halaman=pelanggan';
-        </script>";
-    } else {
-        echo "<script>
-        alert('ubah data gagal');
-        document.location= 'indexx.php?halaman=pelanggan';
-        </script>";
-    }
-}
-
-if (isset($_POST['bhapus'])) {
-
-    $hapus = mysqli_query($koneksi, "DELETE FROM users
-        WHERE id_pembeli = '$_POST[id_pembeli]'
-    ");
-
-    // header('location: member.php');
-
-    if ($hapus) {
-        echo "<script>
-        alert('hapus data sukses');
-        document.location= 'indexx.php?halaman=pelanggan';
-        </script>";
-    } else {
-        echo "<script>
-        alert('hapus data gagal');
-        document.location= 'indexx.php?halaman=pelanggan';
-        </script>";
-    }
-}
-
 
 
 
@@ -136,7 +59,7 @@ if (isset($_POST['bhapus'])) {
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Jenis Kelamin</label>
                                 <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
-                                    <option value="Laki">Laki</option>
+                                    <option value="Laki laki">Laki laki</option>
                                     <option value="Perempuan">Perempuan</option>
                                 </select>
                             </div>
@@ -236,9 +159,8 @@ if (isset($_POST['bhapus'])) {
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">Jenis Kelamin</label>
                                             <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
-                                                <option value="<?= $jenis_kelamin  ?>">
-                                                    <?= $jenis_kelamin ?></option>
-                                                <option value="Laki">Laki</option>
+                                                <?= $jenis_kelamin ?></option>
+                                                <option value="Laki laki">Laki laki</option>
                                                 <option value="Perempuan">Perempuan</option>
                                             </select>
                                         </div>
@@ -287,8 +209,111 @@ if (isset($_POST['bhapus'])) {
             </tbody>
         </table>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+    <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
+    <?php
 
+    if (isset($_POST['bsimpan'])) {
+
+        $nama_lengkap = $_POST['nama'];
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $no_telp = $_POST['no_telepon'];
+        $passVall = $_POST['password'];
+        $jk = $_POST['jenis_kelamin'];
+        $alamat = $_POST['alamat'];
+        // $id_status = $_POST['id_status'];
+
+        $query = "INSERT INTO users (nama_lengkap,username,email,no_telp,password,jk,alamat,id_status) VALUES ('$nama_lengkap','$username','$email','$no_telp','$passVall','$jk','$alamat','3')";
+
+        $result = mysqli_query($koneksi, $query);
+        // header('location: index.php?halaman=pelanggan');
+
+        if ($result) {
+            $succes = "Behasil";
+        } else {
+            $errorr =  $query . "Error " . mysqli_error($koneksi);
+        }
+    }
+
+    if (isset($_POST['bUbah'])) {
+
+        $ubah = mysqli_query($koneksi, "UPDATE users SET 
+        nama_lengkap = '$_POST[nama]',
+        username = '$_POST[username]',
+        email = '$_POST[email]',
+        no_telp = '$_POST[no_telepon]',
+        password = '$_POST[password]',
+        jk = '$_POST[jenis_kelamin]',
+        alamat = '$_POST[alamat]'
+        WHERE id_pembeli = '$_POST[id_pembeli]'
+    ");
+        // header('location: member.php');
+
+        if ($ubah) {
+            echo "<script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Ubah data berhasil',
+            }).then((result) => {
+                window.location.href = 'indexx.php?halaman=pelanggan';
+            })
+    </script>";
+        } else {
+            echo "<script>
+        alert('ubah data gagal');
+        document.location= 'indexx.php?halaman=pelanggan';
+        </script>";
+        }
+    }
+
+    if (isset($_POST['bhapus'])) {
+
+        $hapus = mysqli_query($koneksi, "DELETE FROM users
+        WHERE id_pembeli = '$_POST[id_pembeli]'
+    ");
+
+        // header('location: member.php');
+
+        if ($hapus) {
+            echo "<script>
+        alert('hapus data sukses');
+        document.location= 'indexx.php?halaman=pelanggan';
+        </script>";
+        } else {
+            echo "<script>
+        alert('hapus data gagal');
+        document.location= 'indexx.php?halaman=pelanggan';
+        </script>";
+        }
+    }
+
+    ?>
+    <?php if (isset($succes)) { ?>
+        <script>
+            Swal.fire({
+                title: "<?= $succes; ?>",
+                icon: "success",
+                button: "OKE!",
+                timer: 1000
+            });
+            then((result) => {
+                window.location.href = 'indexx.php?halaman=pelanggan';
+            });
+        </script>
+    <?php } ?>
+
+    <?php if (isset($errorr)) { ?>
+        <script>
+            swal({
+                title: "<?= $errorr; ?>",
+                icon: "success",
+                button: "OKE!",
+            });
+        </script>
+    <?php } ?>
     <!-- akhir modal -->
     <script>
         $(document).ready(function() {

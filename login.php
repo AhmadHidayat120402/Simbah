@@ -50,50 +50,70 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-  <script>
-    $(document).ready(function() {
-      $("#SignIn").click(function() {
-        var username = $("#username").val();
-        var password = $("#password").val();
-        if (username.length == "") {
-          Swal.fire({
-            title: 'Oops...',
-            text: 'Username must be filled dumbass!'
-          });
-        } else if (password.length == "") {
-          Swal.fire({
-            title: 'Oops...',
-            text: 'Password must be filled dumbass!'
-          });
-        } else {
-          $.ajax({
-            url: "cek_login.php",
-            type: "POST",
-            dataType: "json",
-            data: {
-              "username": username,
-              "password": password
-            },
-            success: function(response) {
-              console.log(response)
-              if (response.status == true) {
-                Swal.fire({
-                    icon: response.icon,
-                    title: response.title,
-                    text: response.text,
-                    // timer: 2000,
-                    showCancelButton: false,
-                    // showConfirmButton: true
-                  })
-                  .then(function() {
-                    if (response.id_status == '1') {
-                      window.location.href = "Dashboard/index.php";
-                    } else if (response.id_status == '2') {
-                      window.location.href = "Dashboard/index.php";
-                    } else if (response.id_status == '3') {
-                      window.location.href = "home.php";
-                    } else if (response.id_status == '4') {
-                      window.location.href = "home.php";
+
+  
+        <script>
+            $(document).ready(function() {
+                $("#SignIn").click( function() {
+                    var username = $("#username").val();
+                    var password = $("#password").val();
+                    if (username.length == "") {
+                        Swal.fire({
+                        title: 'Oops...',
+                        text: 'Username must be filled dumbass!'
+                        });
+                    } else if(password.length == "") {
+                        Swal.fire({
+                        title: 'Oops...',
+                        text: 'Password must be filled dumbass!'
+                        });
+                    } else {
+                        $.ajax({
+                            url: "cek_login.php",
+                            type: "POST",
+                            dataType: "json",
+                            data: {
+                                "username": username,
+                                "password": password
+                            },
+                            success: function(response){
+                                console.log(response)
+                                if (response.status == true) {
+                                    Swal.fire({
+                                        icon: response.icon,
+                                        title: response.title,
+                                        text: response.text,
+                                        timer: 1500,
+                                        showCancelButton: false,
+                                        showConfirmButton: true
+                                    })
+                                    .then (function() {
+                                        if ( response.id_status == '1' ) {
+                                            window.location.href = "Dashboard/index.php";
+                                        } else if ( response.id_status == '2' ) {
+                                            window.location.href = "Dashboard/index.php";
+                                        } else if ( response.id_status == '3' ) {
+                                            window.location.href = "home.php";
+                                        } else if ( response.id_status == '4' ) {
+                                            window.location.href = "home.php";
+                                        }
+                                    });
+                                } else if (response.status == false) {
+                                    Swal.fire({
+                                        icon: response.icon,
+                                        title: response.title,
+                                        text: response.text,
+                                    });
+                                }
+                            },
+                            error:function(response){
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Server Error!',
+                                });
+                            }
+                        })
                     }
                   });
               } else if (response.status == false) {
@@ -103,7 +123,7 @@
                   text: response.text,
                 });
               }
-            },
+            
             error: function(response) {
               Swal.fire({
                 icon: 'error',
@@ -111,10 +131,7 @@
                 text: 'Server Error!',
               });
             }
-          })
-        }
-      });
-    });
+       
   </script>
 </body>
 
