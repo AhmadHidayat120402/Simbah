@@ -33,10 +33,28 @@
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="styles/style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <style>
+    div strong {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: none;
+      font-size: 25px;
+      background-color: #d8db64;
+      color: white;
+      padding: 7px 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+  </style>
 </head>
 
 <body>
-<div>
+  <div>
     <strong class="fas fa-chevron-up" id="scroll"></strong>
   </div>
   <header>
@@ -183,7 +201,7 @@
                 Rp 18.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat">Mengkonsumsi mangga dapat melindungi kita dari jenis penyakit kanker dan
+              <p class="text-manfaat text-limit">Mengkonsumsi mangga dapat melindungi kita dari jenis penyakit kanker dan
                 mangga mengandung vitamin A.
               </p>
             </div>
@@ -205,7 +223,7 @@
                 Rp 15.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat">Manfaat makan buah pepaya setiap hari bisa membantu orang yang bermasalah dengan
+              <p class="text-manfaat text-limit">Manfaat makan buah pepaya setiap hari bisa membantu orang yang bermasalah dengan
                 pencernaannya</p>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
@@ -227,7 +245,7 @@
                 Rp 23.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat">Sebagai sumber antioksidan bisa membantu mengobati kulit yang terbakar, kulit
+              <p class="text-manfaat text-limit">Sebagai sumber antioksidan bisa membantu mengobati kulit yang terbakar, kulit
                 kering dan masalah
                 jerawat</p>
             </div>
@@ -250,7 +268,7 @@
                 Rp 22.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat">Manfaatnya sebagai penurun tekanan darah, baik untuk keseahatan dan tentunya kaya
+              <p class="text-manfaat text-limit">Manfaatnya sebagai penurun tekanan darah, baik untuk keseahatan dan tentunya kaya
                 akan vitamin C</p>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
@@ -478,6 +496,10 @@
     </div>
   </footer>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
