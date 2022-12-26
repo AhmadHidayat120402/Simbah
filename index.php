@@ -7,11 +7,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simbah</title>
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
+  <script src="vendor/boostrap/js/jquery-3.6.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+          $('strong').css({
+            "opacity": "1",
+            "pointer-events": "auto"
+          });
+        } else {
+          $('strong').css({
+            "opacity": "0",
+            "pointer-events": "none"
+          });
+        }
+      });
+      $('strong').click(function() {
+        $('html').animate({
+          scrollTop: 0
+        }, 500);
+      });
+    });
+  </script>
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="styles/style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <style>
+    div strong {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: none;
+      font-size: 25px;
+      background-color: #d8db64;
+      color: white;
+      padding: 7px 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+  </style>
 </head>
 
 <body>
+  <div>
+    <strong class="fas fa-chevron-up" id="scroll"></strong>
+  </div>
   <header>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -65,7 +110,7 @@
     </div>
   </header>
 
-  <section class="why-choose">
+  <section data-aos="fade-up" data-aos-duration="2000" class="why-choose">
     <div class="container" id="about" style="padding-top:5rem !important; padding-bottom:5rem !important;">
       <div class="d-flex flex-column flex-sm-column
       flex-md-row align-item-center justify-content-between gap-3">
@@ -138,7 +183,7 @@
     </div>
   </section>
 
-  <section class="popular-destionation">
+  <section data-aos="fade-up" data-aos-duration="2000" class="popular-destionation">
     <div class="container" id="food" style="padding-top:5rem !important; padding-bottom:5rem !important;">
       <div class="d-flex flex-column flex-sm-column
     flex-md-row align-item-center justify-content-between gap-3">
@@ -156,7 +201,7 @@
                 Rp 18.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat text-limit">Mengkonsumsi mangga dapat melindungi kita dari jenis penyakit kanker dan
+              <p class="text-manfaat ">Mengkonsumsi mangga dapat melindungi kita dari jenis penyakit kanker dan
                 mangga mengandung vitamin A.
               </p>
             </div>
@@ -178,7 +223,7 @@
                 Rp 15.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat text-limit">Manfaat makan buah pepaya setiap hari bisa membantu orang yang bermasalah dengan
+              <p class="text-manfaat ">Manfaat makan buah pepaya setiap hari bisa membantu orang yang bermasalah dengan
                 pencernaannya</p>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
@@ -200,7 +245,7 @@
                 Rp 23.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat text-limit">Sebagai sumber antioksidan bisa membantu mengobati kulit yang terbakar, kulit
+              <p class="text-manfaat ">Sebagai sumber antioksidan bisa membantu mengobati kulit yang terbakar, kulit
                 kering dan masalah
                 jerawat</p>
             </div>
@@ -223,7 +268,7 @@
                 Rp 22.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat text-limit">Manfaatnya sebagai penurun tekanan darah, baik untuk keseahatan dan tentunya kaya
+              <p class="text-manfaat ">Manfaatnya sebagai penurun tekanan darah, baik untuk keseahatan dan tentunya kaya
                 akan vitamin C</p>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">
@@ -239,7 +284,7 @@
     </div>
   </section>
 
-  <section class="take-break" style="padding-top:5rem !important; padding-bottom:5rem !important;">
+  <section data-aos="fade-up" data-aos-duration="2000" class="take-break" style="padding-top:5rem !important; padding-bottom:5rem !important;">
     <div class="container ">
       <div class="row align-items-center">
         <div class="col-md-6 ">
@@ -265,7 +310,7 @@
     </div>
   </section>
 
-  <section class="travel-Packages" id="favFood" style="padding-top:5rem !important;">
+  <section data-aos="fade-up" data-aos-duration="2000" class="travel-Packages" id="favFood" style="padding-top:5rem !important;">
     <div class="container" ">
       <h2 class=" section-title text-center ">Favorite Buah</h2>
       <p class=" section-description text-center"> favorite buah merupakan jenis buah yang paling banyak digemari pelanggan dan banyak terjual <br> terdapat 3 jenis buah yang paling banyak dikonsumsi yaitu Alpukat, Apel merah, Belimbing.</p>
@@ -316,7 +361,7 @@
     </div>
   </section>
 
-  <section class="testimonial">
+  <section data-aos="fade-up" data-aos-duration="2000" class="testimonial">
     <div class="container" id="cus" style="padding-top:5rem !important; padding-bottom:5rem !important">
       <h2 class="section-title">Apa yang mereka katakan tentang kami ?</h2>
       <p class="section-description">Berikut merupakan penilaian dari pelanggan yang sudah membeli buah dari toko kami
@@ -382,7 +427,7 @@
     </div>
   </section>
 
-  <section class="subscirber">
+  <section data-aos="fade-up" data-aos-duration="2000" class="subscirber">
     <div class="container" id="alamat" style="padding-top:5rem; padding-bottom:5rem;">
       <div class="row ">
         <div class="col-md-6 position-relative">
@@ -409,7 +454,7 @@
     </div>
     </div>
   </section>
-  <footer class="py-5 footerCuy footer-index">
+  <footer data-aos="fade-up" data-aos-duration="2000" class="py-5 footerCuy footer-index">
     <div class="container" id="footer">
       <div class="row mx-auto">
         <div class="col md-3">
@@ -451,6 +496,10 @@
     </div>
   </footer>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
