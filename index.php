@@ -201,7 +201,7 @@
                 Rp 18.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat">Mengkonsumsi mangga dapat melindungi kita dari jenis penyakit kanker dan
+              <p class="text-manfaat ">Mengkonsumsi mangga dapat melindungi kita dari jenis penyakit kanker dan
                 mangga mengandung vitamin A.
               </p>
             </div>
@@ -223,7 +223,7 @@
                 Rp 15.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat">Manfaat makan buah pepaya setiap hari bisa membantu orang yang bermasalah dengan
+              <p class="text-manfaat ">Manfaat makan buah pepaya setiap hari bisa membantu orang yang bermasalah dengan
                 pencernaannya</p>
             </div>
             <div class="ratings position-absolute top-0 bg-white p-2">
@@ -245,7 +245,7 @@
                 Rp 23.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat">Sebagai sumber antioksidan bisa membantu mengobati kulit yang terbakar, kulit
+              <p class="text-manfaat ">Sebagai sumber antioksidan bisa membantu mengobati kulit yang terbakar, kulit
                 kering dan masalah
                 jerawat</p>
             </div>
@@ -268,7 +268,7 @@
                 Rp 22.000 / kg
               </p>
               <hr>
-              <p class="text-manfaat">Manfaatnya sebagai penurun tekanan darah, baik untuk keseahatan dan tentunya kaya
+              <p class="text-manfaat ">Manfaatnya sebagai penurun tekanan darah, baik untuk keseahatan dan tentunya kaya
                 akan vitamin C</p>
             </div>
             <div class="ratings position-absolute top-0 p-2 bg-white">

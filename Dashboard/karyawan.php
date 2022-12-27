@@ -9,82 +9,6 @@ require '../connect.php';
 // $query_select = mysqli_query($koneksi, $query);
 // $result = mysqli_fetch_array($query_select);
 
-if (isset($_POST['bsimpan'])) {
-
-    $nama_lengkap = $_POST['nama'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $no_telp = $_POST['no_telepon'];
-    $passVall = $_POST['password'];
-    $jk = $_POST['jenis_kelamin'];
-    $alamat = $_POST['alamat'];
-    // $id_status = $_POST['id_status'];
-
-    $query = "INSERT INTO users (nama_lengkap,username,email,no_telp,password,jk,alamat,id_status) VALUES ('$nama_lengkap','$username','$email','$no_telp','$passVall','$jk','$alamat','1')";
-
-    $result = mysqli_query($koneksi, $query);
-    // header('location: index.php?halaman=karyawan');
-
-    if ($result) {
-        echo "<script>
-        alert('simpan data sukses');
-        document.location= 'indexx.php?halaman=karyawan';
-        </script>";
-    } else {
-        echo "<script>
-        alert('simpan data gagal');
-        document.location= 'indexx.php?halaman=karyawan';
-        </script>";
-    }
-}
-
-if (isset($_POST['bUbah'])) {
-
-    $ubah = mysqli_query($koneksi, "UPDATE users SET 
-        nama_lengkap = '$_POST[nama]',
-        username = '$_POST[username]',
-        email = '$_POST[email]',
-        no_telp = '$_POST[no_telepon]',
-        password = '$_POST[password]',
-        jk = '$_POST[jenis_kelamin]',
-        alamat = '$_POST[alamat]'
-        WHERE id_pembeli = '$_POST[id_pembeli]'
-    ");
-    // header('location: member.php');
-
-    if ($ubah) {
-        echo "<script>
-        alert('ubah data sukses');
-        document.location= 'indexx.php?halaman=karyawan';
-        </script>";
-    } else {
-        echo "<script>
-        alert('ubah data gagal');
-        document.location= 'indexx.php?halaman=karyawan';
-        </script>";
-    }
-}
-
-if (isset($_POST['bhapus'])) {
-
-    $hapus = mysqli_query($koneksi, "DELETE FROM users
-        WHERE id_pembeli = '$_POST[id_pembeli]'
-    ");
-
-    // header('location: member.php');
-
-    if ($hapus) {
-        echo "<script>
-        alert('hapus data sukses');
-        document.location= 'indexx.php?halaman=karyawan';
-        </script>";
-    } else {
-        echo "<script>
-        alert('hapus data gagal');
-        document.location= 'indexx.php?halaman=karyawan';
-        </script>";
-    }
-}
 
 ?>
 
@@ -283,7 +207,90 @@ if (isset($_POST['bhapus'])) {
             </tbody>
         </table>
     </div>
+    <?php
+    if (isset($_POST['bsimpan'])) {
 
+        $nama_lengkap = $_POST['nama'];
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $no_telp = $_POST['no_telepon'];
+        $passVall = $_POST['password'];
+        $jk = $_POST['jenis_kelamin'];
+        $alamat = $_POST['alamat'];
+        // $id_status = $_POST['id_status'];
+
+        $query = "INSERT INTO users (nama_lengkap,username,email,no_telp,password,jk,alamat,id_status) VALUES ('$nama_lengkap','$username','$email','$no_telp','$passVall','$jk','$alamat','1')";
+
+        $result = mysqli_query($koneksi, $query);
+        // header('location: index.php?halaman=karyawan');
+
+        if ($result) {
+            $success = "Data Produk Berhasil Disimpan";
+            echo "<script>
+            Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=karyawan';
+        })
+              </script>";
+        } else {
+            echo "<script>
+                alert('simpan data gagal');
+                document.location= 'indexx.php?halaman=karyawan';
+                </script>";
+        }
+    }
+
+    if (isset($_POST['bUbah'])) {
+
+        $ubah = mysqli_query($koneksi, "UPDATE users SET 
+                nama_lengkap = '$_POST[nama]',
+                username = '$_POST[username]',
+                email = '$_POST[email]',
+                no_telp = '$_POST[no_telepon]',
+                password = '$_POST[password]',
+                jk = '$_POST[jenis_kelamin]',
+                alamat = '$_POST[alamat]'
+                WHERE id_pembeli = '$_POST[id_pembeli]'
+            ");
+        // header('location: member.php');
+
+        if ($ubah) {
+            echo "<script>
+                alert('ubah data sukses');
+                document.location= 'indexx.php?halaman=karyawan';
+                </script>";
+        } else {
+            echo "<script>
+                alert('ubah data gagal');
+                document.location= 'indexx.php?halaman=karyawan';
+                </script>";
+        }
+    }
+
+    if (isset($_POST['bhapus'])) {
+
+        $hapus = mysqli_query($koneksi, "DELETE FROM users
+                WHERE id_pembeli = '$_POST[id_pembeli]'
+            ");
+
+        // header('location: member.php');
+
+        if ($hapus) {
+            echo "<script>
+                alert('hapus data sukses');
+                document.location= 'indexx.php?halaman=karyawan';
+                </script>";
+        } else {
+            echo "<script>
+                alert('hapus data gagal');
+                document.location= 'indexx.php?halaman=karyawan';
+                </script>";
+        }
+    }
+
+    ?>
 
     <!-- akhir modal -->
     <script>
