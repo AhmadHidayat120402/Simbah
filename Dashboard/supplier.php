@@ -230,10 +230,10 @@ if (isset($_POST['bhapus'])) {
                 $('#supplier').DataTable();
             });
         </script>
-        <script src="../vendor/sweetalert2/package/dist/sweetalert2.all.min.js"></script>
-        <script src="../vendor/boostrap/js/jquery-3.6.1.min.js"></script>
+        <!-- <script src="../vendor/sweetalert2/package/dist/sweetalert2.all.min.js"></script>
+        <script src="../vendor/boostrap/js/jquery-3.6.1.min.js"></script> -->
 
-        <script>
+        <!-- <script>
             $('#btn').on('click', function() {
                 Swal.fire({
 
@@ -244,7 +244,7 @@ if (isset($_POST['bhapus'])) {
 
                 })
             })
-        </script>
+        </script> -->
     </div>
 </body>
 

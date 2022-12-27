@@ -159,7 +159,6 @@ while ($pecah = $ambil->fetch_assoc()) {
           </div>
         <?php endforeach ?>
       </div>
-
     </div>
   </section>
 
