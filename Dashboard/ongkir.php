@@ -12,16 +12,26 @@ if (isset($_POST['bsimpan'])) {
 
   // header('location: index.php?halaman=supplier');
   if ($result) {
-    echo "<script>
-    alert ('berhasil simpan data');
-    document.location = 'indexx.php?halaman=ongkir';
-    </script>";
-  } else {
-    echo "<script>
-    alert ('gagal simpan data');
-    document.location = 'indexx.php?halaman=ongkir';
-    </script>";
-  }
+    $success = "Data Ongkir Berhasil Disimpan";
+        $eror = "Data Ongkir Gagal Disimpan";
+        echo "<script>
+            Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=ongkir';
+        })
+              </script>";
+    } else {
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=ongkir';
+        })
+              </script>";
+    }
 }
 
 
@@ -32,32 +42,52 @@ if (isset($_POST['bUbah'])) {
          WHERE id_ongkir = '$_POST[id_ongkir]'
         ");
   if ($ubah) {
+    $success = "Sukses Ubah Data Ongkir";
+    $eror = "Gagal Ubah Data Ongkir";
     echo "<script>
-  alert ('berhasil ubah data');
-  document.location = 'indexx.php?halaman=ongkir';
-  </script>";
-  } else {
+        Swal.fire({
+        icon: 'success',
+        title: ' $success',
+                }).then((result) => {
+        window.location.href = 'indexx.php?halaman=ongkir';
+    })
+          </script>";
+} else {
     echo "<script>
-  alert ('gagal ubah data');
-  document.location = 'indexx.php?halaman=ongkir';
-  </script>";
-  }
+    Swal.fire({
+        icon: 'success',
+        title: ' $eror',
+                }).then((result) => {
+        window.location.href = 'indexx.php?halaman=ongkir';
+    })
+          </script>";
+}
 }
 
 if (isset($_POST['bhapus'])) {
   $queryHapus = mysqli_query($koneksi, "DELETE FROM ongkir WHERE id_ongkir = '$_POST[id_ongkir]'");
 
   if ($queryHapus) {
-    echo "<script>
-            alert ('berhasil hapus data');
-            document.location = 'indexx.php?halaman=ongkir';
-            </script>";
-  } else {
-    echo "<script>
-            alert ('gagal hapus data');
-            document.location = 'indexx.php?halaman=ongkir';
-            </script>";
-  }
+    $success = "Sukses Hapus Data Ongkir";
+        $eror = "Gagal Hapus Data Ongkir";
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=ongkir';
+        })
+              </script>";
+    } else {
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=ongkir';
+        })
+              </script>";
+    }
 }
 
 // session_start();

@@ -9,9 +9,99 @@ require '../connect.php';
 // $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
 // $query_select = mysqli_query($koneksi, $query);
 // $result = mysqli_fetch_array($query_select);
+if (isset($_POST['bsimpan'])) {
+    $nama = $_POST['nama'];
+    $no_telp = $_POST['no_telepon'];
+    $alamat = $_POST['alamat'];
+
+    $query = "INSERT INTO supplier (nama_supplier,no_telp,alamat) VALUES ('$nama','$no_telp','$alamat')";
+
+    $result = mysqli_query($koneksi, $query);
+
+    // header('location: index.php?halaman=supplier');
+    if ($result) {
+        $success = "Data Supplier Berhasil Disimpan";
+        $eror = "Data Supplier Gagal Disimpan";
+        echo "<script>
+            Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=supplier';
+        })
+              </script>";
+    } else {
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=supplier';
+        })
+              </script>";
+    }
+}
+
+
+if (isset($_POST['bUbah'])) {
+    $ubah = mysqli_query($koneksi, "UPDATE supplier SET
+        nama_supplier = '$_POST[nama]',
+        no_telp = '$_POST[no_telepon]',
+        alamat = '$_POST[alamat]' WHERE id_supplier = '$_POST[id_supplier]'
+        ");
+
+    if ($ubah) {
+        $success = "Sukses Ubah Data Supplier";
+        $eror = "Gagal Ubah Data Supplier";
+        echo "<script>
+            Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=supplier';
+        })
+              </script>";
+    } else {
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=supplier';
+        })
+              </script>";
+    }
+}
+
+if (isset($_POST['bhapus'])) {
+    $queryHapus = mysqli_query($koneksi, "DELETE FROM supplier WHERE id_supplier = '$_POST[id_supplier]'");
+
+    if ($queryHapus) {
+        $success = "Sukses Hapus Data Supplier";
+        $eror = "Gagal Hapus Data Supplier";
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=supplier';
+        })
+              </script>";
+    } else {
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=supplier';
+        })
+              </script>";
+    }
+}
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -186,79 +276,7 @@ require '../connect.php';
             })
         </script> -->
     </div>
-    <?php
-    if (isset($_POST['bsimpan'])) {
-        $nama = $_POST['nama'];
-        $no_telp = $_POST['no_telepon'];
-        $alamat = $_POST['alamat'];
 
-        $query = "INSERT INTO supplier (nama_supplier,no_telp,alamat) VALUES ('$nama','$no_telp','$alamat')";
-
-        $result = mysqli_query($koneksi, $query);
-
-        // header('location: index.php?halaman=supplier');
-        if ($result) {
-            $success = "Data Berhasil Disimpan";
-            echo "<script>
-                Swal.fire({
-                icon: 'success',
-                title: ' $success',
-                        }).then((result) => {
-                window.location.href = 'indexx.php?halaman=supplier';
-            })
-                  </script>";
-        } else {
-            echo "<script>
-            alert ('gagal simpan data');
-            document.location = 'indexx.php?halaman=supplier';
-            </script>";
-            // echo $error = "Data Gagal Diinputkan !";
-        }
-    }
-
-
-    if (isset($_POST['bUbah'])) {
-        $ubah = mysqli_query($koneksi, "UPDATE supplier SET
-        nama_supplier = '$_POST[nama]',
-        no_telp = '$_POST[no_telepon]',
-        alamat = '$_POST[alamat]' WHERE id_supplier = '$_POST[id_supplier]'
-        ");
-
-        if ($ubah) {
-            $success = "Data Berhasil Diubah";
-            echo "<script>
-                Swal.fire({
-                icon: 'success',
-                title: ' $success',
-                        }).then((result) => {
-                window.location.href = 'indexx.php?halaman=supplier';
-            })
-                  </script>";
-        } else {
-            echo "<script>
-            alert ('gagal ubah data');
-            document.location = 'indexx.php?halaman=supplier';
-            </script>";
-        }
-    }
-
-    if (isset($_POST['bhapus'])) {
-        $queryHapus = mysqli_query($koneksi, "DELETE FROM supplier WHERE id_supplier = '$_POST[id_supplier]'");
-
-        // if ($queryHapus) {
-        //     echo "<script>
-        //     alert ('berhasil hapus data');
-        //     document.location = 'indexx.php?halaman=supplier';
-        //     </script>";
-        // } else {
-        //     echo "<script>
-        //     alert ('gagal hapus data');
-        //     document.location = 'indexx.php?halaman=supplier';
-        //     </script>";
-        // }
-    }
-
-    ?>
 
 </body>
 

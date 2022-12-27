@@ -73,6 +73,7 @@ if (isset($_POST['bsimpan'])) {
 
     if ($query) {
         $success = "Data Produk Berhasil Disimpan";
+        $eror = "Data Produk Gagal Disimpan";
         echo "<script>
             Swal.fire({
             icon: 'success',
@@ -83,9 +84,13 @@ if (isset($_POST['bsimpan'])) {
               </script>";
     } else {
         echo "<script>
-        alert('simpan data gagal');
-        document.location= 'indexx.php?halaman=produk';
-        </script>";
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=produk';
+        })
+              </script>";
     }
 }
 
@@ -113,7 +118,8 @@ if (isset($_POST['bUbah'])) {
     copy($temp, "../images/images_buah/" . $image_files);
 
     if ($update_query) {
-        $success = "Data Berhasil Diubah";
+        $success = "Sukses Ubah Data Produk";
+        $eror = "Gagal Ubah Data Produk";
         echo "<script>
             Swal.fire({
             icon: 'success',
@@ -124,9 +130,13 @@ if (isset($_POST['bUbah'])) {
               </script>";
     } else {
         echo "<script>
-            alert('ubah data gagal');
-            document.location= 'indexx.php?halaman=produk';
-            </script>";
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=produk';
+        })
+              </script>";
     }
 }
 
@@ -139,20 +149,28 @@ if (isset($_POST['bhapus'])) {
     // header('location: member.php');
 
     if ($hapus) {
+        $success = "Sukses Hapus Data Produk";
+        $eror = "Gagal Hapus Data Produk";
         echo "<script>
-            alert('hapus data sukses');
-            document.location= 'indexx.php?halaman=produk';
-            </script>";
+        Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=produk';
+        })
+              </script>";
     } else {
         echo "<script>
-            alert('hapus data gagal');
-            document.location= 'indexx.php?halaman=produk';
-            </script>";
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=produk';
+        })
+              </script>";
     }
 }
 ?>
-
-
 
 <!-- Begin Page Content -->
 <div class="container-fluid mt-5">
@@ -233,7 +251,7 @@ if (isset($_POST['bhapus'])) {
             </div>
         </div>
     </div>
-    
+
     <div class="table-responsive">
         <table id="member" class="table table-striped table-bordered w-100 nowrap" width="100%">
             <thead>
@@ -254,7 +272,6 @@ if (isset($_POST['bhapus'])) {
                 $no = 1;
                 $produk = mysqli_query($koneksi, "SELECT * FROM barang  JOIN supplier ON barang.id_supplier = supplier.id_supplier ");
                 while ($row = mysqli_fetch_array($produk)) {
-
                     $id_barang = $row['id_barang'];
                     $kode_barang = $row['kode_barang'];
                     $nama_barang = $row['nama_barang'];
@@ -376,6 +393,11 @@ if (isset($_POST['bhapus'])) {
                     <!-- akhir modal ubah -->
                 <?php
                 }
+
+
+
+
+
                 ?>
             </tbody>
         </table>

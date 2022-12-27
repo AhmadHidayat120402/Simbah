@@ -32,6 +32,17 @@ while ($pecah = $ambil->fetch_assoc()) {
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
+  <style>
+    .tombol-tambah {
+      background-color: white;
+      border-color: var(--color-primary);
+    }
+
+    .tombol-tambah:hover {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+  </style>
   <title>Pencarian</title>
 </head>
 
@@ -145,9 +156,9 @@ while ($pecah = $ambil->fetch_assoc()) {
                 </p>
                 <hr>
                 <!-- <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button> -->
-                <a href="beli.php?id=<?php echo $value['id_barang']; ?>" class="btn btn-outline-dark rounded-pill">Add To Cart</a>
+                <a href="beli.php?id=<?php echo $value['id_barang']; ?>" class="btn btn-outline-dark tombol-tambah rounded-pill">Add To Cart</a>
                 <!-- <input type="submit" class="btn btn-outline-dark rounded-pill" value="add to cart" name="add_to_cart"> -->
-                <a href="detail_produk.php?id=<?php echo $value['id_barang']; ?>" class="btn btn-outline-dark rounded-pill">Detail</a>
+                <a href="detail_produk.php?id=<?php echo $value['id_barang']; ?>" class="btn btn-outline-dark tombol-tambah rounded-pill">Detail</a>
               </div>
               <div class="ratings position-absolute top-0 bg-white p-2">
                 <p class="d-flex align-items-center gap-2 m-0 ">
@@ -161,6 +172,14 @@ while ($pecah = $ambil->fetch_assoc()) {
       </div>
     </div>
   </section>
+
+  <footer class="footerCuy footer_home">
+    <div class="container">
+      <div class="text-center" style="margin-top:290px ;">
+        <h6 class="section-footer">Copyright &copy; 2022 SiMbah</h6>
+      </div>
+    </div>
+  </footer>
 
   <script src="vendor/boostrap/js/bootstrap.min.js"></script>
 </body>

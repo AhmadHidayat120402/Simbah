@@ -9,6 +9,7 @@ require '../connect.php';
 // $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
 // $query_select = mysqli_query($koneksi, $query);
 // $result = mysqli_fetch_array($query_select);
+
 if (isset($_POST['bsimpan'])) {
 
     $nama_lengkap = $_POST['nama'];
@@ -26,15 +27,25 @@ if (isset($_POST['bsimpan'])) {
     // header('location: index.php?halaman=pemilik');
 
     if ($result) {
+        $success = "Data Member Berhasil Disimpan";
+        $eror = "Data Member Gagal Disimpan";
         echo "<script>
-        alert('simpan data sukses');
-        document.location= 'indexx.php?halaman=member';
-        </script>";
+            Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=member';
+        })
+              </script>";
     } else {
         echo "<script>
-        alert('simpan data gagal');
-        document.location= 'indexx.php?halaman=member';
-        </script>";
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=member';
+        })
+              </script>";
     }
 }
 
@@ -52,42 +63,63 @@ if (isset($_POST['bUbah'])) {
     ");
     // header('location: member.php');
 
+
+    // header('location: member.php');
+
     if ($ubah) {
+        $success = "Sukses Ubah Data Member";
+        $eror = "Gagal Ubah Data Member";
         echo "<script>
-        alert('ubah data sukses');
-        document.location= 'indexx.php?halaman=member';
-        </script>";
+            Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=member';
+        })
+              </script>";
     } else {
         echo "<script>
-        alert('ubah data gagal');
-        document.location= 'indexx.php?halaman=member';
-        </script>";
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=member';
+        })
+              </script>";
     }
 }
 
 if (isset($_POST['bhapus'])) {
 
     $hapus = mysqli_query($koneksi, "DELETE FROM users
-        WHERE id_pembeli = '$_POST[id_pembeli]'
-    ");
+                WHERE id_pembeli = '$_POST[id_pembeli]'
+            ");
 
     // header('location: member.php');
 
     if ($hapus) {
+        $success = "Sukses Hapus Data Member";
+        $eror = "Gagal Hapus Data Member";
         echo "<script>
-        alert('hapus data sukses');
-        document.location= 'indexx.php?halaman=member';
-        </script>";
+        Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=member';
+        })
+              </script>";
     } else {
         echo "<script>
-        alert('hapus data gagal');
-        document.location= 'indexx.php?halaman=member';
-        </script>";
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=member';
+        })
+              </script>";
     }
 }
-
 ?>
-
 <!-- Begin Page Content -->
 <div class="container-fluid mt-5">
 

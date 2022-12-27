@@ -5,6 +5,7 @@ require '../connect.php';
 // if (empty($_SESSION['id_pembeli'])) {
 //     echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
 // }
+
 // $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
 // $query_select = mysqli_query($koneksi, $query);
 // $result = mysqli_fetch_array($query_select);
@@ -23,18 +24,28 @@ if (isset($_POST['bsimpan'])) {
     $query = "INSERT INTO users (nama_lengkap,username,email,no_telp,password,jk,alamat,id_status) VALUES ('$nama_lengkap','$username','$email','$no_telp','$passVall','$jk','$alamat','3')";
 
     $result = mysqli_query($koneksi, $query);
-    // header('location: index.php?halaman=karyawan');
+    // header('location: index.php?halaman=pemilik');
 
     if ($result) {
+        $success = "Data Pelanggan Berhasil Disimpan";
+        $eror = "Data Pelanggan Gagal Disimpan";
         echo "<script>
-        alert('simpan data sukses');
-        document.location= 'indexx.php?halaman=pelanggan';
-        </script>";
+            Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=pelanggan';
+        })
+              </script>";
     } else {
         echo "<script>
-        alert('simpan data gagal');
-        document.location= 'indexx.php?halaman=pelanggan';
-        </script>";
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=pelanggan';
+        })
+              </script>";
     }
 }
 
@@ -52,40 +63,62 @@ if (isset($_POST['bUbah'])) {
     ");
     // header('location: member.php');
 
+
+    // header('location: member.php');
+
     if ($ubah) {
+        $success = "Sukses Ubah Data Pelanggan";
+        $eror = "Gagal Ubah Data Pelanggan";
         echo "<script>
-        alert('ubah data sukses');
-        document.location= 'indexx.php?halaman=pelanggan';
-        </script>";
+            Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=pelanggan';
+        })
+              </script>";
     } else {
         echo "<script>
-        alert('ubah data gagal');
-        document.location= 'indexx.php?halaman=pelanggan';
-        </script>";
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=pelanggan';
+        })
+              </script>";
     }
 }
 
 if (isset($_POST['bhapus'])) {
 
     $hapus = mysqli_query($koneksi, "DELETE FROM users
-        WHERE id_pembeli = '$_POST[id_pembeli]'
-    ");
+                WHERE id_pembeli = '$_POST[id_pembeli]'
+            ");
 
     // header('location: member.php');
 
     if ($hapus) {
+        $success = "Sukses Hapus Data Pelanggan";
+        $eror = "Gagal Hapus Data Pelanggan";
         echo "<script>
-        alert('hapus data sukses');
-        document.location= 'indexx.php?halaman=pelanggan';
-        </script>";
+        Swal.fire({
+            icon: 'success',
+            title: ' $success',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=pelanggan';
+        })
+              </script>";
     } else {
         echo "<script>
-        alert('hapus data gagal');
-        document.location= 'indexx.php?halaman=pelanggan';
-        </script>";
+        Swal.fire({
+            icon: 'success',
+            title: ' $eror',
+                    }).then((result) => {
+            window.location.href = 'indexx.php?halaman=pelanggan';
+        })
+              </script>";
     }
 }
-
 ?>
 
 <!-- Begin Page Content -->

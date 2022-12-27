@@ -46,22 +46,26 @@ if (empty($_SESSION['id_pembeli'])) {
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <!-- librari font awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="vendor/boostrap/js/jquery-3.6.1.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script>
     $(document).ready(function() {
       $(window).scroll(function() {
         if ($(window).scrollTop() > 300) {
-          $('i').css({
+          $('strong').css({
             "opacity": "1",
             "pointer-events": "auto"
           });
         } else {
-          $('i').css({
+          $('strong').css({
             "opacity": "0",
             "pointer-events": "none"
           });
         }
       });
-      $('i').click(function() {
+      $('strong').click(function() {
         $('html').animate({
           scrollTop: 0
         }, 500);
@@ -69,11 +73,28 @@ if (empty($_SESSION['id_pembeli'])) {
     });
   </script>
   <title>Simbah</title>
+  <style>
+    strong {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: none;
+      font-size: 25px;
+      background-color: #d8db64;
+      color: white;
+      padding: 7px 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+  </style>
 </head>
 
 <body>
   <div>
-    <i class="fa fa-chevron-up"></i>
+    <strong class="fa fa-chevron-up"></strong>
   </div>
   <header>
     <div class="container">
@@ -123,8 +144,8 @@ if (empty($_SESSION['id_pembeli'])) {
               </li>
             </ul>
             <form action="pencarian.php" method="GET" class="d-flex align-item-center gap-2 bg-light rounded p-2">
-              <input type="search" name="keyword" id="search" class=" form-control bg-transparent border-0 " placeholder="cari buah" autofocus autocomplete="off">
-              <button class="btn btn-primary">Cari</button>
+              <input type="search" name="keyword" id="search" class=" form-control bg-transparent border-0 " placeholder="cari buah" autofocus autocomplete="off" style="background-color: white !important;">
+              <button class="btn btn-primary text-white">Cari</button>
             </form>
 
             <?php
@@ -297,7 +318,7 @@ if (empty($_SESSION['id_pembeli'])) {
   </div>
   </section>
 
-  <section class="popular-destionation">
+  <section class="popular-destionation " data-aos="fade-up" data-aos-duration="2000">
     <div class="container">
       <div class="justify-content-center align-items-center py-3 ">
         <h3 class="section-titlee w-50 fw-bold p-3">Aneka Buah</h3>
@@ -322,9 +343,9 @@ if (empty($_SESSION['id_pembeli'])) {
                 </p>
                 <hr>
                 <!-- <button type="button" class="btn btn-outline-dark rounded-pill">Add To Cart</button> -->
-                <a href="beli.php?id=<?php echo $hasil['id_barang'] ?>" class="btn btn-outline-dark rounded-pill" id="add">Add To Cart</a>
+                <a href="beli.php?id=<?php echo $hasil['id_barang'] ?>" class="btn btn-outline-dark tombol-tambah rounded-pill" id="add">Add To Cart</a>
                 <!-- <input type="submit" class="btn btn-outline-dark rounded-pill" value="add to cart" name="add_to_cart"> -->
-                <a href="detail_produk.php?id=<?php echo $hasil['id_barang']; ?>" class="btn btn-outline-dark rounded-pill">Detail</a>
+                <a href="detail_produk.php?id=<?php echo $hasil['id_barang']; ?>" class="btn btn-outline-dark tombol-tambah rounded-pill">Detail</a>
               </div>
               <div class="ratings position-absolute top-0 bg-white p-2">
                 <p class="d-flex align-items-center gap-2 m-0 ">
@@ -340,7 +361,7 @@ if (empty($_SESSION['id_pembeli'])) {
       </div>
   </section>
 
-  <footer class="py-5 footerCuy footer_home">
+  <footer class="py-5 footerCuy footer_home" data-aos="fade-up" data-aos-duration="2000">
     <div class="container">
       <div class="row mx-auto">
         <div class="col md-3">
@@ -383,6 +404,10 @@ if (empty($_SESSION['id_pembeli'])) {
   </footer>
 
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
