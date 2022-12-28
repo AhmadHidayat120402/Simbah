@@ -15,9 +15,9 @@ $ambil_query_barang = mysqli_fetch_array($query_barang);
 // print_r($ambil_query_barang);
 // echo "</pre>";
 
-if (empty($_SESSION['id_pembeli'])) {
-  echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='login.php'</script>";
-}
+// if (empty($_SESSION['id_pembeli'])) {
+//   echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='login.php'</script>";
+// }
 
 if (empty($_GET['id'])) {
   echo "<script>alert('belum ada buah dikeranjang pembelian');</script>";
@@ -75,21 +75,7 @@ $result = mysqli_fetch_array($query_select);
               </div>
             </div>
           </form>
-          <?php
-          // jika ada tombol beli atau tombol beli diklik
-          if (isset($_POST['beli'])) {
-            // mendapatkan jumlah yang diinputkkan
-            $jumlah = $_POST['jumlah'];
 
-            // masukkan dikeranjang belanja
-            $_SESSION['keranjang'][$id_produk] = $jumlah;
-
-            echo "<script>alert('produk telah masuk ke keranjang belanja');</script>";
-            echo "<script>location='cart.php';</script>";
-          }
-
-
-          ?>
 
 
 
@@ -103,6 +89,34 @@ $result = mysqli_fetch_array($query_select);
   <?php include 'footer.php' ?>
 
   <script src="vendor/boostrap/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+  <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+  <?php
+  // jika ada tombol beli atau tombol beli diklik
+  if (isset($_POST['beli'])) {
+    // mendapatkan jumlah yang diinputkkan
+    $jumlah = $_POST['jumlah'];
+
+    // masukkan dikeranjang belanja
+    $_SESSION['keranjang'][$id_produk] = $jumlah;
+
+    echo "<script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Berhasil',
+      text : 'produk telah masuk ke keranjang',
+              }).then((result) => {
+      window.location.href = 'cart.php';
+  })
+    </script>";
+    // echo "<script>alert('produk telah masuk ke keranjang belanja');</script>";
+    // echo "<script>location='cart.php';</script>";
+  }
+
+
+  ?>
 </body>
 
 </html>

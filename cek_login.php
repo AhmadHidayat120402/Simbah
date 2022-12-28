@@ -18,7 +18,7 @@ if ($user_valid) {
       'id_status' => $id_status,
       'icon' => 'success',
       'title' => 'Login Berhasil!',
-      'text' => 'You will be redirected in 3 seconds.'
+      'text' => 'silahkan tunggu 3 detik.'
     );
     header("Content-Type: application/json");
     echo json_encode($setJSON);
@@ -32,7 +32,6 @@ if ($user_valid) {
     header("Content-Type: application/json");
     echo json_encode($setJSON);
   }
-  
 } else {
   $setJSON = [
     'status' => false,

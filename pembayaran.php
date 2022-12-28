@@ -138,7 +138,9 @@ if ($id_pelanggan_login !== $id_pelanggan_beli) {
         <button type="submit" class="btn btn-primary" name="kirim">Kirim</button>
       </form>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+    <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <?php
     // jika ada tombol kirim
 
@@ -160,8 +162,17 @@ if ($id_pelanggan_login !== $id_pelanggan_beli) {
       // update data pembelian dari pending sudah kirim pembayarn
       $update_data = mysqli_query($koneksi, "UPDATE pembelian SET status_pembayaran = 'sudah kirim pembayaran' WHERE id_pembelian = '$idpem'");
 
-      echo "<script> alert ('terima kasih telah mengirimkan bukti pembayaran');</script>";
-      echo "<script>location='riwayat.php';</script>";
+      echo "<script>
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text : 'terima kasih telah mengirimkan bukti pembayaran',
+                }).then((result) => {
+        window.location.href = 'riwayat.php';
+    })
+      </script>";
+      // echo "<script> alert ('terima kasih telah mengirimkan bukti pembayaran');</script>";
+      // echo "<script>location='riwayat.php';</script>";
     }
 
 
@@ -190,6 +201,7 @@ if ($id_pelanggan_login !== $id_pelanggan_beli) {
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
 
 </body>
 

@@ -17,10 +17,10 @@ $result = mysqli_fetch_array($query_select);
 // print_r($_SESSION['keranjang']);
 // echo "</pre>";
 
-if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
-  echo "<script>alert('keranjang kosong, silahkan belanja terlebih dahulu !' )</script>";
-  echo "<script>location = 'home.php';</script>";
-}
+// if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
+//   echo "<script>alert('keranjang kosong, silahkan belanja terlebih dahulu !' )</script>";
+//   echo "<script>location = 'home.php';</script>";
+// }
 ?>
 
 
@@ -179,6 +179,9 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
 
         <button class="btn btn-primary mt-4" name="checkout">Checkout</button>
       </form>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+      <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
       <?php
 
       if (isset($_POST['checkout'])) {
@@ -227,8 +230,17 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
           // mengkosongkan keranjang belanja
           unset($_SESSION['keranjang']);
           // tampilan dialihkan kehalaman nota, dari pembelian barusan
-          echo "<script>alert('pembelian sukses');</script>";
-          echo "<script>location = 'nota.php?id=$id_pembelian_barusan';</script>";
+          echo "<script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text : 'pembelian sukses',
+                    }).then((result) => {
+            window.location.href = 'nota.php?id=$id_pembelian_barusan';
+        })
+          </script>";
+          // echo "<script>alert('pembelian sukses');</script>";
+          // echo "<script>location = 'nota.php?id=$id_pembelian_barusan';</script>";
         } elseif ($result['id_status'] == '3') {
 
           $id_pelanggan = $_SESSION['identitas']['id_pembeli'];
@@ -273,8 +285,17 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
 
 
           // tampilan dialihkan kehalaman nota, dari pembelian barusan
-          echo "<script>alert('pembelian sukses');</script>";
-          echo "<script>location = 'nota.php?id=$id_pembelian_barusan';</script>";
+          echo "<script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text : 'pembelian sukses',
+                    }).then((result) => {
+            window.location.href = 'nota.php?id=$id_pembelian_barusan';
+        })
+          </script>";
+          // echo "<script>alert('pembelian sukses');</script>";
+          // echo "<script>location = 'nota.php?id=$id_pembelian_barusan';</script>";
         }
       }
 

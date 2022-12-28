@@ -19,14 +19,6 @@ $result = mysqli_fetch_array($query_select);
 
 
 
-if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
-  echo "<script>alert('keranjang kosong, silahkan belanja terlebih dahulu !' )</script>";
-  echo "<script>location = 'home.php';</script>";
-}
-
-
-
-
 ?>
 
 
@@ -40,6 +32,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <link rel="stylesheet" href="styles/style.css">
+
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
@@ -47,6 +40,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
   <title>Simbah</title>
 </head>
+
 
 <body>
 
@@ -69,30 +63,34 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
         </thead>
         <tbody>
           <?php $no = 1; ?>
-          <?php foreach ($_SESSION['keranjang'] as $id_produk => $jumlah) {
-            // menampilkan produk yang sedang diperulangkan berdasarkan id_produk
-            $ambil = mysqli_query($koneksi, "SELECT * FROM barang WHERE id_barang = '$id_produk'");
-            $pecah = mysqli_fetch_array($ambil);
-            $total = $pecah['harga_jual'] * $jumlah;
-            // echo "<pre>";  
-            // echo print_r($pecah);
-            // echo "</pre>";
-          ?>
-            <tr>
-              <td><?php echo $no; ?></td>
-              <td><?php echo $pecah['nama_barang']; ?></td>
-              <td> Rp <?php echo number_format($pecah['harga_jual']); ?></td>
-              <td><?php echo $jumlah; ?></td>
-              <td>Rp <?php echo number_format($total); ?></td>
-              <td>
-                <a href="hapuscart.php?id=<?php echo $id_produk ?>" class="btn btn-danger btn-sm">Hapus</a>
+          <?php if (isset($_SESSION['keranjang'])) { ?>
 
-                <!-- // if (isset($_GET['id'])) {
+            <?php foreach ($_SESSION['keranjang'] as $id_produk => $jumlah) {
+              // menampilkan produk yang sedang diperulangkan berdasarkan id_produk
+              $ambil = mysqli_query($koneksi, "SELECT * FROM barang WHERE id_barang = '$id_produk'");
+              $pecah = mysqli_fetch_array($ambil);
+              $total = $pecah['harga_jual'] * $jumlah;
+              // echo "<pre>";  
+              // echo print_r($pecah);
+              // echo "</pre>";
+            ?>
+
+              <tr>
+                <td><?php echo $no; ?></td>
+                <td><?php echo $pecah['nama_barang']; ?></td>
+                <td> Rp <?php echo number_format($pecah['harga_jual']); ?></td>
+                <td><?php echo $jumlah; ?></td>
+                <td>Rp <?php echo number_format($total); ?></td>
+                <td>
+                  <a href="hapuscart.php?id=<?php echo $id_produk ?>" class="btn btn-danger btn-sm">Hapus</a>
+
+                  <!-- // if (isset($_GET['id'])) {
                 //   $insert = mysqli_query($koneksi, "INSERT INTO cart (nama,harga,jumlah,total_harga) VALUES ('$pecah[nama_barang]','$pecah[harga_jual]','$jumlah','$total')");
                 // } -->
-              </td>
-            </tr>
-            <?php $no++; ?>
+                </td>
+              </tr>
+              <?php $no++; ?>
+            <?php } ?>
           <?php } ?>
         </tbody>
       </table>
@@ -193,6 +191,39 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+  <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <?php
+  if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
+    //   $eror = "keranjang kosong, silahkan belanja terlebih dahulu !";
+    //   echo "<script>
+    //   Swal.fire({
+    //   icon: 'error',
+    //   title: ' $eror',
+    //           }).then((result) => {
+    //   window.location.href = 'home.php';
+    // })
+    //     </script>";
+
+    echo "<script>
+    Swal.fire({
+      icon: 'success',
+      title: 'keranjang kosong, silahkan belanja terlebih dahulu ! ',
+              }).then((result) => {
+      window.location.href = 'home.php';
+  })
+    </script>";
+
+    // echo "<script>location = 'home.php';</script>";
+    // $success = "Data Ongkir Berhasil Disimpan";
+
+    // echo "<script>
+
+    //             </script>";
+  }
+  ?>
 </body>
 
 </html>
