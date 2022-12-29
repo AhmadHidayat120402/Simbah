@@ -8,7 +8,7 @@ include 'connect.php';
 // $query_cari = mysqli_query($koneksi, $query);
 
 if (empty($_SESSION['id_pembeli'])) {
-  echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='login.php'</script>";
+  echo "<script>document.location='login.php'</script>";
 }
 
 // function query($query)

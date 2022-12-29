@@ -2,82 +2,82 @@
 
 require '../connect.php';
 // session_start();
-// if (empty($_SESSION['id_pembeli'])) {
-//     echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='../login.php'</script>";
-// }
+if (empty($_SESSION['id_pembeli'])) {
+    echo "<script>document.location='../login.php'</script>";
+}
 
 // $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
 // $query_select = mysqli_query($koneksi, $query);
 // $result = mysqli_fetch_array($query_select);
 
-if (isset($_POST['bsimpan'])) {
+// if (isset($_POST['bsimpan'])) {
 
-    $nama = $_POST['nama'];
-    $tanggal_pembelian = $_POST['tanggal_pembelian'];
-    $total = $_POST['total_pembelian'];
+//     $nama = $_POST['nama'];
+//     $tanggal_pembelian = $_POST['tanggal_pembelian'];
+//     $total = $_POST['total_pembelian'];
 
 
-    $query = "INSERT INTO pembelian join users (nama_lengkap,tanggal_pembelian,total_pembelian) VALUES ('$nama','$tanggal_pembelian','$total')";
+//     $query = "INSERT INTO pembelian join users (nama_lengkap,tanggal_pembelian,total_pembelian) VALUES ('$nama','$tanggal_pembelian','$total')";
 
-    $result = mysqli_query($koneksi, $query);
-    // header('location: index.php?halaman=pembelian');
+//     $result = mysqli_query($koneksi, $query);
+//     // header('location: index.php?halaman=pembelian');
 
-    if ($result) {
-        echo "<script>
-        alert('simpan data sukses');
-        document.location= 'indexx.php?halaman=pembelian';
-        </script>";
-    } else {
-        echo "<script>
-        alert('simpan data gagal');
-        document.location= 'indexx.php?halaman=pembelian';
-        </script>";
-    }
-}
+//     if ($result) {
+//         echo "<script>
+//         alert('simpan data sukses');
+//         document.location= 'indexx.php?halaman=pembelian';
+//         </script>";
+//     } else {
+//         echo "<script>
+//         alert('simpan data gagal');
+//         document.location= 'indexx.php?halaman=pembelian';
+//         </script>";
+//     }
+// }
 
-if (isset($_POST['bUbah'])) {
+// if (isset($_POST['bUbah'])) {
 
-    $ubah = mysqli_query($koneksi, "UPDATE users join pembelian SET 
-        nama_lengkap = '$_POST[nama]'
-        tanggal_pembelian = '$_POST[tanggal_pembelian]'
-        total_pembelian = '$_POST[total_pembelian]'
-        WHERE id_pembeli = '$_POST[id_pembeli]' && id_pembelian = '$_POST[id_pembelian]'
-    ");
-    // header('location: member.php');
+//     $ubah = mysqli_query($koneksi, "UPDATE users join pembelian SET 
+//         nama_lengkap = '$_POST[nama]'
+//         tanggal_pembelian = '$_POST[tanggal_pembelian]'
+//         total_pembelian = '$_POST[total_pembelian]'
+//         WHERE id_pembeli = '$_POST[id_pembeli]' && id_pembelian = '$_POST[id_pembelian]'
+//     ");
+//     // header('location: member.php');
 
-    if ($ubah) {
-        echo "<script>
-        alert('ubah data sukses');
-        document.location= 'indexx.php?halaman=pembelian';
-        </script>";
-    } else {
-        echo "<script>
-        alert('ubah data gagal');
-        document.location= 'indexx.php?halaman=pembelian';
-        </script>";
-    }
-}
+//     if ($ubah) {
+//         echo "<script>
+//         alert('ubah data sukses');
+//         document.location= 'indexx.php?halaman=pembelian';
+//         </script>";
+//     } else {
+//         echo "<script>
+//         alert('ubah data gagal');
+//         document.location= 'indexx.php?halaman=pembelian';
+//         </script>";
+//     }
+// }
 
-if (isset($_POST['bhapus'])) {
+// if (isset($_POST['bhapus'])) {
 
-    $hapus = mysqli_query($koneksi, "DELETE FROM users
-        WHERE id_pembeli = '$_POST[id_pembeli]' 
-    ");
+//     $hapus = mysqli_query($koneksi, "DELETE FROM users
+//         WHERE id_pembeli = '$_POST[id_pembeli]' 
+//     ");
 
-    // header('location: member.php');
+//     // header('location: member.php');
 
-    if ($hapus) {
-        echo "<script>
-        alert('hapus data sukses');
-        document.location= 'indexx.php?halaman=pembelian';
-        </script>";
-    } else {
-        echo "<script>
-        alert('hapus data gagal');
-        document.location= 'indexx.php?halaman=pembelian';
-        </script>";
-    }
-}
+//     if ($hapus) {
+//         echo "<script>
+//         alert('hapus data sukses');
+//         document.location= 'indexx.php?halaman=pembelian';
+//         </script>";
+//     } else {
+//         echo "<script>
+//         alert('hapus data gagal');
+//         document.location= 'indexx.php?halaman=pembelian';
+//         </script>";
+//     }
+// }
 
 
 

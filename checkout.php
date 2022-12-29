@@ -6,7 +6,7 @@ include 'connect.php';
 // session_start();
 
 if (empty($_SESSION['id_pembeli'])) {
-  echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='login.php'</script>";
+  echo "<script>document.location='login.php'</script>";
 }
 $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
 $query_select = mysqli_query($koneksi, $query);

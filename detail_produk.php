@@ -15,9 +15,9 @@ $ambil_query_barang = mysqli_fetch_array($query_barang);
 // print_r($ambil_query_barang);
 // echo "</pre>";
 
-// if (empty($_SESSION['id_pembeli'])) {
-//   echo "<script>alert('Maaf, untuk mengakses halaman ini, anda harus login terlebih dahulu !'); document.location='login.php'</script>";
-// }
+if (empty($_SESSION['id_pembeli'])) {
+  echo "<script>document.location='login.php'</script>";
+}
 
 if (empty($_GET['id'])) {
   echo "<script>alert('belum ada buah dikeranjang pembelian');</script>";

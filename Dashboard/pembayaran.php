@@ -65,9 +65,6 @@ $detail = $ambil->fetch_assoc();
             <option value="pending">pending</option>
             <option value="lunas">lunas</option>
             <option value="barang dikirim">barang dikirim</option>
-            <option value="dibatalkan">dibatalkan</option>
-            <option value="sudah mengirim pembayaran">sudah mengirim pembayaran</option>
-            <option value="belum dibayar">belum dibayar</option>
             <option value="barang sudah sampai">barang sudah sampai</option>
           </select>
         </div>
@@ -88,8 +85,18 @@ $detail = $ambil->fetch_assoc();
     $status = $_POST['status'];
     $koneksi->query("UPDATE pembelian SET resi_pengiriman = '$resi', status_pembayaran = '$status' WHERE id_pembelian = '$id_pembelian'");
 
-    echo "<script>alert('data pembelian terupdate');</script>";
-    echo "<script>location='indexx.php?halaman=pembelian';</script>";
+    echo "<script>
+       Swal.fire({
+       icon: 'success',
+       title: 'Berhasil',
+       text : 'data pembelian update',
+               }).then((result) => {
+       window.location.href = 'indexx.php?halaman=pembelian';
+})
+        </script>";
+
+    // echo "<script>alert('data pembelian terupdate');</script>";
+    // echo "<script>location='indexx.php?halaman=pembelian';</script>";
   }
 
 
