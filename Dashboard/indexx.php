@@ -24,6 +24,7 @@ $result = mysqli_fetch_array($query_select);
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <link rel="shortcut icon" href="../Dashboard/img/fruit.png">
 
   <title>SiMbah</title>
 

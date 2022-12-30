@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <link rel="stylesheet" href="styles/login.css">
+  <link rel="shortcut icon" href="Dashboard/img/fruit.png">
   <title>Simbah</title>
 </head>
 

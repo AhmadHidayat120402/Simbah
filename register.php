@@ -28,6 +28,7 @@ if (isset($_POST['register'])) {
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <link rel="stylesheet" href="styles/register.css">
+  <link rel="shortcut icon" href="Dashboard/img/fruit.png">
   <title>Simbah</title>
 </head>
 
@@ -83,6 +84,9 @@ if (isset($_POST['register'])) {
 
           <div class="d-grid gap-2 mb-3">
             <button type="submit" class="btn btn-primary" name="register" id="register">Submit</button>
+          </div>
+          <div class="d-grid gap-2 mt-3 mb-5">
+            <span style="color: #fff;">Sudah punya akun? <a href="login.php" class="text-center  text-decoration-none" style="color:#d8db64; font: bold;">Login</a></span>
           </div>
         </form>
       </div>

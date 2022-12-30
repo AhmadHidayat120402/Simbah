@@ -49,6 +49,7 @@ if ($id_pelanggan_login !== $id_pelanggan_beli) {
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
+  <link rel="shortcut icon" href="Dashboard/img/fruit.png">
 
   <!-- cdn -->
 

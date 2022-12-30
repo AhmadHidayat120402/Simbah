@@ -1,4 +1,5 @@
 <?php
+
 require 'connect.php';
 include 'session.php';
 // if (empty($_SESSION['id_pembeli'])) {
@@ -19,41 +20,7 @@ if (isset($_POST['simpan'])) {
     header('location : login.php');
   }
 }
-
-$query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
-$query_select = mysqli_query($koneksi, $query);
-$result = mysqli_fetch_array($query_select);
-
-if (isset($_POST['ubah'])) {
-
-  $ubah = mysqli_query($koneksi, "UPDATE users SET 
-      nama_lengkap = '$_POST[nama]',
-      username = '$_POST[username]',
-      email = '$_POST[email]',
-      no_telp = '$_POST[no_telepon]',
-      password = '$_POST[password]',
-      jk = '$_POST[jenis_kelamin]',
-      alamat = '$_POST[alamat]'
-      WHERE id_pembeli = '$_SESSION[id_pembeli]'
-  ");
-  // header('location: member.php');
-
-  if ($ubah) {
-    echo "<script>
-      alert('ubah data sukses');
-      document.location= 'profile.php';
-      </script>";
-  } else {
-    echo "<script>
-      alert('ubah data gagal');
-      document.location= 'profile.php';
-      </script>";
-  }
-}
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,8 +30,12 @@ if (isset($_POST['ubah'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
+  <link rel="shortcut icon" href="Dashboard/img/fruit.png">
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/profile.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+  <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
   <title>Profile</title>
 </head>
@@ -214,3 +185,50 @@ if (isset($_POST['ubah'])) {
 </body>
 
 </html>
+
+<?php
+require 'connect.php';
+include 'session.php';
+
+$query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
+$query_select = mysqli_query($koneksi, $query);
+$result = mysqli_fetch_array($query_select);
+
+if (isset($_POST['ubah'])) {
+
+  $ubah = mysqli_query($koneksi, "UPDATE users SET 
+      nama_lengkap = '$_POST[nama]',
+      username = '$_POST[username]',
+      email = '$_POST[email]',
+      no_telp = '$_POST[no_telepon]',
+      password = '$_POST[password]',
+      jk = '$_POST[jenis_kelamin]',
+      alamat = '$_POST[alamat]'
+      WHERE id_pembeli = '$_SESSION[id_pembeli]'
+  ");
+  // header('location: member.php');
+
+  if ($ubah) {
+    echo "<script>
+  Swal.fire({
+    icon: 'success',
+    title: 'Berhasil ',
+    text : 'Ubah Data',
+            }).then((result) => {
+    window.location.href = 'profile.php';
+})
+  </script>";
+  } else {
+    echo "<script>
+  Swal.fire({
+    icon: 'error',
+    title: 'Gagal',
+    text : 'Ubah Data',
+            }).then((result) => {
+    window.location.href = 'profile.php';
+})
+  </script>";
+  }
+}
+
+?>

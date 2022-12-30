@@ -49,6 +49,7 @@ for ($bulan = 1; $bulan < 13; $bulan++) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="../Dashboard/img/fruit.png">
 
 
     <title>SiMbah</title>

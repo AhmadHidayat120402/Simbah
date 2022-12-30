@@ -35,6 +35,7 @@ $result = mysqli_fetch_array($query_select);
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <link rel="stylesheet" href="styles/style.css">
   <script src="vendor/boostrap/js/jquery-3.6.1.min.js"></script>
+  <link rel="shortcut icon" href="Dashboard/img/fruit.png">
   <title>Simbah</title>
 </head>
 
