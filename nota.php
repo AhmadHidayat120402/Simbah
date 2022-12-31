@@ -34,6 +34,9 @@ $result = mysqli_fetch_array($query_select);
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <link rel="shortcut icon" href="Dashboard/img/fruit.png">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+  <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   <title>Nota Pembelian</title>
 
 </head>
@@ -118,8 +121,17 @@ $result = mysqli_fetch_array($query_select);
       $idpelangganyanglogin = $_SESSION['identitas']['id_pembeli'];
 
       if ($idpelangganyangbeli !== $idpelangganyanglogin) {
-        echo "<script> alert ('Anda tidak berhak mengakses halaman ini');</script>";
-        echo "<script>location='riwayat.php';</script>";
+        echo "<script>
+        Swal.fire({
+          icon: 'error',
+          title: 'Gagal',
+          text : 'Anda tidak berhak mengakses halaman ini',
+                  }).then((result) => {
+          window.location.href = 'riwayat.php';
+      })
+        </script>";
+        // echo "<script> alert ('Anda tidak berhak mengakses halaman ini');</script>";
+        // echo "<script>location='riwayat.php';</script>";
       }
 
 

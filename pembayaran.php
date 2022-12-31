@@ -21,20 +21,20 @@ $result = mysqli_fetch_array($query_select);
 // }
 
 // mendapatkan id_pembelian dari url
-$idpem = $_GET['id'];
-$tampil_datanya = mysqli_query($koneksi, "SELECT * FROM pembelian WHERE id_pembelian = '$idpem'");
-$ambil_datanya = mysqli_fetch_array($tampil_datanya);
+// $idpem = $_GET['id'];
+// $tampil_datanya = mysqli_query($koneksi, "SELECT * FROM pembelian WHERE id_pembelian = '$idpem'");
+// $ambil_datanya = mysqli_fetch_array($tampil_datanya);
 
-// mendapatkan id pelanggan yang beli
-$id_pelanggan_beli = $ambil_datanya['id_pembeli'];
+// // mendapatkan id pelanggan yang beli
+// $id_pelanggan_beli = $ambil_datanya['id_pembeli'];
 
-// mendapatkan id pelanggan yang login
-$id_pelanggan_login = $_SESSION['identitas']['id_pembeli'];
+// // mendapatkan id pelanggan yang login
+// $id_pelanggan_login = $_SESSION['identitas']['id_pembeli'];
 
-if ($id_pelanggan_login !== $id_pelanggan_beli) {
-  echo "<script> alert ('Anda tidak berhak mengakses halaman ini');</script>";
-  echo "<script>location='riwayat.php';</script>";
-}
+// if ($id_pelanggan_login !== $id_pelanggan_beli) {
+//   echo "<script> alert ('Anda tidak berhak mengakses halaman ini');</script>";
+//   echo "<script>location='riwayat.php';</script>";
+// }
 
 
 ?>
@@ -50,6 +50,10 @@ if ($id_pelanggan_login !== $id_pelanggan_beli) {
   <link rel="stylesheet" href="vendor/boostrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/icons/css/boxicons.min.css">
   <link rel="shortcut icon" href="Dashboard/img/fruit.png">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+  <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
 
   <!-- cdn -->
 
@@ -64,7 +68,35 @@ if ($id_pelanggan_login !== $id_pelanggan_beli) {
 </head>
 
 <body>
+  <?php
 
+  // mendapatkan id_pembelian dari url
+  $idpem = $_GET['id'];
+  $tampil_datanya = mysqli_query($koneksi, "SELECT * FROM pembelian WHERE id_pembelian = '$idpem'");
+  $ambil_datanya = mysqli_fetch_array($tampil_datanya);
+
+  // mendapatkan id pelanggan yang beli
+  $id_pelanggan_beli = $ambil_datanya['id_pembeli'];
+
+  // mendapatkan id pelanggan yang login
+  $id_pelanggan_login = $_SESSION['identitas']['id_pembeli'];
+
+  if ($id_pelanggan_login !== $id_pelanggan_beli) {
+    echo "<script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Gagal',
+      text : 'Anda tidak berhak mengakses halaman ini',
+              }).then((result) => {
+      window.location.href = 'riwayat.php';
+  })
+    </script>";
+    // echo "<script> alert ('Anda tidak berhak mengakses halaman ini');</script>";
+    // echo "<script>location='riwayat.php';</script>";
+  }
+
+
+  ?>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
     <div class="container-fluid mt-auto">
       <a class="navbar-brand" href="#">

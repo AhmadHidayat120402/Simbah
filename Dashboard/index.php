@@ -225,6 +225,11 @@ for ($bulan = 1; $bulan < 13; $bulan++) {
                     <span>Laporan</span></a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="https://app.crisp.chat/website/25b95d10-c846-4b43-85be-fd43c32df4a1/inbox/" target="_blank">
+                    <i class='bx bxs-message'></i>
+                    <span>Pesan</span></a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="../logout.php">
                     <i class='bx bx-log-out '></i>
                     <span>Logout</span></a>

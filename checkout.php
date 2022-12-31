@@ -37,6 +37,17 @@ $result = mysqli_fetch_array($query_select);
   <script src="vendor/boostrap/js/jquery-3.6.1.min.js"></script>
   <link rel="shortcut icon" href="Dashboard/img/fruit.png">
   <title>Simbah</title>
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "25b95d10-c846-4b43-85be-fd43c32df4a1";
+    (function() {
+      d = document;
+      s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+  </script>
 </head>
 
 <body>
