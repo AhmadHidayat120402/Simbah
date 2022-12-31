@@ -147,9 +147,20 @@ $result = mysqli_fetch_array($query_select);
           <i class='bx bx-user'></i>
           <span>pemilik</span></a>
       </li>
+      <?php
+      include '../connect.php';
+      $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
+      $query_select = mysqli_query($koneksi, $query);
+      $result = mysqli_fetch_array($query_select);
+      // print_r($result);
+      $tampilan = '';
+      if ($result['id_status'] == '1') {
+        $tampilan = 'disabled';
+      }
 
+      ?>
       <li class="nav-item">
-        <a class="nav-link" href="indexx.php?halaman=karyawan">
+        <a class="nav-link <?php echo $tampilan; ?>" href="indexx.php?halaman=karyawan">
           <i class='bx bx-user-circle'></i>
           <span>karyawan</span></a>
       </li>

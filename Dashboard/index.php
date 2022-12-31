@@ -172,13 +172,25 @@ for ($bulan = 1; $bulan < 13; $bulan++) {
                     <span>pemilik</span></a>
             </li>
 
+            <?php
+            include '../connect.php';
+            $query = "SELECT * FROM users WHERE id_pembeli = '$_SESSION[id_pembeli]'";
+            $query_select = mysqli_query($koneksi, $query);
+            $result = mysqli_fetch_array($query_select);
+            // print_r($result);
+            $tampilan = '';
+            if ($result['id_status'] == '1') {
+                $tampilan = 'disabled';
+            }
+
+            ?>
             <li class="nav-item">
-                <a class="nav-link" href="indexx.php?halaman=karyawan">
-                    <i class='bx bx-user-circle'></i>
+                <a class="nav-link  <?php echo $tampilan ?>" href="indexx.php?halaman=karyawan" <?php echo $tampilan ?>>
+                    <i class='bx bx-user-circle'> </i>
                     <span>karyawan</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="indexx.php?halaman=member">
+                <a class="nav-link " href="indexx.php?halaman=member">
                     <i class='bx bxs-user'></i>
                     <span>member</span></a>
             </li>
@@ -297,7 +309,7 @@ for ($bulan = 1; $bulan < 13; $bulan++) {
                                             $ambil = $koneksi->query("SELECT COUNT(*) as jumlah_baris FROM users WHERE id_status = 1");
                                             while ($row = $ambil->fetch_assoc()) {
                                             ?>
-                                                <a href="indexx.php?halaman=karyawan" class="card-footer border-white text-decoration-none"><?php echo $row['jumlah_baris'] ?> Orang</a>
+                                                <a href="indexx.php?halaman=karyawan <?php echo $tampilan ?>" class="card-footer border-white text-decoration-none"><?php echo $row['jumlah_baris'] ?> Orang</a>
                                             <?php } ?>
                                             <!-- <div class="card-footer border-white"> Orang</div> -->
                                         </div>
