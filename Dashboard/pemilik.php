@@ -121,8 +121,6 @@ if (isset($_POST['bhapus'])) {
 }
 
 ?>
-
-
 <div class="container-fluid mt-5">
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
