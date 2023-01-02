@@ -52,7 +52,7 @@
       transition: opacity 0.3s ease-in-out;
     }
   </style>
- 
+
 </head>
 
 <body>
@@ -396,9 +396,9 @@
               <p class="section-description">" sangat puas dengan pelayanan dan produknya segar semua "
               </p>
               <div class="d-flex mt-3 gap-3">
-                <img src="./images/image_people/OrangB.jpg" alt="foto" class="foto rounded-circle">
+                <img src="./images/image_people/shahin-khalaji-EJ0ai8juyzs-unsplash.jpg" alt="foto" class="foto rounded-circle">
                 <div class="d-flex flex-column">
-                  <h4 class="card-title">Agnes Monica</h4>
+                  <h4 class="card-title">Raihan</h4>
                   <p class="section-description">
                     Pembeli Anggur
                   </p>
