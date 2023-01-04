@@ -50,7 +50,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
   <script src="vendor/boostrap/js/bootstrap.bundle.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   <script>
     $(document).ready(function() {
       $("#SignIn").click(function() {

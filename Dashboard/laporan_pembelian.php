@@ -111,7 +111,7 @@ if (isset($_POST['kirim'])) {
           <th></th>
         </tfoot>
       </table>
-      <a href="download_laporan.php?tglm= <?php echo $tgl_mulai ?>&tgls=<?php echo $tgl_selesai ?>&status=<?php echo $status ?>" class="text-decoration-none">Download PDF</a>
+      <a href="report_penjualan.php?tglm= <?php echo $tgl_mulai ?>&tgls=<?php echo $tgl_selesai ?>&status=<?php echo $status ?>" class="text-decoration-none">Download PDF</a>
     </div>
     <script>
       $(document).ready(function() {
@@ -124,5 +124,3 @@ if (isset($_POST['kirim'])) {
 </body>
 
 </html>
-
-
